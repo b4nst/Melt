@@ -1,8 +1,8 @@
 // ableton
-#include "src/ableton/als_track.h"
-#include "src/ableton/als_name.h"
-#include "src/ableton/als_device_chain.h"
-#include "src/ableton/als_track_delay.h"
+#include "src/ableton/alstrack.h"
+#include "src/ableton/alsname.h"
+#include "src/ableton/alsdevicechain.h"
+#include "src/ableton/alstrackdelay.h"
 
 //io
 #include "src/io/alsfilestreambase.h"

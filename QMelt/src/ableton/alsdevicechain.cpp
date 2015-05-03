@@ -1,4 +1,4 @@
-#include "src/ableton/als_device_chain.h"
+#include "src/ableton/alsdevicechain.h"
 
 namespace ableton {
   AlsDeviceChain::AlsDeviceChain() : AbletonObject()

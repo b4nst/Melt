@@ -1,5 +1,5 @@
 //ableton
-#include "src/ableton/als_name.h"
+#include "src/ableton/alsname.h"
 
 namespace ableton {
   AlsName::AlsName() : AbletonObject()

@@ -3,7 +3,7 @@
 #include <QSharedPointer>
 
 //ableton
-#include "src/ableton/ableton_object.h"
+#include "src/ableton/abletonobject.h"
 
 namespace ableton {
 

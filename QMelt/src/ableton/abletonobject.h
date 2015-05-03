@@ -2,7 +2,7 @@
 
 #include <QSharedPointer>
 
-#include "src/parser/xml_object.h"
+#include "src/parser/xmlobject.h"
 
 namespace ableton {
 class AbletonObject : public parser::XMLObject
