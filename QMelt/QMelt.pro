@@ -11,14 +11,20 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QMelt
 TEMPLATE = app
 
+CONFIG += c++14
 
-SOURCES += src/app/main.cpp\
-           src/app/meltapplication.cpp \
-           src/ui/mainwindow.cpp \
-    src/ableton/als_ableton.cpp \
-    src/parser/xml_object.cpp
+SOURCES += src/app/meltapplication.cpp \
+           src/ableton/als_ableton.cpp \
+           src/app/main.cpp\
+           src/io/alsfilesystem.cpp \
+           src/io/alstextstream.cpp \
+           src/parser/xml_object.cpp \
+           src/ui/mainwindow.cpp
 
-HEADERS  += src/ui/mainwindow.h \
+HEADERS  += src/ableton/als_ableton.h \
             src/app/meltapplication.h \
-    src/ableton/als_ableton.h \
-    src/parser/xml_object.h
+            src/io/alsfilesystem.h \
+            src/io/alsfilestreambase.h \
+            src/io/alstextstream.h \
+            src/parser/xml_object.h \
+            src/ui/mainwindow.h
