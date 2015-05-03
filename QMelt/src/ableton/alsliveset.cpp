@@ -8,7 +8,7 @@ namespace ableton
 {
   AlsLiveSet::AlsLiveSet() : AbletonObject()
   {
-    _classManipulator = decltype(_classManipulator){
+    _classManipulator = {
         { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomId)) },
         { "LomIdView", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },
         { "Overdub", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },

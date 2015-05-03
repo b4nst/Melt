@@ -10,7 +10,7 @@ namespace ableton {
 AlsAbleton::AlsAbleton()
   : _liveSet(nullptr), AbletonObject()
 {
-  _classManipulator = decltype(_classManipulator){
+  _classManipulator = {
       { "LiveSet", qMakePair(static_cast<CreateVarLambda>(&AlsAbleton::createLiveSet), nullptr) }
   };
 }
