@@ -12,19 +12,9 @@ TARGET = QMelt
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += src/app/main.cpp\
+           src/app/meltapplication.cpp \
+           src/ui/mainwindow.cpp \
 
-HEADERS  += mainwindow.h
-
-Release:DESTDIR = release
-Release:OBJECTS_DIR = release/.obj
-Release:MOC_DIR = release/.moc
-Release:RCC_DIR = release/.rcc
-Release:UI_DIR = release/.ui
-
-Debug:DESTDIR = debug
-Debug:OBJECTS_DIR = debug/.obj
-Debug:MOC_DIR = debug/.moc
-Debug:RCC_DIR = debug/.rcc
-Debug:UI_DIR = debug/.ui
+HEADERS  += src/ui/mainwindow.h \
+            src/app/meltapplication.h
