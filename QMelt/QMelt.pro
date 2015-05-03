@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QMelt
 TEMPLATE = app
 
-CONFIG += c++14
+CONFIG += c++11
 
 SOURCES += src/app/main.cpp\
            src/app/meltapplication.cpp \
@@ -29,7 +29,8 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsdevicechain.cpp \
     src/parser/xmlobject.cpp \
     src/ableton/alsmastertrack.cpp \
-    src/ableton/alsreturntrack.cpp
+    src/ableton/alsreturntrack.cpp \
+    src/parser/xmlcontext.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -48,4 +49,5 @@ HEADERS  += \
     src/parser/xmlobject.h \
     src/ableton/alstrackdelay.h \
     src/ableton/alsmastertrack.h \
-    src/ableton/alsreturntrack.h
+    src/ableton/alsreturntrack.h \
+    src/parser/xmlcontext.h

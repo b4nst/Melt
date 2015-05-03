@@ -4,11 +4,11 @@
 namespace ableton {
   AlsName::AlsName() : AbletonObject()
   {
-    _classManipulator = QHash<QString, QPair<CreateVarLambda, SetVarLambda>>({
+    _classManipulator = decltype(_classManipulator){
         { "EffectiveName", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setEffectiveName)) },
         { "UserName", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setUserName)) },
         { "Annotation", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setAnnotation)) }
-    });
+    };
   }
 
   void AlsName::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)

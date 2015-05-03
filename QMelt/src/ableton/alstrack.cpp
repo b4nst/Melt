@@ -11,7 +11,7 @@ namespace ableton
 {
   AlsTrack::AlsTrack() : AbletonObject()
   {
-    _classManipulator = QHash<QString, QPair<CreateVarLambda, SetVarLambda>>({
+    _classManipulator = decltype(_classManipulator){
         { "Id", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setId)) },
         { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setLomId)) },
         { "LomIdView", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setLomIdView)) },
@@ -21,7 +21,7 @@ namespace ableton
         { "ColorIndex", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setColorIndex)) },
         { "TrackGroupId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setTrackGroupId)) },
         { "DeviceChain", qMakePair(static_cast<CreateVarLambda>(&AlsTrack::createDeviceChain), nullptr) }
-    });
+    };
   }
 
   void AlsTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
