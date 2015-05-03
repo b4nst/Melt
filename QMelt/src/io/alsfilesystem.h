@@ -20,6 +20,7 @@ namespace io
  */
 class AlsFilesystem : public QObject
 {
+  Q_OBJECT
 public:
   /*!
    * \brief Destructor
@@ -32,7 +33,7 @@ public:
    * \param alsAbleton_ The output object, must be null
    * \return true if the file is loaded properly
    */
-  static bool load(const QString &filePath_, );
+  static bool load(const QString &filePath_);
 
   /*!
    * \brief Save an unzipped ALS file

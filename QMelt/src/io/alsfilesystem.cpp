@@ -13,13 +13,13 @@ namespace io
 
 bool AlsFilesystem::load(const QString &filePath_)
 {
-  const QString fileInfo (filePath_);
-  if (fileInfo.completeSuffix() != "xml" || !fileInfo_.exists() || !fileInfo_.isFile())
+  const QFileInfo fileInfo (filePath_);
+  if (fileInfo.completeSuffix() != "xml" || !fileInfo.exists() || !fileInfo.isFile())
   {
     return false;
   }
 
-  QFile file (fileInfo_.absoluteFilePath());
+  QFile file (fileInfo.absoluteFilePath());
   if (!file.open(QFile::ReadOnly))
   {
     return false;
@@ -34,15 +34,15 @@ bool AlsFilesystem::load(const QString &filePath_)
 }
 
 
-bool AlsFilesystem::save(const QFileInfo &filePath_)
+bool AlsFilesystem::save(const QString &filePath_)
 {
-  const QString fileInfo (filePath_);
-  if (fileInfo.completeSuffix() != "xml" || fileInfo_.exists())
+  const QFileInfo fileInfo (filePath_);
+  if (fileInfo.completeSuffix() != "xml" || fileInfo.exists())
   {
     return false;
   }
 
-  QFile file (fileInfo_.absoluteFilePath());
+  QFile file (fileInfo.absoluteFilePath());
   if (!file.open(QFile::WriteOnly))
   {
     return false;

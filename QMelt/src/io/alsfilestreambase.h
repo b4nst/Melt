@@ -17,6 +17,7 @@ namespace io
  */
 class AlsFileStreamBase : public QObject
 {
+  Q_OBJECT
 public:
   /*!
    * \brief Destructor

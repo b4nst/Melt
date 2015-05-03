@@ -40,7 +40,7 @@ QString AlsTextStream::readNextLine()
 
 void AlsTextStream::write(const QString &dataToWrite_)
 {
-  _stream << string_;
+  _stream << dataToWrite_;
 }
 
 
