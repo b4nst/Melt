@@ -4,6 +4,9 @@
 #include "src/ableton/als_device_chain.h"
 #include "src/ableton/als_track_delay.h"
 
+//io
+#include "src/io/alsfilestreambase.h"
+
 namespace ableton
 {
   AlsTrack::AlsTrack() : AbletonObject()
@@ -21,14 +24,14 @@ namespace ableton
     };
   }
 
-  void AlsTrack::write(QSharedPointer<io::AlsOutputStreamBase> p_fos_, int& r_indentLvl_)
+  void AlsTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
   {
     //TODO implement method write
   }
 
   void AlsTrack::setColorIndex(const QString &r_value_)
   {
-    _colorIndex = std::stoi(r_value_);
+    _colorIndex = r_value_.toInt();
   }
 
   void AlsTrack::setEnvelopeModePreferred(const QString &r_value_)
@@ -39,40 +42,40 @@ namespace ableton
 
   void AlsTrack::setId(const QString &r_value_)
   {
-    _id = std::stoi(r_value_);
+    _id = r_value_.toInt();
   }
 
   void AlsTrack::setLomId(const QString &r_value_)
   {
-    _lomId = std::stoi(r_value_);
+    _lomId = r_value_.toInt();
   }
 
   void AlsTrack::setLomIdView(const QString &r_value_)
   {
-    _lomIdView = std::stoi(r_value_);
+    _lomIdView = r_value_.toInt();
   }
 
   void AlsTrack::setTrackGroupId(const QString &r_value_)
   {
-    _trackGroupId = std::stoi(r_value_);
+    _trackGroupId = r_value_.toInt();
   }
 
   QSharedPointer<QObject> AlsTrack::createDeviceChain()
   {
     _deviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
-    return _deviceChain.staticCast();
+    return _deviceChain.staticCast<QObject>();
   }
 
   QSharedPointer<QObject> AlsTrack::createName()
   {
     _name = QSharedPointer<AlsName>(new AlsName());
-    return _name.staticCast();
+    return _name.staticCast<QObject>();
   }
 
   QSharedPointer<QObject> AlsTrack::createTrackDelay()
   {
     _trackDelay = QSharedPointer<AlsTrackDelay>(new AlsTrackDelay());
-    return _trackDelay.staticCast();
+    return _trackDelay.staticCast<QObject>();
   }
 
   AlsTrack::~AlsTrack()

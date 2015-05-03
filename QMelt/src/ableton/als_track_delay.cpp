@@ -5,8 +5,8 @@ namespace ableton{
   AlsTrackDelay::AlsTrackDelay() : AbletonObject()
   {
     _classManipulator = decltype(_classManipulator){
-        { "Value", std::make_pair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
-        { "IsValueSampleBased", std::make_pair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
+        { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
+        { "IsValueSampleBased", qMakePair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
     };
   }
 
