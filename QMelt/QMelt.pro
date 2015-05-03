@@ -30,7 +30,10 @@ SOURCES += src/app/main.cpp\
     src/parser/xmlobject.cpp \
     src/ableton/alsmastertrack.cpp \
     src/ableton/alsreturntrack.cpp \
-    src/parser/xmlcontext.cpp
+    src/parser/xmlcontext.cpp \
+    src/parser/xmlcontenthandler.cpp \
+    src/parser/corexmlparser.cpp \
+    src/parser/alsxmlcontenthandler.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -50,4 +53,7 @@ HEADERS  += \
     src/ableton/alstrackdelay.h \
     src/ableton/alsmastertrack.h \
     src/ableton/alsreturntrack.h \
-    src/parser/xmlcontext.h
+    src/parser/xmlcontext.h \
+    src/parser/xmlcontenthandler.h \
+    src/parser/corexmlparser.h \
+    src/parser/alsxmlcontenthandler.h
