@@ -15,8 +15,10 @@ TEMPLATE = app
 SOURCES += src/app/main.cpp\
            src/app/meltapplication.cpp \
            src/ui/mainwindow.cpp \
-    src/ableton/als_ableton.cpp
+    src/ableton/als_ableton.cpp \
+    src/parser/xml_object.cpp
 
 HEADERS  += src/ui/mainwindow.h \
             src/app/meltapplication.h \
-    src/ableton/als_ableton.h
+    src/ableton/als_ableton.h \
+    src/parser/xml_object.h
