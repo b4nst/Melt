@@ -3,24 +3,52 @@
 
 // QT
 #include <QObject>
-#include <QFileInfo>
+#include <QSharedPointer>
+#include <QString>
 
 
-namespace io {
+// Forward declarations
+namespace ableton { class AlsAbleton; }
 
 
+namespace io
+{
+
+
+  /*!
+ * \brief The AlsFilesystem class
+ */
 class AlsFilesystem : public QObject
 {
 public:
+  /*!
+   * \brief Destructor
+   */
   virtual ~AlsFilesystem() {}
 
-  static bool load(const QFileInfo &file_);
+  /*!
+   * \brief Load an unzipped ALS file
+   * \param filePath_ Path to the XML file
+   * \param alsAbleton_ The output object, must be null
+   * \return true if the file is loaded properly
+   */
+  static bool load(const QString &filePath_, );
 
-  static bool save(const QFileInfo &file_);
+  /*!
+   * \brief Save an unzipped ALS file
+   * \param filePath_ Path where the XML file will be saved
+   * \param alsAbleton_ The input object, mustn't be null
+   * \return true if the file is saved properly
+   */
+  static bool save(const QString &filePath_);
 
 
 private:
-  explicit AlsFilesystem(QObject *parent = 0) : QObject(parent) {}
+  /*!
+   * \brief Private constructor
+   * \param parent
+   */
+  AlsFilesystem(QObject *parent = 0) : QObject(parent) {}
 };
 
 

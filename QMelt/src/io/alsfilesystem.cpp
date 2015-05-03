@@ -1,42 +1,58 @@
+// IO
 #include "src/io/alsfilesystem.h"
-#include "src/io/alsfilestreambase.h"
 #include "src/io/alstextstream.h"
 
+// QT
+#include <QFileInfo>
 #include <QString>
-#include <QSharedPointer>
+
 
 namespace io
 {
 
 
-bool AlsFilesystem::load(const QFileInfo &fileInfo_)
+bool AlsFilesystem::load(const QString &filePath_)
 {
-  const QString extension = fileInfo_.completeSuffix();
-  if (extension != "xml")
+  const QString fileInfo (filePath_);
+  if (fileInfo.completeSuffix() != "xml" || !fileInfo_.exists() || !fileInfo_.isFile())
   {
     return false;
   }
 
-  auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(fileInfo_.absoluteFilePath()));
+  QFile file (fileInfo_.absoluteFilePath());
+  if (!file.open(QFile::ReadOnly))
+  {
+    return false;
+  }
+
+  auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(file));
 
   // PARSE
 
+  file.close();
   return true;
 }
 
 
-bool AlsFilesystem::save(const QFileInfo &fileInfo_)
+bool AlsFilesystem::save(const QFileInfo &filePath_)
 {
-  const QString extension = fileInfo_.completeSuffix();
-  if (extension != "xml")
+  const QString fileInfo (filePath_);
+  if (fileInfo.completeSuffix() != "xml" || fileInfo_.exists())
   {
     return false;
   }
 
-  auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(fileInfo_.absoluteFilePath()));
+  QFile file (fileInfo_.absoluteFilePath());
+  if (!file.open(QFile::WriteOnly))
+  {
+    return false;
+  }
+
+  auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(file));
 
   // PARSE
 
+  file.close();
   return true;
 }
 

@@ -1,13 +1,14 @@
+// IO
 #include "src/io/alstextstream.h"
 
 
-namespace io {
+namespace io
+{
 
 
-AlsTextStream::AlsTextStream(const QString &path_, QObject *parent)
+AlsTextStream::AlsTextStream(QFile &file_, QObject *parent)
 : AlsFileStreamBase(parent)
-, _file(path_)
-, _stream(&_file)
+, _stream(&file_)
 {
 
 }
@@ -37,9 +38,10 @@ QString AlsTextStream::readNextLine()
 }
 
 
-void AlsTextStream::write(const QString &string_)
+void AlsTextStream::write(const QString &dataToWrite_)
 {
   _stream << string_;
 }
+
 
 } // namespace io
