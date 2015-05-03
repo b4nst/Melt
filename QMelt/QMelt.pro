@@ -19,6 +19,7 @@ SOURCES += src/app/main.cpp\
            src/io/alsfilesystem.cpp \
            src/io/alstextstream.cpp \           
     src/ableton/alsliveset.cpp \
+    src/ableton/alsaudiotrack.cpp \
     src/ableton/alsmiditrack.cpp \
     src/ableton/abletonobject.cpp \
     src/ableton/alsableton.cpp \
@@ -27,7 +28,6 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsname.cpp \
     src/ableton/alsdevicechain.cpp \
     src/parser/xmlobject.cpp \
-    src/ableton/alsaudiotrack.cpp \
     src/ableton/alsmastertrack.cpp \
     src/ableton/alsreturntrack.cpp
 
@@ -38,6 +38,7 @@ HEADERS  += \
             src/io/alstextstream.h \
             src/ui/mainwindow.h \
     src/ableton/alsliveset.h \
+    src/ableton/alsaudiotrack.h \
     src/ableton/alsmiditrack.h \
     src/ableton/abletonobject.h \
     src/ableton/alsableton.h \
@@ -46,6 +47,5 @@ HEADERS  += \
     src/ableton/alsdevicechain.h \
     src/parser/xmlobject.h \
     src/ableton/alstrackdelay.h \
-    src/ableton/alsaudiotrack.h \
     src/ableton/alsmastertrack.h \
     src/ableton/alsreturntrack.h

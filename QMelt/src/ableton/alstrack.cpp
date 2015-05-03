@@ -11,7 +11,7 @@ namespace ableton
 {
   AlsTrack::AlsTrack() : AbletonObject()
   {
-    _classManipulator = decltype(_classManipulator){
+    _classManipulator = {
         { "Id", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setId)) },
         { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setLomId)) },
         { "LomIdView", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setLomIdView)) },

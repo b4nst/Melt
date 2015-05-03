@@ -4,6 +4,7 @@
 #include "src/io/alsfilestreambase.h"
 
 namespace ableton {
+
   AlsAudioTrack::AlsAudioTrack() : AlsTrack()
   {
 
