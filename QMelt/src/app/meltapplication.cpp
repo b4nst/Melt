@@ -1,7 +1,13 @@
-#include "meltapplication.h"
+// APP
+#include "src/app/meltapplication.h"
+
+
+namespace app
+{
+
 
 MeltApplication::MeltApplication(int argc, char* argv[])
-    : QApplication(argc, argv)
+: QApplication(argc, argv)
 {
 
 }
@@ -10,3 +16,6 @@ MeltApplication::~MeltApplication()
 {
 
 }
+
+
+} // namespace app
