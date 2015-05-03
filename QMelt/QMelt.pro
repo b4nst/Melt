@@ -33,7 +33,7 @@ HEADERS  += src/ableton/als_ableton.h \
             src/ableton/als_device_chain.h \
             src/ableton/als_track_delay.h \
             src/ableton/als_name.h \
-            src/ableton/als_track.h
+            src/ableton/als_track.h \
             src/io/alsfilesystem.h \
             src/io/alsfilestreambase.h \
             src/io/alstextstream.h \
