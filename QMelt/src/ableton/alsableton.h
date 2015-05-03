@@ -1,17 +1,38 @@
-#ifndef ALSABLETON_H
-#define ALSABLETON_H
+#pragma once
 
-#include <QObject>
 
-class AlsAbleton : public QObject
+// ableton
+
+#include "src/ableton/abletonobject.h"
+
+
+namespace ableton {
+
+
+// Forward declarations
+class AlsLiveSet;
+
+
+class AlsAbleton : public AbletonObject
 {
-  Q_OBJECT
 public:
-  explicit AlsAbleton(QObject *parent = 0);
+  AlsAbleton();
+  ~AlsAbleton();
 
-signals:
+#pragma region CreateVarLambda
+  QSharedPointer<QObject> createLiveSet();
+#pragma endregion
 
-public slots:
+#pragma region Getters
+  QSharedPointer<ableton::AlsLiveSet> LiveSet() { return _liveSet; }
+#pragma endregion
+
+  virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
+
+
+private:
+  QSharedPointer<ableton::AlsLiveSet> _liveSet;
 };
 
-#endif // ALSABLETON_H
+
+} // namespace ableton

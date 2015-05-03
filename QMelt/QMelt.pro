@@ -26,7 +26,10 @@ SOURCES += src/app/main.cpp\
     src/ableton/alstrack.cpp \
     src/ableton/alsname.cpp \
     src/ableton/alsdevicechain.cpp \
-    src/parser/xmlobject.cpp
+    src/parser/xmlobject.cpp \
+    src/ableton/alsaudiotrack.cpp \
+    src/ableton/alsmastertrack.cpp \
+    src/ableton/alsreturntrack.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -42,4 +45,7 @@ HEADERS  += \
     src/ableton/alsname.h \
     src/ableton/alsdevicechain.h \
     src/parser/xmlobject.h \
-    src/ableton/alstrackdelay.h
+    src/ableton/alstrackdelay.h \
+    src/ableton/alsaudiotrack.h \
+    src/ableton/alsmastertrack.h \
+    src/ableton/alsreturntrack.h

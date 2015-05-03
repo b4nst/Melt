@@ -80,8 +80,8 @@ namespace ableton
 
   AlsTrack::~AlsTrack()
   {
-    _trackDelay.reset();
-    _deviceChain.reset();
-    _name.reset();
+    _trackDelay.clear();
+    _deviceChain.clear();
+    _name.clear();
   }
 }

@@ -1,5 +1,8 @@
 #include "src/ableton/alsmiditrack.h"
 
+//io
+#include "src/io/alsfilestreambase.h"
+
 namespace ableton
 {
   AlsMidiTrack::AlsMidiTrack() : AlsTrack()

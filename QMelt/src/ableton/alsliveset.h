@@ -1,11 +1,85 @@
-#ifndef ALSLIVESET_H
-#define ALSLIVESET_H
+#pragma once
+
+#include <QVector>
+
+// ableton
+
+#include "src/ableton/abletonobject.h"
+#include "src/ableton/alstrack.h"
 
 
-class AlsLiveSet
+namespace ableton {
+
+
+class AlsLiveSet : public AbletonObject
 {
 public:
   AlsLiveSet();
+  ~AlsLiveSet();
+
+
+  void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
+
+
+#pragma region SetVarLambda
+  /// <summary>
+  /// Sets the lom identifier.
+  /// </summary>
+  /// <param name="value_">The value_.</param>
+  void setLomId(const QString& value_);
+
+
+  /// <summary>
+  /// Sets the lom identifier view.
+  /// </summary>
+  /// <param name="value_">The value_.</param>
+  void setLomIdView(const QString& value_);
+
+
+  /// <summary>
+  /// Sets the overdub.
+  /// </summary>
+  /// <param name="value_">The value_.</param>
+  void setOverdub(const QString& value_);
+#pragma endregion
+
+
+#pragma region CreateVarLambda
+  /// <summary>
+  /// Creates the master track.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createMasterTrack();
+
+
+  /// <summary>
+  /// Creates the midi track and add it to <see cref="_tracks"/>.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createMidiTrack();
+
+
+  /// <summary>
+  /// Creates the audio track and add it to <see cref="_tracks"/>.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createAudioTrack();
+
+
+  /// <summary>
+  /// Creates the return track and add it to <see cref="_tracks"/>.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createReturnTrack();
+#pragma endregion
+
+private:
+  int _lomId;
+  int _lomIdView;
+  QVector<QSharedPointer<AlsTrack>> _tracks;
+  QSharedPointer<AlsTrack> _masterTrack;
+  bool _overdub;
 };
 
-#endif // ALSLIVESET_H
+
+} // namespace ableton
