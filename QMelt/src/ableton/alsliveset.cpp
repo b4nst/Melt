@@ -8,7 +8,7 @@ namespace ableton
 {
   AlsLiveSet::AlsLiveSet() : AbletonObject()
   {
-    _classManipulator = decltype(_classManipulator){
+    _classManipulator = QHash<QString, QPair<CreateVarLambda, SetVarLambda>>({
         { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomId)) },
         { "LomIdView", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },
         { "Overdub", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },
@@ -16,7 +16,7 @@ namespace ableton
         { "MidiTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createMidiTrack), nullptr) },
         { "AudioTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createAudioTrack), nullptr) },
         { "ReturnTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createReturnTrack), nullptr) }
-    };
+    });
 
   }
 

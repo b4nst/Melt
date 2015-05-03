@@ -4,10 +4,10 @@ namespace ableton{
 
   AlsTrackDelay::AlsTrackDelay() : AbletonObject()
   {
-    _classManipulator = decltype(_classManipulator){
+    _classManipulator = QHash<QString, QPair<CreateVarLambda, SetVarLambda>>({
         { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
         { "IsValueSampleBased", qMakePair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
-    };
+    });
   }
 
   void AlsTrackDelay::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
