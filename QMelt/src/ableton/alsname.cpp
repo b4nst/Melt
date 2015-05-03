@@ -4,7 +4,7 @@
 namespace ableton {
   AlsName::AlsName() : AbletonObject()
   {
-    _classManipulator = {
+    _classManipulator = decltype(_classManipulator){
         { "EffectiveName", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setEffectiveName)) },
         { "UserName", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setUserName)) },
         { "Annotation", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setAnnotation)) }

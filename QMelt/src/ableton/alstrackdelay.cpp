@@ -4,7 +4,7 @@ namespace ableton{
 
   AlsTrackDelay::AlsTrackDelay() : AbletonObject()
   {
-    _classManipulator = {
+    _classManipulator = decltype(_classManipulator){
         { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
         { "IsValueSampleBased", qMakePair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
     };
