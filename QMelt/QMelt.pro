@@ -33,7 +33,9 @@ SOURCES += src/app/main.cpp\
     src/parser/xmlcontext.cpp \
     src/parser/xmlcontenthandler.cpp \
     src/parser/corexmlparser.cpp \
-    src/parser/alsxmlcontenthandler.cpp
+    src/parser/alsxmlcontenthandler.cpp \
+    src/test/melttestcore.cpp \
+    src/ableton/alsfactory.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -56,4 +58,6 @@ HEADERS  += \
     src/parser/xmlcontext.h \
     src/parser/xmlcontenthandler.h \
     src/parser/corexmlparser.h \
-    src/parser/alsxmlcontenthandler.h
+    src/parser/alsxmlcontenthandler.h \
+    src/test/melttestcore.h \
+    src/ableton/alsfactory.h

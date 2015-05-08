@@ -24,8 +24,8 @@ namespace parser
 class CoreXMLParser
 {
 public:
-  CoreXMLParser();
-  ~CoreXMLParser();
+  CoreXMLParser(){}
+  ~CoreXMLParser(){}
 
   /// <summary>
   /// Parses the specified stream.

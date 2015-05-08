@@ -22,8 +22,8 @@ namespace parser
 class XMLContext
 {
 public:
-  XMLContext();
-  ~XMLContext();
+  XMLContext(){}
+  ~XMLContext(){}
 
   const QStack<QSharedPointer<QObject>>& Stack(){ return _stack; }
   void pushToStack(QSharedPointer<QObject> object_){ _stack.push(object_); }

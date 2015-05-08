@@ -11,8 +11,8 @@ namespace parser
   class AlsXMLContentHandler : public parser::XMLContentHandler
   {
   public:
-    AlsXMLContentHandler();
-    ~AlsXMLContentHandler();
+    AlsXMLContentHandler(){}
+    ~AlsXMLContentHandler(){}
 
     /// <summary>
     /// Callback method, called when the document start tag is reached by the <see cref="CoreXMLParser"/>.

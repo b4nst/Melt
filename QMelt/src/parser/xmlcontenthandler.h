@@ -21,7 +21,7 @@ public:
   /// <summary>
   /// Destructor
   /// </summary>
-  virtual ~XMLContentHandler();
+  virtual ~XMLContentHandler(){}
 
 
   /// <summary>
@@ -73,14 +73,14 @@ public:
   /// </summary>
   /// <param name="r_ctx">Reference to the context</param>
   /// <param name="r_data">The characters</param>
-  virtual void characters(XMLContext& r_ctx, const QString& r_data_);
+  virtual void characters(XMLContext& r_ctx, const QString& r_data_) = 0;
 
 
 protected:
   /// <summary>
   /// Constructor
   /// </summary>
-  XMLContentHandler();
+  XMLContentHandler(){}
 };
 
 
