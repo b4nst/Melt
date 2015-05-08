@@ -1,12 +1,12 @@
 #pragma once
 
 
-// ableton
+// ABLETON
 
 #include "src/ableton/abletonobject.h"
 
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsTrackDelay : public AbletonObject
@@ -19,7 +19,6 @@ public:
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_);
 
 
-#pragma region SetVarLambda
   /*!
    * \brief setValue
    * Set the value_.
@@ -33,7 +32,6 @@ public:
    * \param value_
    */
   void setIsValueSampleBased(const QString &r_value_);
-#pragma endregion
 
 
 private:
@@ -42,4 +40,4 @@ private:
 };
 
 
-}//namespace ableton
+M_NAMESPACE_ABLETON_END

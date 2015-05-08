@@ -1,10 +1,20 @@
 #pragma once
+#include "src/app/meltcommon.h"
+
+
+// QT
 
 #include <QSharedPointer>
 
+
+// PARSER
+
 #include "src/parser/xmlobject.h"
 
-namespace ableton {
+
+M_NAMESPACE_ABLETON_BEGIN
+
+
 class AbletonObject : public parser::XMLObject
 {
 public:
@@ -17,6 +27,6 @@ public:
     AbletonObject() : parser::XMLObject() {}
 
 };
-}//namespace ableton
 
 
+M_NAMESPACE_ABLETON_END

@@ -1,13 +1,12 @@
 #pragma once
 
-#include <QSharedPointer>
 
-// ableton
+// ABLETON
 
 #include "src/ableton/abletonobject.h"
 
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsName:public AbletonObject
@@ -20,7 +19,6 @@ public:
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_);
 
 
-#pragma region SetVarLambda
   /// <summary>
   /// Sets the effective name.
   /// </summary>
@@ -40,7 +38,6 @@ public:
   /// </summary>
   /// <param name="value">The value.</param>
   void setAnnotation(const QString &r_value_);
-#pragma endregion
 
 
 private:
@@ -50,4 +47,4 @@ private:
 };
 
 
-} // namespace ableton
+M_NAMESPACE_ABLETON_END

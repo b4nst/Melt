@@ -56,4 +56,5 @@ HEADERS  += \
     src/parser/xmlcontext.h \
     src/parser/xmlcontenthandler.h \
     src/parser/corexmlparser.h \
-    src/parser/alsxmlcontenthandler.h
+    src/parser/alsxmlcontenthandler.h \
+    src/app/meltcommon.h
