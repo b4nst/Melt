@@ -1,12 +1,13 @@
 #pragma once
+#include "src/app/meltcommon.h"
 
 
 // QT
+
 #include <QApplication>
 
 
-namespace app
-{
+M_NAMESPACE_APP_BEGIN
 
 
 class MeltApplication : public QApplication
@@ -17,4 +18,4 @@ public:
 };
 
 
-} // namespace app
+M_NAMESPACE_APP_END

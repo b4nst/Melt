@@ -2,16 +2,17 @@
 
 
 // IO
+
 #include "src/io/alsfilestreambase.h"
 
 
 // QT
+
 #include <QFile>
 #include <QTextStream>
 
 
-namespace io
-{
+M_NAMESPACE_IO_BEGIN
 
 
 /*!
@@ -60,4 +61,4 @@ private:
 };
 
 
-} // namespace io
+M_NAMESPACE_IO_END

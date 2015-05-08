@@ -1,12 +1,21 @@
 #pragma once
+#include "src/app/meltcommon.h"
 
-#include <QHash>
 
-// parser
+// PARSER
 
 #include "src/parser/xmlcontenthandler.h"
 
-namespace parser
+
+// QT
+
+#include <QHash>
+
+
+M_NAMESPACE_PARSER_BEGIN
+
+
+class AlsXMLContentHandler : public parser::XMLContentHandler
 {
   class AlsXMLContentHandler : public parser::XMLContentHandler
   {
@@ -67,3 +76,4 @@ namespace parser
 
   };
 }
+

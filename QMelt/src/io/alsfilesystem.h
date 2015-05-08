@@ -1,18 +1,15 @@
 #pragma once
+#include "src/app/meltcommon.h"
 
 
 // QT
+
 #include <QObject>
 #include <QSharedPointer>
 #include <QString>
 
 
-// Forward declarations
-namespace ableton { class AlsAbleton; }
-
-
-namespace io
-{
+M_NAMESPACE_IO_BEGIN
 
 
   /*!
@@ -53,4 +50,4 @@ private:
 };
 
 
-} // namespace io
+M_NAMESPACE_IO_END

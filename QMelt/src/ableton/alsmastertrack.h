@@ -1,12 +1,12 @@
 #pragma once
 
 
-//ableton
+// ABLETON
 
 #include "src/ableton/alstrack.h"
 
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsMasterTrack : public AlsTrack
@@ -23,4 +23,4 @@ private:
 };
 
 
-} // namespace ableton
+M_NAMESPACE_ABLETON_END

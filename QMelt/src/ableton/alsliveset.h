@@ -1,14 +1,18 @@
 #pragma once
 
-#include <QVector>
 
-// ableton
+// ABLETON
 
 #include "src/ableton/abletonobject.h"
 #include "src/ableton/alstrack.h"
 
 
-namespace ableton {
+// QT
+
+#include <QVector>
+
+
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsLiveSet : public AbletonObject
@@ -21,7 +25,6 @@ public:
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
 
-#pragma region SetVarLambda
   /// <summary>
   /// Sets the lom identifier.
   /// </summary>
@@ -41,10 +44,8 @@ public:
   /// </summary>
   /// <param name="value_">The value_.</param>
   void setOverdub(const QString& value_);
-#pragma endregion
 
 
-#pragma region CreateVarLambda
   /// <summary>
   /// Creates the master track.
   /// </summary>
@@ -71,7 +72,7 @@ public:
   /// </summary>
   /// <returns></returns>
   QSharedPointer<QObject> createReturnTrack();
-#pragma endregion
+
 
 private:
   int _lomId;
@@ -82,4 +83,4 @@ private:
 };
 
 
-} // namespace ableton
+M_NAMESPACE_ABLETON_END

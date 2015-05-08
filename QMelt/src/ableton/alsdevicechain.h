@@ -1,11 +1,13 @@
 #pragma once
 
-#include <QSharedPointer>
 
-//ableton
+// ABLETON
+
 #include "src/ableton/abletonobject.h"
 
-namespace ableton {
+
+M_NAMESPACE_ABLETON_BEGIN
+
 
 class AlsDeviceChain : public AbletonObject
 {
@@ -16,5 +18,6 @@ public:
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_);
 };
 
-}//namespace ableton
+
+M_NAMESPACE_ABLETON_END
 

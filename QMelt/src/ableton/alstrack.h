@@ -1,23 +1,17 @@
 #pragma once
 
 
-// std
-
-#include <QSharedPointer>
-
-
-// ableton
+// ABLETON
 
 #include "src/ableton/abletonobject.h"
 
 
-namespace ableton {
+M_FORWARD_ABLETON(AlsName)
+M_FORWARD_ABLETON(AlsDeviceChain)
+M_FORWARD_ABLETON(AlsTrackDelay)
 
 
-//Forward declaration
-class AlsName;
-class AlsDeviceChain;
-class AlsTrackDelay;
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsTrack : public AbletonObject
@@ -30,7 +24,6 @@ public:
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
 
-#pragma region SetVarLambda
   /// <summary>
   /// Sets the identifier.
   /// </summary>
@@ -71,10 +64,8 @@ public:
   /// </summary>
   /// <param name="value">The value.</param>
   void setTrackGroupId(const QString &r_value_);
-#pragma endregion
 
 
-#pragma region CreateVarLambda
   /// <summary>
   /// Creates the name.
   /// </summary>
@@ -110,4 +101,5 @@ protected:
 
 };
 
-} // namespace ableton
+
+M_NAMESPACE_ABLETON_END

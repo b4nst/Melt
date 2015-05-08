@@ -61,3 +61,4 @@ HEADERS  += \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
     src/ableton/alsfactory.h
+    src/app/meltcommon.h

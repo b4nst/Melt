@@ -1,16 +1,15 @@
 #pragma once
 
 
-// ableton
+// ABLETON
 
 #include "src/ableton/abletonobject.h"
 
 
-namespace ableton {
+M_FORWARD_ABLETON(AlsLiveSet)
 
 
-// Forward declarations
-class AlsLiveSet;
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsAbleton : public AbletonObject
@@ -35,4 +34,4 @@ private:
 };
 
 
-} // namespace ableton
+M_NAMESPACE_ABLETON_END
