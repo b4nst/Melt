@@ -16,7 +16,7 @@ M_NAMESPACE_PARSER_BEGIN
 class AlsXMLContentHandler : public parser::XMLContentHandler
 {
 public:
-  AlsXMLContentHandler(){}
+  AlsXMLContentHandler();
   ~AlsXMLContentHandler(){}
 
   /// <summary>

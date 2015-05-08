@@ -11,11 +11,12 @@ namespace ableton
     _classManipulator = decltype(_classManipulator){
         { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomId)) },
         { "LomIdView", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },
-        { "Overdub", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomIdView)) },
+        { "Overdub", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setOverdub)) },
         { "MasterTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createMasterTrack), nullptr) },
         { "MidiTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createMidiTrack), nullptr) },
         { "AudioTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createAudioTrack), nullptr) },
-        { "ReturnTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createReturnTrack), nullptr) }
+        { "ReturnTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createReturnTrack), nullptr) },
+        { "Tracks", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createTracks), nullptr) }
     };
 
   }
@@ -66,6 +67,12 @@ namespace ableton
     QSharedPointer<AlsReturnTrack> rt = QSharedPointer<AlsReturnTrack>(new AlsReturnTrack());
     _tracks.push_back(rt);
     return rt.staticCast<QObject>();
+  }
+
+  QSharedPointer<QObject> AlsLiveSet::createTracks()
+  {
+    _tracks.clear();
+    return nullptr;
   }
 
   AlsLiveSet::~AlsLiveSet()

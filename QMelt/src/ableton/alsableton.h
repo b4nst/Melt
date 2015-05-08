@@ -22,6 +22,11 @@ public:
   QSharedPointer<QObject> createLiveSet();
 #pragma endregion
 
+  void setMajorVersion(const QString &r_value);
+  void setMinorVersion(const QString &r_value);
+  void setSchemaChangeCount(const QString &r_value);
+  void setCreator(const QString &r_value);
+
 #pragma region Getters
   QSharedPointer<ableton::AlsLiveSet> LiveSet() { return _liveSet; }
 #pragma endregion
@@ -31,6 +36,11 @@ public:
 
 private:
   QSharedPointer<ableton::AlsLiveSet> _liveSet;
+  QString _majorVersion;
+  QString _minorVersion;
+  int _schemaChangeCount;
+  QString _creator;
+
 };
 
 
