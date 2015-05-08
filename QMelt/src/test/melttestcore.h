@@ -1,22 +1,24 @@
-#ifndef MELTTESTCORE_H
-#define MELTTESTCORE_H
+#pragma once
+#include "common.h"
 
+// QT
 #include <QObject>
 
-namespace test {
+
+M_NAMESPACE_TEST_BEGIN
+
+
 class MeltTestCore : public QObject
 {
   Q_OBJECT
 public:
-  explicit MeltTestCore(QObject *parent = 0);
+  ~MeltTestCore() {}
 
   static void testParser();
 
-signals:
-
-public slots:
+protected:
+  explicit MeltTestCore(QObject *parent = 0) {}
 };
-}//namespace test
 
 
-#endif // MELTTESTCORE_H
+M_NAMESPACE_TEST_END

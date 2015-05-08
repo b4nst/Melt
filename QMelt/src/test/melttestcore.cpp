@@ -1,7 +1,12 @@
-#include "src/test/melttestcore.h"
+// ABLETON
 #include "src/ableton/alsableton.h"
 
+// IO
 #include "src/io/alsfilesystem.h"
+
+// TEST
+#include "src/test/melttestcore.h"
+
 
 #if defined (Q_OS_WIN)
 #define EXAMPLE_DIR "../Example/"
@@ -10,12 +15,8 @@
 #endif
 
 
+M_NAMESPACE_TEST_BEGIN
 
-namespace test {
-MeltTestCore::MeltTestCore(QObject *parent) : QObject(parent)
-{
-
-}
 
 void MeltTestCore::testParser()
 {
@@ -25,5 +26,5 @@ void MeltTestCore::testParser()
 
 }
 
-}//namespace test
 
+M_NAMESPACE_TEST_END
