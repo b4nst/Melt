@@ -7,6 +7,7 @@
 namespace ableton{
   AlsReturnTrack::AlsReturnTrack() : AlsTrack()
   {
+    _tagName = "ReturnTrack";
 
   }
 

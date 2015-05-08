@@ -110,7 +110,9 @@ namespace parser
         *(r_ctx_.Stack().last().dynamicCast<QString>()) = r_ctx_.CurrentData();
         r_ctx_.eraseData();
       }
-      r_ctx_.popStack();
+      if ( QString::compare(r_tagName_, currentObject->TagName(), Qt::CaseInsensitive) == 0) {
+        r_ctx_.popStack();
+      }
     }
     else if(r_ctx_.CurrentTag() == r_tagName_){ //End of data not processed
       currentObject->appendGarbage(r_line_);

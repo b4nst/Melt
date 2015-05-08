@@ -7,7 +7,7 @@ namespace ableton {
 
   AlsAudioTrack::AlsAudioTrack() : AlsTrack()
   {
-
+    _tagName = "AudioTrack";
   }
 
   void AlsAudioTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)

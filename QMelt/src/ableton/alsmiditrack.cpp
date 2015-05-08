@@ -7,7 +7,7 @@ namespace ableton
 {
   AlsMidiTrack::AlsMidiTrack() : AlsTrack()
   {
-
+    _tagName = "MidiTrack";
   }
 
   void AlsMidiTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)

@@ -6,6 +6,7 @@
 namespace ableton {
   AlsMasterTrack::AlsMasterTrack() : AlsTrack()
   {
+    _tagName = "MasterTrack";
 
   }
 

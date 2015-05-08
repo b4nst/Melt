@@ -19,6 +19,8 @@ namespace ableton
         { "Tracks", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createTracks), nullptr) }
     };
 
+    _tagName = "LiveSet";
+
   }
 
   void AlsLiveSet::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
@@ -33,7 +35,7 @@ namespace ableton
 
   void AlsLiveSet::setLomIdView(const QString& value_)
   {
-    _lomId = value_.toInt();
+    _lomIdView = value_.toInt();
   }
 
   void AlsLiveSet::setOverdub(const QString& value_)
@@ -72,7 +74,7 @@ namespace ableton
   QSharedPointer<QObject> AlsLiveSet::createTracks()
   {
     _tracks.clear();
-    return nullptr;
+    return QSharedPointer<QObject>();
   }
 
   AlsLiveSet::~AlsLiveSet()

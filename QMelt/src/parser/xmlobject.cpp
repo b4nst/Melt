@@ -1,5 +1,7 @@
 #include "xmlobject.h"
 
+#include "src/io/alsfilestreambase.h"
+
 namespace parser {
 
   XMLObject::XMLObject(QObject *parent) : QObject(parent)
@@ -10,21 +12,52 @@ namespace parser {
   void XMLObject::writeStartTag(QSharedPointer<io::AlsFileStreamBase> p_fos_, const QString &r_tagName_,
                                 const QHash<QString, QString> &r_attributes_, int &r_indentLvl_)
   {
-    //TODO implements method
+    writeIndent(p_fos_, r_indentLvl_);
+    QString tag("<");
+    tag += _tagName;
+    auto qi = r_attributes_.constBegin();
+    while (qi != r_attributes_.constEnd())
+    {
+      tag += " ";
+      tag += qi.key() + QString("\"") + qi.value() +  QString("\"");
+      ++qi;
+    }
+    tag += ">";
   }
 
 
   void XMLObject::writeInlineTag(QSharedPointer<io::AlsFileStreamBase> p_fos_, const QString &r_tagName_,
                                  const QHash<QString, QString> &r_attributes_, int &r_indentLvl_)
   {
-    //TODO implement method
+    writeIndent(p_fos_, r_indentLvl_);
+    QString tag("<");
+    tag += _tagName;
+    auto qi = r_attributes_.constBegin();
+    while (qi != r_attributes_.constEnd())
+    {
+      tag += " ";
+      tag += qi.key() + QString("\"") + qi.value() +  QString("\"");
+      ++qi;
+    }
+    tag += "/>";
   }
 
 
   void XMLObject::writeEndTag(QSharedPointer<io::AlsFileStreamBase> p_fos_, const QString &r_tagName_,
                               int &r_indentLvl_)
   {
-    //TODO implement method
+    writeIndent(p_fos_, r_indentLvl_);
+    QString tag("<");
+    tag += _tagName;
+    tag += ">";
+  }
+
+
+  void writeIndent(QSharedPointer<io::AlsFileStreamBase> p_fos_, int idt_)
+  {
+    for (int i = 0; i < idt_; ++i) {
+      p_fos_->write("\t");
+    }
   }
 
   bool XMLObject::canCreateVar(const QString &r_varName_)

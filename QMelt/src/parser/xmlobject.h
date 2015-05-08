@@ -84,6 +84,8 @@ public:
    */
   virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_) = 0;
 
+  void writeIndent(QSharedPointer<io::AlsFileStreamBase> p_fos_, int idt_);
+
   /*!
    * \brief canCreateVar
    * Determines whether this instance can create the specified variable varName_.
@@ -115,6 +117,8 @@ public:
   void setVar(const QString &r_varName_, const QString &r_value_);
 
   void appendGarbage(const QString &text_);
+
+  QString TagName(){return _tagName;}
 
 protected:
   typedef QSharedPointer<QObject>(XMLObject::*CreateVarLambda)();

@@ -14,7 +14,7 @@
 #include <QRegularExpression>
 
 #define INLINE_TAG_PATTERN "<(\\w+)(?: (?:\\w+)=\"(?:[^\"]*)\")* ?/>"
-#define START_TAG_PATTERN "<(\\w+)(?: (?:(?:\\w+)=\"(?:[^\"]*)\"))* ?>"
+#define START_TAG_PATTERN "<(\\w+)([.\\d]*)(?: (?:(?:\\w+)=\"(?:[^\"]*)\"))* ?>"
 #define END_TAG_PATTERN   "</(\\w+) ?>"
 #define START_DOCUMENT_PATTERN  "<\\?xml version=\"([^\"]+)\" encoding=\"([^\"]+)\"\\?>"
 #define ARGS_PATTERN  "(\\w+)=\"([^\"]*)\""

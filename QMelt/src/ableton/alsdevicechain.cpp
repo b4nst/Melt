@@ -3,7 +3,7 @@
 namespace ableton {
   AlsDeviceChain::AlsDeviceChain() : AbletonObject()
   {
-
+    _tagName = "DeviceChain";
   }
 
   void AlsDeviceChain::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)

@@ -17,6 +17,8 @@ AlsAbleton::AlsAbleton()
       { "SchemaChangeCount", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsAbleton::setSchemaChangeCount)) },
       { "Creator", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsAbleton::setCreator)) }
   };
+
+  _tagName = "Ableton";
 }
 
 QSharedPointer<QObject> AlsAbleton::createLiveSet()
