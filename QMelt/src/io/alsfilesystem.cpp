@@ -18,7 +18,8 @@
 M_NAMESPACE_IO_BEGIN
 
 
-bool AlsFilesystem::load(const QString &filePath_)
+bool AlsFilesystem::load(const QString &filePath_,
+                         QSharedPointer<ableton::AlsAbleton> p_ableton_)
 {
   const QFileInfo fileInfo (filePath_);
   if (fileInfo.completeSuffix() != "xml" || !fileInfo.exists() || !fileInfo.isFile())
@@ -34,7 +35,6 @@ bool AlsFilesystem::load(const QString &filePath_)
 
   auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(file));
 
-  // PARSE
   QSharedPointer<ableton::AlsFactory> alsFact = QSharedPointer<ableton::AlsFactory>(new ableton::AlsFactory());;
   parser::AlsXMLContentHandler ch;
   parser::XMLContext ctx;
@@ -43,8 +43,11 @@ bool AlsFilesystem::load(const QString &filePath_)
   parser::CoreXMLParser parser;
 
   parser.parse(stream,ch,ctx);
+  // Verify if the parsing process went well
 
   file.close();
+
+  p_ableton_ = alsFact->Ableton();
   return true;
 }
 

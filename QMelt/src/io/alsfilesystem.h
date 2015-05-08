@@ -8,6 +8,9 @@
 #include <QString>
 
 
+M_FORWARD_ABLETON(AlsAbleton)
+
+
 M_NAMESPACE_IO_BEGIN
 
 
@@ -29,7 +32,8 @@ public:
    * \param alsAbleton_ The output object, must be null
    * \return true if the file is loaded properly
    */
-  static bool load(const QString &filePath_);
+  static bool load(const QString &filePath_,
+                   QSharedPointer<ableton::AlsAbleton> p_ableton_);
 
   /*!
    * \brief Save an unzipped ALS file
