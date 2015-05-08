@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsName::AlsName() : AbletonObject()
+AlsName::AlsName()
 {
   _classManipulator = decltype(_classManipulator){
       { "EffectiveName", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsName::setEffectiveName)) },

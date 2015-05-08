@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsTrackDelay::AlsTrackDelay() : AbletonObject()
+AlsTrackDelay::AlsTrackDelay()
 {
   _classManipulator = decltype(_classManipulator){
       { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },

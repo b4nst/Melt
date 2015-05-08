@@ -8,7 +8,7 @@
 
 M_NAMESPACE_ABLETON_BEGIN
 
-AlsLiveSet::AlsLiveSet() : AbletonObject()
+AlsLiveSet::AlsLiveSet()
 {
   _classManipulator = decltype(_classManipulator){
       { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsLiveSet::setLomId)) },

@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsReturnTrack::AlsReturnTrack() : AlsTrack()
+AlsReturnTrack::AlsReturnTrack()
 {
   _tagName = "ReturnTrack";
 

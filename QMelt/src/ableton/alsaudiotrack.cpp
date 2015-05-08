@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsAudioTrack::AlsAudioTrack() : AlsTrack()
+AlsAudioTrack::AlsAudioTrack()
 {
   _tagName = "AudioTrack";
 }

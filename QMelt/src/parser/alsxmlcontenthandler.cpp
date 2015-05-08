@@ -4,8 +4,8 @@
 namespace parser
 {
   AlsXMLContentHandler::AlsXMLContentHandler()
+  : _currTagNotProcessed(false)
   {
-    _currTagNotProcessed = false;
   }
 
   void AlsXMLContentHandler::startDocument(XMLContext& r_ctx_, const QString& version_,

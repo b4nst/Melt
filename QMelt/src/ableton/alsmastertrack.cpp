@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsMasterTrack::AlsMasterTrack() : AlsTrack()
+AlsMasterTrack::AlsMasterTrack()
 {
   _tagName = "MasterTrack";
 

@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsMidiTrack::AlsMidiTrack() : AlsTrack()
+AlsMidiTrack::AlsMidiTrack()
 {
   _tagName = "MidiTrack";
 }

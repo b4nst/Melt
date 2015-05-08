@@ -5,7 +5,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsDeviceChain::AlsDeviceChain() : AbletonObject()
+AlsDeviceChain::AlsDeviceChain()
 {
   _tagName = "DeviceChain";
 }

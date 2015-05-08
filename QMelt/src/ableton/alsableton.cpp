@@ -7,7 +7,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsAbleton::AlsAbleton()
-  : _liveSet(nullptr), AbletonObject()
+: _liveSet(nullptr)
 {
   _classManipulator = decltype(_classManipulator){
       { "LiveSet", qMakePair(static_cast<CreateVarLambda>(&AlsAbleton::createLiveSet), nullptr) },

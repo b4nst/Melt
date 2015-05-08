@@ -7,7 +7,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsFactory::AlsFactory()
-  : _ableton(nullptr), AbletonObject()
+: _ableton(nullptr)
 {
   _classManipulator = decltype(_classManipulator){
       { "Ableton", qMakePair(static_cast<CreateVarLambda>(&AlsFactory::createAbleton), nullptr) }

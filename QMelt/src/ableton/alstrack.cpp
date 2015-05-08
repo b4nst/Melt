@@ -8,7 +8,7 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsTrack::AlsTrack() : AbletonObject()
+AlsTrack::AlsTrack()
 {
   _classManipulator = decltype(_classManipulator){
       { "Id", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setId)) },
