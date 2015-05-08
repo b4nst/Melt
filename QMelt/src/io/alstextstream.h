@@ -2,12 +2,10 @@
 
 
 // IO
-
 #include "src/io/alsfilestreambase.h"
 
 
 // QT
-
 #include <QFile>
 #include <QTextStream>
 

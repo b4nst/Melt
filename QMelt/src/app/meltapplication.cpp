@@ -1,14 +1,14 @@
+#include "common.h"
+
 // APP
 #include "src/app/meltapplication.h"
 #include "src/app/meltcommandline.h"
-
 
 // TEST
 #include "src/test/melttestcore.h"
 
 
-namespace app
-{
+M_NAMESPACE_APP_BEGIN
 
 
 MeltApplication::MeltApplication(int argc, char* argv[])
@@ -24,4 +24,4 @@ MeltApplication::~MeltApplication()
 }
 
 
-} // namespace app
+M_NAMESPACE_APP_END

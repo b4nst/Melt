@@ -1,14 +1,10 @@
 #pragma once
-#include "src/app/meltcommon.h"
-
+#include "common.h"
 
 // QT
-
 #include <QSharedPointer>
 
-
 // PARSER
-
 #include "src/parser/xmlobject.h"
 
 

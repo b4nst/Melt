@@ -2,8 +2,7 @@
 #include "src/io/alstextstream.h"
 
 
-namespace io
-{
+M_NAMESPACE_IO_BEGIN
 
 
 AlsTextStream::AlsTextStream(QFile &file_, QObject *parent)
@@ -44,4 +43,4 @@ void AlsTextStream::write(const QString &dataToWrite_)
 }
 
 
-} // namespace io
+M_NAMESPACE_IO_END

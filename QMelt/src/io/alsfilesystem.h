@@ -1,9 +1,8 @@
 #pragma once
-#include "src/app/meltcommon.h"
+#include "common.h"
 
 
 // QT
-
 #include <QObject>
 #include <QSharedPointer>
 #include <QString>

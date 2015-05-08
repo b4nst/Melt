@@ -1,4 +1,4 @@
-#include "xmlobject.h"
+#include "src/parser/xmlobject.h"
 
 #include "src/io/alsfilestreambase.h"
 

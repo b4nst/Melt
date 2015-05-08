@@ -1,16 +1,13 @@
 #pragma once
 
-
-// ableton
-
+// ABLETON
 #include "src/ableton/abletonobject.h"
 
 
-namespace ableton {
+M_FORWARD_ABLETON(AlsAbleton)
 
 
-// Forward declarations
-class AlsAbleton;
+M_NAMESPACE_ABLETON_BEGIN
 
 
 class AlsFactory : public AbletonObject
@@ -18,8 +15,8 @@ class AlsFactory : public AbletonObject
 public:
   AlsFactory();
   ~AlsFactory();
-
 #pragma region CreateVarLambda
+
   QSharedPointer<QObject> createAbleton();
 #pragma endregion
 
@@ -35,4 +32,4 @@ private:
 };
 
 
-} // namespace ableton
+M_NAMESPACE_ABLETON_END

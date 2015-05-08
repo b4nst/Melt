@@ -1,7 +1,6 @@
 // APP
 #include "src/app/meltapplication.h"
 
-
 // UI
 #include "src/ui/mainwindow.h"
 

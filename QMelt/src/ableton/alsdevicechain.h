@@ -1,8 +1,6 @@
 #pragma once
 
-
 // ABLETON
-
 #include "src/ableton/abletonobject.h"
 
 
@@ -20,4 +18,3 @@ public:
 
 
 M_NAMESPACE_ABLETON_END
-

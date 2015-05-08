@@ -1,10 +1,9 @@
-// ableton
-
+// ABLETON
 #include "src/ableton/alsableton.h"
 #include "src/ableton/alsliveset.h"
 
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsAbleton::AlsAbleton()
@@ -57,4 +56,5 @@ AlsAbleton::~AlsAbleton()
   _liveSet.clear();
 }
 
-} //namespace ableton
+
+M_NAMESPACE_ABLETON_END

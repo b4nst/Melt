@@ -1,22 +1,24 @@
+// ABLETON
 #include "src/ableton/alsaudiotrack.h"
 
-//io
-#include "src/io/alsfilestreambase.h"
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
-  AlsAudioTrack::AlsAudioTrack() : AlsTrack()
-  {
-    _tagName = "AudioTrack";
-  }
 
-  void AlsAudioTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
-  {
-    //TODO implement method write
-  }
-
-  AlsAudioTrack::~AlsAudioTrack()
-  {
-
-  }
+AlsAudioTrack::AlsAudioTrack() : AlsTrack()
+{
+  _tagName = "AudioTrack";
 }
+
+void AlsAudioTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
+{
+  //TODO implement method write
+}
+
+AlsAudioTrack::~AlsAudioTrack()
+{
+
+}
+
+
+M_NAMESPACE_ABLETON_END

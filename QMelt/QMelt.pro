@@ -22,7 +22,6 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsliveset.cpp \
     src/ableton/alsaudiotrack.cpp \
     src/ableton/alsmiditrack.cpp \
-    src/ableton/abletonobject.cpp \
     src/ableton/alsableton.cpp \
     src/ableton/alstrackdelay.cpp \
     src/ableton/alstrack.cpp \
@@ -62,5 +61,5 @@ HEADERS  += \
     src/parser/corexmlparser.h \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
-    src/ableton/alsfactory.h
-    src/app/meltcommon.h
+    src/ableton/alsfactory.h \
+    common.h

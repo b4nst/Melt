@@ -1,14 +1,13 @@
 #pragma once
-#include "src/app/meltcommon.h"
-
+#include "common.h"
 
 // QT
-
 #include <QApplication>
 #include <QSharedPointer>
 
 
 M_NAMESPACE_APP_BEGIN
+
 
 class MeltCommandLine;
 /*!

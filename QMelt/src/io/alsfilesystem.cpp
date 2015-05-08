@@ -15,8 +15,7 @@
 #include "src/ableton/alsfactory.h"
 
 
-namespace io
-{
+M_NAMESPACE_IO_BEGIN
 
 
 bool AlsFilesystem::load(const QString &filePath_)
@@ -73,4 +72,4 @@ bool AlsFilesystem::save(const QString &filePath_)
 }
 
 
-} // namespace io
+M_NAMESPACE_IO_END

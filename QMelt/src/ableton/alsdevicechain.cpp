@@ -1,18 +1,24 @@
+// ABLETON
 #include "src/ableton/alsdevicechain.h"
 
-namespace ableton {
-  AlsDeviceChain::AlsDeviceChain() : AbletonObject()
-  {
-    _tagName = "DeviceChain";
-  }
 
-  void AlsDeviceChain::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
-  {
-    //TODO implement method write
-  }
+M_NAMESPACE_ABLETON_BEGIN
 
-  AlsDeviceChain::~AlsDeviceChain()
-  {
 
-  }
+AlsDeviceChain::AlsDeviceChain() : AbletonObject()
+{
+  _tagName = "DeviceChain";
 }
+
+void AlsDeviceChain::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
+{
+  //TODO implement method write
+}
+
+AlsDeviceChain::~AlsDeviceChain()
+{
+
+}
+
+
+M_NAMESPACE_ABLETON_END

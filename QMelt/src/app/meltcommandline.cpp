@@ -1,14 +1,12 @@
 // APP
 #include "src/app/meltcommandline.h"
 
-
 // QT
 #include <QCommandLineParser>
 #include <QStringList>
 
 
-namespace app
-{
+M_NAMESPACE_APP_BEGIN
 
 
 QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& app)
@@ -58,4 +56,4 @@ QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& ap
 }
 
 
-} // namespace app
+M_NAMESPACE_APP_END

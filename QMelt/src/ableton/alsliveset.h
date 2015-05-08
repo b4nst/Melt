@@ -1,14 +1,10 @@
 #pragma once
 
-
 // ABLETON
-
 #include "src/ableton/abletonobject.h"
 #include "src/ableton/alstrack.h"
 
-
 // QT
-
 #include <QVector>
 
 

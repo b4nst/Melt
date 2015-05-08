@@ -1,10 +1,9 @@
-// ableton
-
+// ABLETON
 #include "src/ableton/alsableton.h"
 #include "src/ableton/alsfactory.h"
 
 
-namespace ableton {
+M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsFactory::AlsFactory()
@@ -31,4 +30,5 @@ AlsFactory::~AlsFactory()
   _ableton.clear();
 }
 
-} //namespace ableton
+
+M_NAMESPACE_ABLETON_END

@@ -1,36 +1,41 @@
+// ABLETON
 #include "src/ableton/alstrackdelay.h"
 
-namespace ableton{
 
-  AlsTrackDelay::AlsTrackDelay() : AbletonObject()
-  {
-    _classManipulator = decltype(_classManipulator){
-        { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
-        { "IsValueSampleBased", qMakePair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
-    };
+M_NAMESPACE_ABLETON_BEGIN
 
-    _tagName = "TrackDelay";
 
-  }
+AlsTrackDelay::AlsTrackDelay() : AbletonObject()
+{
+  _classManipulator = decltype(_classManipulator){
+      { "Value", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrackDelay::setValue)) },
+      { "IsValueSampleBased", qMakePair(nullptr,static_cast<SetVarLambda>(&AlsTrackDelay::setIsValueSampleBased)) }
+  };
 
-  void AlsTrackDelay::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
-  {
-    //TODO implement method write
-  }
+  _tagName = "TrackDelay";
 
-  void AlsTrackDelay::setValue(const QString &r_value_)
-  {
-    _value = r_value_.toInt();
-  }
+}
 
-  void AlsTrackDelay::setIsValueSampleBased(const QString& r_value_)
-  {
-    QString valueToTest = r_value_.toLower().trimmed();
-    _isValueSampleBased = (valueToTest == "true" ? true : false);
-  }
+void AlsTrackDelay::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
+{
+  //TODO implement method write
+}
 
-  AlsTrackDelay::~AlsTrackDelay()
-  {
+void AlsTrackDelay::setValue(const QString &r_value_)
+{
+  _value = r_value_.toInt();
+}
 
-  }
-}//namespace ableton
+void AlsTrackDelay::setIsValueSampleBased(const QString& r_value_)
+{
+  QString valueToTest = r_value_.toLower().trimmed();
+  _isValueSampleBased = (valueToTest == "true" ? true : false);
+}
+
+AlsTrackDelay::~AlsTrackDelay()
+{
+
+}
+
+
+M_NAMESPACE_ABLETON_END
