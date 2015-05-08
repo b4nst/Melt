@@ -2,9 +2,9 @@
 
 #include "src/io/alsfilesystem.h"
 
-#ifdef Q_OS_OSX
+#ifdef Q_OS_WIN
 #define EXAMPLE_DIR "../../../../Example/"
-#elif Q_OS_WIN
+#elif Q_OS_OSX
 #define EXAMPLE_DIR "../Example/"
 #endif
 

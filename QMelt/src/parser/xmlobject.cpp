@@ -53,7 +53,7 @@ namespace parser {
   }
 
 
-  void writeIndent(QSharedPointer<io::AlsFileStreamBase> p_fos_, int idt_)
+  void XMLObject::writeIndent(QSharedPointer<io::AlsFileStreamBase> p_fos_, int idt_)
   {
     for (int i = 0; i < idt_; ++i) {
       p_fos_->write("\t");
