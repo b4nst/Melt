@@ -73,6 +73,12 @@ public:
   /// <returns></returns>
   QSharedPointer<QObject> createReturnTrack();
 
+  /// <summary>
+  /// Init _tracks and return nullptr.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createTracks();
+
 
 private:
   int _lomId;

@@ -6,6 +6,14 @@
 #include <QFileInfo>
 #include <QString>
 
+// PARSER
+#include "src/parser/alsxmlcontenthandler.h"
+#include "src/parser/xmlcontenthandler.h"
+#include "src/parser/corexmlparser.h"
+
+// ABLETON
+#include "src/ableton/alsfactory.h"
+
 
 namespace io
 {
@@ -28,6 +36,14 @@ bool AlsFilesystem::load(const QString &filePath_)
   auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(file));
 
   // PARSE
+  QSharedPointer<ableton::AlsFactory> alsFact = QSharedPointer<ableton::AlsFactory>(new ableton::AlsFactory());;
+  parser::AlsXMLContentHandler ch;
+  parser::XMLContext ctx;
+  ctx.pushToStack(alsFact.staticCast<QObject>());
+
+  parser::CoreXMLParser parser;
+
+  parser.parse(stream,ch,ctx);
 
   file.close();
   return true;

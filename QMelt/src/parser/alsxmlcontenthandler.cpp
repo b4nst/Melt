@@ -3,6 +3,11 @@
 
 namespace parser
 {
+  AlsXMLContentHandler::AlsXMLContentHandler()
+  {
+    _currTagNotProcessed = false;
+  }
+
   void AlsXMLContentHandler::startDocument(XMLContext& r_ctx_, const QString& version_,
     const QString& encoding_)
   {
@@ -35,6 +40,7 @@ namespace parser
           while (qi != r_attributes_.constEnd())
           {
             xmlObjectCreated->setVar(qi.key(), qi.value());
+            ++qi;
           }
         }
         r_ctx_.pushToStack(objectCreated);
@@ -53,7 +59,7 @@ namespace parser
   {
     QSharedPointer<parser::XMLObject> currentObject = r_ctx_.Stack().last().staticCast<parser::XMLObject>();
 
-    if (_currTagNotProcessed)
+    if (_currTagNotProcessed || !currentObject->canCreateVar(tagName_))
     {
       currentObject->appendGarbage(r_line_);
       return;
@@ -73,6 +79,7 @@ namespace parser
         while (qi != r_attributes_.constEnd())
         {
           xmlObjectCreated->setVar(qi.key(), qi.value());
+          ++qi;
         }
       }
     }
