@@ -15,6 +15,7 @@ CONFIG += c++11
 
 SOURCES += src/app/main.cpp\
            src/app/meltapplication.cpp \
+           src/app/meltcommandline.cpp \
            src/ui/mainwindow.cpp \
            src/io/alsfilesystem.cpp \
            src/io/alstextstream.cpp \           
@@ -38,6 +39,7 @@ SOURCES += src/app/main.cpp\
 HEADERS  += \
             src/app/meltapplication.h \
             src/io/alsfilesystem.h \
+           src/app/meltcommandline.h \
             src/io/alsfilestreambase.h \
             src/io/alstextstream.h \
             src/ui/mainwindow.h \
