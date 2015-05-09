@@ -6,6 +6,9 @@
 #include <QSharedPointer>
 
 
+M_FORWARD_ABLETON(AlsAbleton)
+
+
 M_NAMESPACE_APP_BEGIN
 
 
@@ -16,14 +19,30 @@ class MeltCommandLine;
 class MeltApplication : public QApplication
 {
 public:
-    explicit MeltApplication(int argc, char* argv[]);
-    ~MeltApplication();
+  explicit MeltApplication(int argc, char* argv[]);
+  ~MeltApplication();
 
-private:
+  
+  
+  
+  void processArguments();
+
   /*!
    * \brief Command line arguments
    */
-  QSharedPointer<const MeltCommandLine> _arguments;
+  QSharedPointer<const MeltCommandLine> Arguments;
+
+
+  QSharedPointer<ableton::AlsAbleton> getBase();
+  QSharedPointer<ableton::AlsAbleton> getLocal();
+  QSharedPointer<ableton::AlsAbleton> getRemote();
+  QSharedPointer<ableton::AlsAbleton> getMerge();
+
+private:
+  QSharedPointer<ableton::AlsAbleton> _baseAbleton;
+  QSharedPointer<ableton::AlsAbleton> _localAbleton;
+  QSharedPointer<ableton::AlsAbleton> _remoteAbleton;
+  QSharedPointer<ableton::AlsAbleton> _mergeAbleton;
 };
 
 
