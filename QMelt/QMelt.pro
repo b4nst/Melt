@@ -76,7 +76,8 @@ HEADERS  += \
     src/ableton/alsclipslot.h \
     src/ableton/alsinnerclipslot.h \
     src/ableton/alsclipslotvalue.h \
-    src/ableton/alsmidiclip.h
+    src/ableton/alsmidiclip.h \
+    src/utils/colormap.h
 
 DISTFILES +=
 

@@ -14,6 +14,8 @@
 #define M_NAMESPACE_TEST_END } // test
 #define M_NAMESPACE_UI_BEGIN namespace ui {
 #define M_NAMESPACE_UI_END } // ui
+#define M_NAMESPACE_UTILS_BEGIN namespace utils {
+#define M_NAMESPACE_UTILS_END } // utils
 
 
 //------------------------------------------------------------------------------
@@ -26,3 +28,4 @@
 #define M_FORWARD_PARSER(t) namespace parser { class t; }
 #define M_FORWARD_TEST(t) namespace test { class t; }
 #define M_FORWARD_UI(t) namespace ui { class t; }
+#define M_FORWARD_UTILS(t) namespace utils { class t; }
