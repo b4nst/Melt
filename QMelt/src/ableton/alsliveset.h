@@ -14,7 +14,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsLiveSet : public AbletonObject
 {
 public:
-  AlsLiveSet();
+  AlsLiveSet(QObject *parent);
   ~AlsLiveSet();
 
 

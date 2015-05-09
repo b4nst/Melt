@@ -8,8 +8,10 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsReturnTrack::AlsReturnTrack()
-: Id(0)
+
+AlsReturnTrack::AlsReturnTrack(QObject *parent)
+: AlsTrack(parent)
+, Id(0)
 , DeviceChain(QSharedPointer<AlsDeviceChain>())
 {
   QHash<QString, QPair<CreateVarLambda, SetVarLambda>> manipulatorConcat =  decltype(_classManipulator){
@@ -30,7 +32,7 @@ void AlsReturnTrack::setId(const QString &r_value_)
 
 QSharedPointer<QObject> AlsReturnTrack::createDeviceChain()
 {
-  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
+  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain(this));
   return DeviceChain.staticCast<QObject>();
 }
 

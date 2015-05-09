@@ -10,7 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsReturnTrack : public AlsTrack
 {
 public:
-  AlsReturnTrack();
+  AlsReturnTrack(QObject *parent);
   ~AlsReturnTrack();
 
 

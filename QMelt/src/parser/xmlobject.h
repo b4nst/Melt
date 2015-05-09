@@ -23,7 +23,7 @@ public:
    * Constructor
    * \param parent
    */
-  explicit XMLObject(QObject *parent = 0);
+  explicit XMLObject(QObject *parent);
 
   /*!
    * \brief ~XMLObject

@@ -21,7 +21,7 @@ public:
 
 
   protected:
-    AbletonObject() {}
+    AbletonObject(QObject *parent) : XMLObject(parent) {}
 
 };
 

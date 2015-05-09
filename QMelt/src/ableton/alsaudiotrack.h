@@ -11,7 +11,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsAudioTrack : public AlsTrack
 {
 public:
-  AlsAudioTrack();
+  AlsAudioTrack(QObject *parent);
   ~AlsAudioTrack();
 
 

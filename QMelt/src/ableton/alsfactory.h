@@ -1,7 +1,8 @@
 #pragma once
+#include "common.h"
 
 // ABLETON
-#include "src/ableton/abletonobject.h"
+#include "src/parser/xmlobject.h"
 
 
 M_FORWARD_ABLETON(AlsAbleton)
@@ -10,10 +11,10 @@ M_FORWARD_ABLETON(AlsAbleton)
 M_NAMESPACE_ABLETON_BEGIN
 
 
-class AlsFactory : public AbletonObject
+class AlsFactory : public parser::XMLObject
 {
 public:
-  AlsFactory();
+  AlsFactory(QObject *parent = 0);
   ~AlsFactory();
 
 

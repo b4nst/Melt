@@ -10,7 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsTrackDelay : public AbletonObject
 {
 public:
-  AlsTrackDelay();
+  AlsTrackDelay(QObject *parent);
   ~AlsTrackDelay();
 
 

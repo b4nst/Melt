@@ -12,8 +12,9 @@
 
 M_NAMESPACE_ABLETON_BEGIN
 
-AlsLiveSet::AlsLiveSet()
-: LomId(0)
+AlsLiveSet::AlsLiveSet(QObject *parent)
+: AbletonObject(parent)
+, LomId(0)
 , LomIdView(0)
 , Overdub(false)
 , MasterTrack(QSharedPointer<AlsMasterTrack>())
@@ -73,34 +74,34 @@ void AlsLiveSet::setOverdub(const QString& value_)
 
 QSharedPointer<QObject> AlsLiveSet::createMasterTrack()
 {
-  MasterTrack = QSharedPointer<AlsMasterTrack>(new AlsMasterTrack());
+  MasterTrack = QSharedPointer<AlsMasterTrack>(new AlsMasterTrack(this));
   return MasterTrack.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsLiveSet::createMidiTrack()
 {
-  QSharedPointer<AlsMidiTrack> mt = QSharedPointer<AlsMidiTrack>(new AlsMidiTrack());
+  QSharedPointer<AlsMidiTrack> mt = QSharedPointer<AlsMidiTrack>(new AlsMidiTrack(this));
   Tracks.push_back(mt);
   return mt.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsLiveSet::createAudioTrack()
 {
-  QSharedPointer<AlsAudioTrack> at = QSharedPointer<AlsAudioTrack>(new AlsAudioTrack());
+  QSharedPointer<AlsAudioTrack> at = QSharedPointer<AlsAudioTrack>(new AlsAudioTrack(this));
   Tracks.push_back(at);
   return at.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsLiveSet::createReturnTrack()
 {
-  QSharedPointer<AlsReturnTrack> rt = QSharedPointer<AlsReturnTrack>(new AlsReturnTrack());
+  QSharedPointer<AlsReturnTrack> rt = QSharedPointer<AlsReturnTrack>(new AlsReturnTrack(this));
   Tracks.push_back(rt);
   return rt.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsLiveSet::createGroupTrack()
 {
-  QSharedPointer<AlsGroupTrack> gt = QSharedPointer<AlsGroupTrack>(new AlsGroupTrack());
+  QSharedPointer<AlsGroupTrack> gt = QSharedPointer<AlsGroupTrack>(new AlsGroupTrack(this));
   Tracks.push_back(gt);
   return gt.staticCast<QObject>();
 }

@@ -8,8 +8,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsGroupTrack::AlsGroupTrack()
-: Id(0)
+AlsGroupTrack::AlsGroupTrack(QObject *parent)
+: AlsTrack(parent)
+, Id(0)
 {
   QHash<QString, QPair<CreateVarLambda, SetVarLambda>> manipulatorConcat =  decltype(_classManipulator){
             { "Id", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsGroupTrack::setId)) }

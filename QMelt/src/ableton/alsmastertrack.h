@@ -11,7 +11,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsMasterTrack : public AlsTrack
 {
 public:
-  AlsMasterTrack();
+  AlsMasterTrack(QObject *parent);
   ~AlsMasterTrack();
 
 

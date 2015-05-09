@@ -9,8 +9,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsAudioTrack::AlsAudioTrack()
-: Id(0)
+AlsAudioTrack::AlsAudioTrack(QObject *parent)
+: AlsTrack(parent)
+, Id(0)
 , DeviceChain(QSharedPointer<AlsDeviceChain>())
 {
   QHash<QString, QPair<CreateVarLambda, SetVarLambda>> manipulatorConcat =  decltype(_classManipulator){
@@ -30,7 +31,7 @@ void AlsAudioTrack::setId(const QString &r_value_)
 
 QSharedPointer<QObject> AlsAudioTrack::createDeviceChain()
 {
-  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
+  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain(this));
   return DeviceChain.staticCast<QObject>();
 }
 

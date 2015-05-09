@@ -14,7 +14,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsTrack : public AbletonObject
 {
 public:
-  AlsTrack();
+  AlsTrack(QObject *parent);
   ~AlsTrack();
 
 

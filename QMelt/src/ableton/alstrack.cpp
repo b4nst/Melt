@@ -9,8 +9,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsTrack::AlsTrack()
-: LomId(0)
+AlsTrack::AlsTrack(QObject *parent)
+: AbletonObject(parent)
+, LomId(0)
 , LomIdView(0)
 , EnvelopeModePreferred(false)
 , TrackDelay(QSharedPointer<AlsTrackDelay>())
@@ -68,13 +69,13 @@ void AlsTrack::setTrackGroupId(const QString &r_value_)
 
 QSharedPointer<QObject> AlsTrack::createName()
 {
-  Name = QSharedPointer<AlsName>(new AlsName());
+  Name = QSharedPointer<AlsName>(new AlsName(this));
   return Name.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsTrack::createTrackDelay()
 {
-  TrackDelay = QSharedPointer<AlsTrackDelay>(new AlsTrackDelay());
+  TrackDelay = QSharedPointer<AlsTrackDelay>(new AlsTrackDelay(this));
   return TrackDelay.staticCast<QObject>();
 }
 

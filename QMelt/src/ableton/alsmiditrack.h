@@ -11,7 +11,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsMidiTrack : public AlsTrack
 {
 public:
-  AlsMidiTrack();
+  AlsMidiTrack(QObject *parent);
   ~AlsMidiTrack();
 
 

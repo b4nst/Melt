@@ -13,7 +13,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsAbleton : public AbletonObject
 {
 public:
-  AlsAbleton();
+  AlsAbleton(QObject *parent);
   ~AlsAbleton();
 
 

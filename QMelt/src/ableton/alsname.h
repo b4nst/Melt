@@ -10,7 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsName:public AbletonObject
 {
 public:
-  AlsName();
+  AlsName(QObject *parent);
   ~AlsName();
 
 

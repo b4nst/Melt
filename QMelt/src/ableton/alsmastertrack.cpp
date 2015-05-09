@@ -9,16 +9,17 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsMasterTrack::AlsMasterTrack()
-: MasterChain(QSharedPointer<AlsDeviceChain>())
+AlsMasterTrack::AlsMasterTrack(QObject *parent)
+: AlsTrack(parent)
+, MasterChain(QSharedPointer<AlsDeviceChain>())
 {
   QHash<QString, QPair<CreateVarLambda, SetVarLambda>> manipulatorConcat =  decltype(_classManipulator){
     { "MasterChain", qMakePair(static_cast<CreateVarLambda>(&AlsMasterTrack::createMasterChain), nullptr) }
   };
 
   _classManipulator.unite(manipulatorConcat);
-
   _tagName = "MasterTrack";
+
 }
 
 void AlsMasterTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
@@ -32,16 +33,15 @@ void AlsMasterTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_
   writeEndTag(p_fos_, _tagName, r_indentLvl_);
 }
 
+AlsMasterTrack::~AlsMasterTrack()
+{
+
+}
 
 QSharedPointer<QObject> AlsMasterTrack::createMasterChain()
 {
-  MasterChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
+  MasterChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain(this));
   return MasterChain.staticCast<QObject>();
-}
-
-AlsMasterTrack::~AlsMasterTrack()
-{
-  MasterChain.clear();
 }
 
 

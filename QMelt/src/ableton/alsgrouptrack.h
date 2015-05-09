@@ -10,7 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 class AlsGroupTrack : public AlsTrack
 {
 public:
-  AlsGroupTrack();
+  AlsGroupTrack(QObject *parent);
   ~AlsGroupTrack();
 
 

@@ -5,8 +5,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsName::AlsName()
-: EffectiveName("")
+AlsName::AlsName(QObject *parent)
+: AbletonObject(parent)
+, EffectiveName("")
 , UserName("")
 , Annotation("")
 {

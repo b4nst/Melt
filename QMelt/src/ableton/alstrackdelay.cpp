@@ -5,8 +5,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsTrackDelay::AlsTrackDelay()
-: Value(0)
+AlsTrackDelay::AlsTrackDelay(QObject *parent)
+: AbletonObject(parent)
+, Value(0)
 , IsValueSampleBased(false)
 {
   _classManipulator = decltype(_classManipulator){

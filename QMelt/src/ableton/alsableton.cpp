@@ -8,8 +8,9 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsAbleton::AlsAbleton()
-: LiveSet(nullptr)
+AlsAbleton::AlsAbleton(QObject *parent)
+: AbletonObject(parent)
+, LiveSet(nullptr)
 {
   _classManipulator = decltype(_classManipulator){
       { "LiveSet", qMakePair(static_cast<CreateVarLambda>(&AlsAbleton::createLiveSet), nullptr) },
@@ -24,7 +25,7 @@ AlsAbleton::AlsAbleton()
 
 QSharedPointer<QObject> AlsAbleton::createLiveSet()
 {
-  LiveSet = QSharedPointer<AlsLiveSet>(new AlsLiveSet());
+  LiveSet = QSharedPointer<AlsLiveSet>(new AlsLiveSet(this));
   return LiveSet.staticCast<QObject>();
 }
 

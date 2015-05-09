@@ -6,8 +6,8 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-AlsFactory::AlsFactory()
-: Ableton(nullptr)
+AlsFactory::AlsFactory(QObject *parent)
+: XMLObject(parent)
 {
   _classManipulator = decltype(_classManipulator){
       { "Ableton", qMakePair(static_cast<CreateVarLambda>(&AlsFactory::createAbleton), nullptr) }
@@ -16,7 +16,7 @@ AlsFactory::AlsFactory()
 
 QSharedPointer<QObject> AlsFactory::createAbleton()
 {
-  Ableton = QSharedPointer<AlsAbleton>(new AlsAbleton());
+  Ableton = QSharedPointer<AlsAbleton>(new AlsAbleton(0));
   return Ableton.staticCast<QObject>();
 }
 
