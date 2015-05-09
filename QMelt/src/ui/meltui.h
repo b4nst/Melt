@@ -1,6 +1,9 @@
-#ifndef MELTUI_H
-#define MELTUI_H
+#pragma once
 
+// APP
+#include "src/app/meltapplication.h"
+
+// QT
 #include <QMainWindow>
 #include <QStandardItemModel>
 
@@ -13,11 +16,10 @@ class MeltUI : public QMainWindow
   Q_OBJECT
 
 public:
-  explicit MeltUI(QWidget *parent = 0);
+  explicit MeltUI(app::MeltApplication& app_, QWidget *parent = 0);
   ~MeltUI();
 
 private:
   Ui::MeltUI *ui;
+  app::MeltApplication& _app;
 };
-
-#endif // MELTUI_H
