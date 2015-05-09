@@ -19,6 +19,7 @@ public:
   ~AlsMainSequencer();
 
   QSharedPointer<QObject> createClipSlot();
+  QSharedPointer<QObject> createClipSlotList();
 
   virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 

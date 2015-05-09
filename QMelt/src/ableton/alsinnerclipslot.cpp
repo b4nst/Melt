@@ -1,33 +1,44 @@
-#pragma once
-
-#include "common.h"
+#include "src/ableton/alsinnerclipslot.h"
 
 // ABLETON
-#include "src/ableton/abletonobject.h"
-
-M_FORWARD_ABLETON(AlsInnerClipSlot)
+#include "src/ableton/alsclipslotvalue.h"
 
 M_NAMESPACE_ABLETON_BEGIN
 
-
-class AlsInnerClipSlot : public AbletonObject
+AlsInnerClipSlot::AlsInnerClipSlot(QObject *parent):
+  AbletonObject(parent)
 {
-public:
-  AlsInnerClipSlot(QObject *parent);
-  ~AlsInnerClipSlot();
+  _classManipulator = decltype(_classManipulator){
+      { "Value", qMakePair(static_cast<CreateVarLambda>(&AlsInnerClipSlot::createValue),nullptr) }
+  };
 
-  QSharedPointer<QObject> createInnerClipSlot();
+  _tagName = "ClipSlot";
+}
 
-  virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
+QSharedPointer<QObject> AlsInnerClipSlot::createValue()
+{
+  Value = QSharedPointer<AlsClipSlotValue>(new AlsClipSlotValue(this));
+  return Value.staticCast<QObject>();
+}
 
-  void innerClipSlotChanged(){}
+void AlsInnerClipSlot::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_)
+{
+  writeStartTag(p_fos_,_tagName,QList<QPair<QString, QString>>(),r_indentLvl_);
+  ++r_indentLvl_;
+  if (Value == nullptr) {
+    writeInlineTag(p_fos_,"Value",QList<QPair<QString, QString>>(),r_indentLvl_);
+  }
+  else {
+    Value->write(p_fos_,r_indentLvl_);
+  }
+  writeGarbage(p_fos_);
+  --r_indentLvl_;
+  writeEndTag(p_fos_,_tagName,r_indentLvl_);
+}
 
-  Q_PROPERTY(QSharedPointer<AlsInnerClipSlot> innerClipSlot MEMBER InnerClipSlot NOTIFY innerClipSlotChanged)
+AlsInnerClipSlot::~AlsInnerClipSlot()
+{
 
-  QSharedPointer<AlsInnerClipSlot> InnerClipSlot;
-
-};
+}
 
 M_NAMESPACE_ABLETON_END
-
-

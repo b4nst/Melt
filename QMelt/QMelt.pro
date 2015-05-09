@@ -40,7 +40,9 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsmasterchain.cpp \
     src/ableton/alsmainsequencer.cpp \
     src/ableton/alsclipslot.cpp \
-    src/ableton/alsinnerclipslot.cpp
+    src/ableton/alsinnerclipslot.cpp \
+    src/ableton/alsclipslotvalue.cpp \
+    src/ableton/alsmidiclip.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -72,7 +74,9 @@ HEADERS  += \
     src/ableton/alsmasterchain.h \
     src/ableton/alsmainsequencer.h \
     src/ableton/alsclipslot.h \
-    src/ableton/alsinnerclipslot.h
+    src/ableton/alsinnerclipslot.h \
+    src/ableton/alsclipslotvalue.h \
+    src/ableton/alsmidiclip.h
 
 DISTFILES +=
 
