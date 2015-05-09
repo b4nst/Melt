@@ -86,16 +86,15 @@ public:
 #pragma endregion
 
 
-protected:
-    int _id;
-    int _lomId;
-    int _lomIdView;
-    bool _envelopeModePreferred;
-    QSharedPointer<AlsName> _name;
-    QSharedPointer<AlsTrackDelay> _trackDelay;
-    int _colorIndex;
-    int _trackGroupId;
-    QSharedPointer<AlsDeviceChain> _deviceChain;
+    int Id;
+    int LomId;
+    int LomIdView;
+    bool EnvelopeModePreferred;
+    QSharedPointer<AlsName> Name;
+    QSharedPointer<AlsTrackDelay> TrackDelay;
+    int ColorIndex;
+    int TrackGroupId;
+    QSharedPointer<AlsDeviceChain> DeviceChain;
 
 };
 

@@ -75,13 +75,11 @@ public:
   /// <returns></returns>
   QSharedPointer<QObject> createTracks();
 
-
-private:
-  int _lomId;
-  int _lomIdView;
-  QVector<QSharedPointer<AlsTrack>> _tracks;
-  QSharedPointer<AlsTrack> _masterTrack;
-  bool _overdub;
+  int LomId;
+  int LomIdView;
+  QVector<QSharedPointer<AlsTrack>> Tracks;
+  QSharedPointer<AlsTrack> MasterTrack;
+  bool Overdub;
 };
 
 

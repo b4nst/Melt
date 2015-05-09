@@ -31,10 +31,8 @@ public:
    */
   void setIsValueSampleBased(const QString &r_value_);
 
-
-private:
-  int _value;
-  bool _isValueSampleBased;
+  int Value;
+  bool IsValueSampleBased;
 };
 
 

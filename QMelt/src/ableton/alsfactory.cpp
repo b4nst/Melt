@@ -7,7 +7,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsFactory::AlsFactory()
-: _ableton(nullptr)
+: Ableton(nullptr)
 {
   _classManipulator = decltype(_classManipulator){
       { "Ableton", qMakePair(static_cast<CreateVarLambda>(&AlsFactory::createAbleton), nullptr) }
@@ -16,8 +16,8 @@ AlsFactory::AlsFactory()
 
 QSharedPointer<QObject> AlsFactory::createAbleton()
 {
-  _ableton = QSharedPointer<AlsAbleton>(new AlsAbleton());
-  return _ableton.staticCast<QObject>();
+  Ableton = QSharedPointer<AlsAbleton>(new AlsAbleton());
+  return Ableton.staticCast<QObject>();
 }
 
 void AlsFactory::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
@@ -27,7 +27,7 @@ void AlsFactory::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
 
 AlsFactory::~AlsFactory()
 {
-  _ableton.clear();
+  Ableton.clear();
 }
 
 

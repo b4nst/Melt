@@ -37,11 +37,9 @@ public:
   /// <param name="value">The value.</param>
   void setAnnotation(const QString &r_value_);
 
-
-private:
-  QString _effectiveName;
-  QString _userName;
-  QString _annotation;
+  QString EffectiveName;
+  QString UserName;
+  QString Annotation;
 };
 
 

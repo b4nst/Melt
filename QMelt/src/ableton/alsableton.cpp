@@ -7,7 +7,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsAbleton::AlsAbleton()
-: _liveSet(nullptr)
+: LiveSet(nullptr)
 {
   _classManipulator = decltype(_classManipulator){
       { "LiveSet", qMakePair(static_cast<CreateVarLambda>(&AlsAbleton::createLiveSet), nullptr) },
@@ -22,28 +22,28 @@ AlsAbleton::AlsAbleton()
 
 QSharedPointer<QObject> AlsAbleton::createLiveSet()
 {
-  _liveSet = QSharedPointer<AlsLiveSet>(new AlsLiveSet());
-  return _liveSet.staticCast<QObject>();
+  LiveSet = QSharedPointer<AlsLiveSet>(new AlsLiveSet());
+  return LiveSet.staticCast<QObject>();
 }
 
 void AlsAbleton::setMajorVersion(const QString &r_value)
 {
-  _majorVersion = r_value;
+  MajorVersion = r_value;
 }
 
 void AlsAbleton::setMinorVersion(const QString &r_value)
 {
-  _minorVersion = r_value;
+  MinorVersion = r_value;
 }
 
 void AlsAbleton::setSchemaChangeCount(const QString &r_value)
 {
-  _schemaChangeCount = r_value.toInt();
+  SchemaChangeCount = r_value.toInt();
 }
 
 void AlsAbleton::setCreator(const QString &r_value)
 {
-  _creator = r_value;
+  Creator = r_value;
 }
 
 void AlsAbleton::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
@@ -53,7 +53,7 @@ void AlsAbleton::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
 
 AlsAbleton::~AlsAbleton()
 {
-  _liveSet.clear();
+  LiveSet.clear();
 }
 
 

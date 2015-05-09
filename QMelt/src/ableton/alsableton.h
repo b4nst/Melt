@@ -23,17 +23,13 @@ public:
   void setSchemaChangeCount(const QString &r_value);
   void setCreator(const QString &r_value);
 
-  QSharedPointer<ableton::AlsLiveSet> LiveSet() { return _liveSet; }
-
   virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
-
-private:
-  QSharedPointer<ableton::AlsLiveSet> _liveSet;
-  QString _majorVersion;
-  QString _minorVersion;
-  int _schemaChangeCount;
-  QString _creator;
+  QSharedPointer<ableton::AlsLiveSet> LiveSet;
+  QString MajorVersion;
+  QString MinorVersion;
+  int SchemaChangeCount;
+  QString Creator;
 
 };
 

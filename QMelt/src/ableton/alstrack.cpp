@@ -9,6 +9,15 @@ M_NAMESPACE_ABLETON_BEGIN
 
 
 AlsTrack::AlsTrack()
+: Id(0)
+, LomId(0)
+, LomIdView(0)
+, EnvelopeModePreferred(false)
+, TrackDelay(QSharedPointer<AlsTrackDelay>())
+, Name(QSharedPointer<AlsName>())
+, ColorIndex(0)
+, TrackGroupId(0)
+, DeviceChain(QSharedPointer<AlsDeviceChain>())
 {
   _classManipulator = decltype(_classManipulator){
       { "Id", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setId)) },
@@ -30,58 +39,58 @@ void AlsTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indent
 
 void AlsTrack::setColorIndex(const QString &r_value_)
 {
-  _colorIndex = r_value_.toInt();
+  ColorIndex = r_value_.toInt();
 }
 
 void AlsTrack::setEnvelopeModePreferred(const QString &r_value_)
 {
   QString valueToTest = r_value_.toLower().trimmed();
-  _envelopeModePreferred = (valueToTest == "true" ? true : false);
+  EnvelopeModePreferred = (valueToTest == "true" ? true : false);
 }
 
 void AlsTrack::setId(const QString &r_value_)
 {
-  _id = r_value_.toInt();
+  Id = r_value_.toInt();
 }
 
 void AlsTrack::setLomId(const QString &r_value_)
 {
-  _lomId = r_value_.toInt();
+  LomId = r_value_.toInt();
 }
 
 void AlsTrack::setLomIdView(const QString &r_value_)
 {
-  _lomIdView = r_value_.toInt();
+  LomIdView = r_value_.toInt();
 }
 
 void AlsTrack::setTrackGroupId(const QString &r_value_)
 {
-  _trackGroupId = r_value_.toInt();
+  TrackGroupId = r_value_.toInt();
 }
 
 QSharedPointer<QObject> AlsTrack::createDeviceChain()
 {
-  _deviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
-  return _deviceChain.staticCast<QObject>();
+  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
+  return DeviceChain.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsTrack::createName()
 {
-  _name = QSharedPointer<AlsName>(new AlsName());
-  return _name.staticCast<QObject>();
+  Name = QSharedPointer<AlsName>(new AlsName());
+  return Name.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsTrack::createTrackDelay()
 {
-  _trackDelay = QSharedPointer<AlsTrackDelay>(new AlsTrackDelay());
-  return _trackDelay.staticCast<QObject>();
+  TrackDelay = QSharedPointer<AlsTrackDelay>(new AlsTrackDelay());
+  return TrackDelay.staticCast<QObject>();
 }
 
 AlsTrack::~AlsTrack()
 {
-  _trackDelay.clear();
-  _deviceChain.clear();
-  _name.clear();
+  TrackDelay.clear();
+  DeviceChain.clear();
+  Name.clear();
 }
 
 
