@@ -16,7 +16,6 @@ CONFIG += c++11
 SOURCES += src/app/main.cpp\
            src/app/meltapplication.cpp \
            src/app/meltcommandline.cpp \
-           src/ui/mainwindow.cpp \
            src/io/alsfilesystem.cpp \
            src/io/alstextstream.cpp \           
     src/ableton/alsliveset.cpp \
@@ -43,7 +42,6 @@ HEADERS  += \
            src/app/meltcommandline.h \
             src/io/alsfilestreambase.h \
             src/io/alstextstream.h \
-            src/ui/mainwindow.h \
     src/ableton/alsliveset.h \
     src/ableton/alsaudiotrack.h \
     src/ableton/alsmiditrack.h \
@@ -63,3 +61,7 @@ HEADERS  += \
     src/test/melttestcore.h \
     src/ableton/alsfactory.h \
     common.h
+
+DISTFILES += \
+    src/ui/Melt_ui.ui.qml \
+    src/ui/Melt_ui.qml
