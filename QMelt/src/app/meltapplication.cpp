@@ -23,8 +23,8 @@ MeltApplication::MeltApplication(int argc, char* argv[])
 : QApplication(argc, argv)
 , Arguments(MeltCommandLine::parse(*this))
 {
-  test::MeltTestCore::testParser();
-  //processArguments();
+  //test::MeltTestCore::testParser();
+  processArguments();
 }
 
 MeltApplication::~MeltApplication()
