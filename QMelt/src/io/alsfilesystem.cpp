@@ -47,7 +47,7 @@ bool AlsFilesystem::load(const QString &filePath_,
 
   file.close();
 
-  r_ableton_ = alsFact->Ableton();
+  r_ableton_ = alsFact->Ableton;
   return true;
 }
 
