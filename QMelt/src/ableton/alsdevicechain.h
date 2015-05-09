@@ -13,6 +13,7 @@ public:
   AlsDeviceChain();
   ~AlsDeviceChain();
 
+
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_);
 };
 

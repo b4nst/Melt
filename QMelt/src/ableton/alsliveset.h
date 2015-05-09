@@ -69,17 +69,34 @@ public:
   /// <returns></returns>
   QSharedPointer<QObject> createReturnTrack();
 
+
   /*!
    * \brief Create and add a GroupTrack to Tracks
    * \return
    */
   QSharedPointer<QObject> createGroupTrack();
 
+
   /// <summary>
   /// Init _tracks and return nullptr.
   /// </summary>
   /// <returns></returns>
   QSharedPointer<QObject> createTracks();
+
+
+  void lomIdChanged() {}
+  void lomIdViewChanged() {}
+  void tracksChanged() {}
+  void masterTrackChanged() {}
+  void overdubChanged() {}
+
+
+  Q_PROPERTY(int lomId MEMBER LomId NOTIFY lomIdChanged)
+  Q_PROPERTY(int lomIdView MEMBER LomIdView NOTIFY LomIdViewChanged)
+  Q_PROPERTY(QVector<QSharedPointer<AlsTrack>> tracks MEMBER Tracks NOTIFY tracksChanged)
+  Q_PROPERTY(QSharedPointer<AlsTrack> masterTrack MEMBER MasterTrack NOTIFY masterTrackChanged)
+  Q_PROPERTY(bool overdub MEMBER Overdub NOTIFY overdubChanged)
+
 
   int LomId;
   int LomIdView;

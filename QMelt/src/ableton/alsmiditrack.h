@@ -23,6 +23,12 @@ public:
   /// <param name="value">The value.</param>
   void setId(const QString &r_value_);
 
+
+  void idChanged() {}
+
+
+  Q_PROPERTY(int id MEMBER Id NOTIFY idChanged)
+
   int Id;
 
 };

@@ -16,11 +16,19 @@ public:
 
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
-  /// <summary>
-  /// Sets the identifier.
-  /// </summary>
-  /// <param name="value">The value.</param>
+
+  /*!
+   * \brief Sets the identifier.
+   * \param The value.
+   */
   void setId(const QString &r_value_);
+
+
+  void idChanged() {}
+
+
+  Q_PROPERTY(int id MEMBER Id NOTIFY idChanged)
+
 
   int Id;
 };

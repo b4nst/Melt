@@ -37,6 +37,17 @@ public:
   /// <param name="value">The value.</param>
   void setAnnotation(const QString &r_value_);
 
+
+  void effectiveNameChanged() {}
+  void userNameChanged() {}
+  void annotationChanged() {}
+
+
+  Q_PROPERTY(QString effectiveName MEMBER EffectiveName NOTIFY effectiveNameChanged)
+  Q_PROPERTY(QString effectiveName MEMBER UserName NOTIFY userNameChanged)
+  Q_PROPERTY(QString effectiveName MEMBER Annotation NOTIFY annotationChanged)
+
+
   QString EffectiveName;
   QString UserName;
   QString Annotation;

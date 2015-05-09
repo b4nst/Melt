@@ -31,6 +31,15 @@ public:
    */
   void setIsValueSampleBased(const QString &r_value_);
 
+
+  void valueChanged() {}
+  void isValueSampleBasedChanged() {}
+
+
+  Q_PROPERTY(int value MEMBER Value NOTIFY valueChanged)
+  Q_PROPERTY(bool isValueSampleBased MEMBER IsValueSampleBase NOTIFY isValueSampleBasedChanged())
+
+
   int Value;
   bool IsValueSampleBased;
 };

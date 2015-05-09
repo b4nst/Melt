@@ -21,6 +21,7 @@ public:
 
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
+
   /// <summary>
   /// Sets the lom identifier.
   /// </summary>
@@ -75,16 +76,36 @@ public:
   /// </summary>
   /// <returns></returns>
   QSharedPointer<QObject> createDeviceChain();
-#pragma endregion
 
-    int LomId;
-    int LomIdView;
-    bool EnvelopeModePreferred;
-    QSharedPointer<AlsName> Name;
-    QSharedPointer<AlsTrackDelay> TrackDelay;
-    int ColorIndex;
-    int TrackGroupId;
-    QSharedPointer<AlsDeviceChain> DeviceChain;
+
+  void lomIdChanged() {}
+  void lomIdViewChanged() {}
+  void envelopeModePreferredChanged() {}
+  void colorIndexChanged() {}
+  void trackGroupIdChanged() {}
+  void deviceChainChanged() {}
+  void nameChanged() {}
+  void trackDelayChanged() {}
+
+
+  Q_PROPERTY(int lomId MEMBER LomId NOTIFY lomIdChanged)
+  Q_PROPERTY(int lomIdView MEMBER LomIdView NOTIFY lomIdViewChanged)
+  Q_PROPERTY(bool envelopeModePreferred MEMBER EnvelopeModePreferred NOTIFY envelopeModePreferredChanged)
+  Q_PROPERTY(int colorIndex MEMBER ColorIndex NOTIFY colorIndexChanged)
+  Q_PROPERTY(int trackGroupId MEMBER TrackGroupId NOTIFY trackGroupIdChanged)
+  Q_PROPERTY(QSharedPointer<AlsDeviceChain> deviceChain MEMBER DeviceChain NOTIFY deviceChainChanged)
+  Q_PROPERTY(QSharedPointer<AlsName> name MEMBER Name NOTIFY nameChanged)
+  Q_PROPERTY(QSharedPointer<AlsTrackDelay> trackDelay MEMBER TrackDelay NOTIFY trackDelayChanged)
+
+
+  int LomId;
+  int LomIdView;
+  bool EnvelopeModePreferred;
+  int ColorIndex;
+  int TrackGroupId;
+  QSharedPointer<AlsDeviceChain> DeviceChain;
+  QSharedPointer<AlsName> Name;
+  QSharedPointer<AlsTrackDelay> TrackDelay;
 
 };
 
