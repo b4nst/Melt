@@ -2,6 +2,7 @@
 #define MELTUI_H
 
 #include <QMainWindow>
+#include <QStandardItemModel>
 
 namespace Ui {
   class MeltUI;
