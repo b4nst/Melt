@@ -4,6 +4,13 @@
 #include "src/ableton/alsableton.h"
 #include "src/ableton/alsliveset.h"
 #include "src/ableton/alsname.h"
+#include "src/ableton/alsmiditrack.h"
+#include "src/ableton/alsdevicechain.h"
+#include "src/ableton/alsclipslot.h"
+#include "src/ableton/alsclipslotvalue.h"
+#include "src/ableton/alsinnerclipslot.h"
+#include "src/ableton/alsmidiclip.h"
+#include "src/ableton/alsmainsequencer.h";
 
 MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
 : QMainWindow(parent)
@@ -39,6 +46,18 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
     for (int i = 0; i < _local->LiveSet->Tracks.size(); ++i)
     {
       clipsModel->setHorizontalHeaderItem(i,new QStandardItem(_local->LiveSet->Tracks.at(i)->Name->EffectiveName));
+      QSharedPointer<ableton::AlsMidiTrack> mt;
+      if ((mt = _local->LiveSet->Tracks.at(i).dynamicCast<ableton::AlsMidiTrack>()) != nullptr) {
+        for (int j = 0; j < mt->DeviceChain->MainSequencer->ClipSlotList.size(); ++j) {
+          QSharedPointer<ableton::AlsClipSlotValue> csv = mt->DeviceChain->MainSequencer->ClipSlotList.at(j)->InnerClipSlot->Value;
+          if (csv != nullptr && csv->MidiClip != nullptr)
+          {
+            QStandardItem *clipItem = new QStandardItem(csv->MidiClip->Name);
+            clipsModel->setItem(j,i,clipItem);
+
+          }
+        }
+      }
     }
 
     ui->tableView->setModel(clipsModel);

@@ -3346,7 +3346,6 @@ QTabBar::tab {
 background: rgb(90,90,90);
 padding: 6px;
 margin: 4px;
-top: 5px;
 border-radius: 7px;
 }
 QTabBar::tab:selected, QTabBar::tab:hover {
