@@ -6,6 +6,8 @@ MeltUI::MeltUI(QWidget *parent) :
   ui(new Ui::MeltUI)
 {
   ui->setupUi(this);
+
+
 }
 
 MeltUI::~MeltUI()
