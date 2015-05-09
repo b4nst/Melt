@@ -37,7 +37,8 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsfactory.cpp \
     src/ableton/alsgrouptrack.cpp \
     src/ui/meltui.cpp \
-    src/ableton/alsmasterchain.cpp
+    src/ableton/alsmasterchain.cpp \
+    src/ableton/alsmainsequencer.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -66,7 +67,8 @@ HEADERS  += \
     src/test/melttestcore.h \
     common.h \  
     src/ui/meltui.h \
-    src/ableton/alsmasterchain.h
+    src/ableton/alsmasterchain.h \
+    src/ableton/alsmainsequencer.h
 
 DISTFILES +=
 

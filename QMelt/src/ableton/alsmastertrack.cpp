@@ -2,10 +2,6 @@
 #include "src/ableton/alsmastertrack.h"
 #include "src/ableton/alsmasterchain.h"
 
-// IO
-#include "src/io/alsfilestreambase.h"
-
-
 M_NAMESPACE_ABLETON_BEGIN
 
 
@@ -28,7 +24,7 @@ void AlsMasterTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_
   ++r_indentLvl_;
   AlsTrack::write(p_fos_, r_indentLvl_);
   MasterChain->write(p_fos_,r_indentLvl_);
-  p_fos_->write(this->_garbage);
+  writeGarbage(p_fos_);
   --r_indentLvl_;
   writeEndTag(p_fos_, _tagName, r_indentLvl_);
 }

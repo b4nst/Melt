@@ -27,6 +27,7 @@ void AlsName::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentL
   writeInlineTag(p_fos_,"EffectiveName", {{"Value",EffectiveName}}, r_indentLvl_);
   writeInlineTag(p_fos_,"UserName", {{"Value",UserName}}, r_indentLvl_);
   writeInlineTag(p_fos_,"Annotation", {{"Value",Annotation}}, r_indentLvl_);
+  writeGarbage(p_fos_);
   --r_indentLvl_;
   writeEndTag(p_fos_, _tagName,r_indentLvl_);
 }

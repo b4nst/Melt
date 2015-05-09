@@ -6,10 +6,6 @@
 #include "src/ableton/alsreturntrack.h"
 #include "src/ableton/alsgrouptrack.h"
 
-// IO
-#include "src/io/alsfilestreambase.h"
-
-
 M_NAMESPACE_ABLETON_BEGIN
 
 AlsLiveSet::AlsLiveSet(QObject *parent)
@@ -51,7 +47,7 @@ void AlsLiveSet::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
   --r_indentLvl_;
   writeEndTag(p_fos_,"Tracks",r_indentLvl_);
   MasterTrack->write(p_fos_,r_indentLvl_);
-  p_fos_->write(_garbage);
+  writeGarbage(p_fos_);
   --r_indentLvl_;
   writeEndTag(p_fos_, _tagName, r_indentLvl_);
 }

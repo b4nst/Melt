@@ -77,6 +77,11 @@ namespace parser {
     p_fos_->write("\n");
   }
 
+  void XMLObject::writeGarbage(QSharedPointer<io::AlsFileStreamBase> p_fos_)
+  {
+    p_fos_->write(_garbage);
+  }
+
   bool XMLObject::canCreateVar(const QString &r_varName_)
   {
     return (this->_classManipulator.contains(r_varName_));

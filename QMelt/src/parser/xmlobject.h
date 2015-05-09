@@ -88,6 +88,8 @@ public:
 
   void writeNewLine(QSharedPointer<io::AlsFileStreamBase> p_fos_);
 
+  void writeGarbage(QSharedPointer<io::AlsFileStreamBase> p_fos_);
+
   /*!
    * \brief canCreateVar
    * Determines whether this instance can create the specified variable varName_.
