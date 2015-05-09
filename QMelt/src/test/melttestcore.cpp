@@ -18,6 +18,7 @@
 #define M_PATH_ALS_KENYA QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_01.xml")
 #define M_PATH_ALS_KENYA_OUTPUT QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_01_output.xml")
 #define M_PATH_ALS_ELATION QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_02.xml")
+#define M_PATH_ALS_EMPTY QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_03.xml")
 
 
 M_NAMESPACE_TEST_BEGIN

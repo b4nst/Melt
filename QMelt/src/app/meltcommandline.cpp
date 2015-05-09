@@ -4,6 +4,7 @@
 // QT
 #include <QCommandLineParser>
 #include <QStringList>
+#include <QDebug>
 
 
 M_NAMESPACE_APP_BEGIN
@@ -12,7 +13,7 @@ M_NAMESPACE_APP_BEGIN
 QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& app)
 {
   QSharedPointer<MeltCommandLine> arguments (new MeltCommandLine());
-
+  
   QCommandLineParser parser;
   QCommandLineOption diffOption ("d", "Diff mode");
   QCommandLineOption mergeOption ("m", "Merge mode");
@@ -21,6 +22,7 @@ QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& ap
   QCommandLineOption remotePathOption (QStringList() << "remote" << "remote-path", "Path to the remote <file>.", "file");
   QCommandLineOption mergePathOption (QStringList() << "merge" << "merge-path", "Path to the merge <file>.", "file");
 
+
   parser.addOption(diffOption);
   parser.addOption(mergeOption);
   parser.addOption(basePathOption);
@@ -28,7 +30,9 @@ QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& ap
   parser.addOption(remotePathOption);
   parser.addOption(mergePathOption);
 
+
   parser.process(app);
+
 
   arguments->isOk = parser.isSet(mergeOption) ^ parser.isSet(diffOption);
   arguments->isMerging = parser.isSet(mergeOption);
