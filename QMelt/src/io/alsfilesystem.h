@@ -41,7 +41,8 @@ public:
    * \param alsAbleton_ The input object, mustn't be null
    * \return true if the file is saved properly
    */
-  static bool save(const QString &filePath_);
+  static bool save(const QString &filePath_,
+                   const QSharedPointer<ableton::AlsAbleton> &r_ableton_);
 
 
 private:
