@@ -22,7 +22,7 @@ public:
     double computeSimilarity(QSharedPointer<QObject>& first_,
                              QSharedPointer<QObject>& second_);
 
-    QSharedPointer<QString> toString(QSharedPointer<QObject>& object_);
+    QSharedPointer<QString> toString(QObject* object_);
 signals:
 
 public slots:

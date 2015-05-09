@@ -7,12 +7,10 @@ DepthFirstTraversal::DepthFirstTraversal(QObject *parent) : QObject(parent)
 
 }
 
-QVector<QSharedPointer<QObject>> DepthFirstTraversal::traverse(QSharedPointer<QObject>& rootObject_) {
-    QVector<QSharedPointer<QObject>> result = QVector<QSharedPointer<QObject>>();
+QVector<QObject*> DepthFirstTraversal::traverse(QObject* rootObject_) {
+    QVector<QObject*> result = QVector<QObject*>();
     result.append(rootObject_);
-    QObjectList children = rootObject_->children();
-    for (int i = 0; i < children.size(); i++) {
-       QSharedPointer<QObject> child (children[i]);
+    for (auto child : rootObject_->children()) {
        result += traverse(child);
     }
     return result;

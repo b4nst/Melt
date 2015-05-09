@@ -32,12 +32,12 @@ double MatchEngine::computeSimilarity(QSharedPointer<QObject>& first_,
     }
 
     StringComparator sc;
-    QSharedPointer<QString> firstString = toString(first_);
-    QSharedPointer<QString> secondString = toString(second_);
+    QSharedPointer<QString> firstString = toString(first_.data());
+    QSharedPointer<QString> secondString = toString(second_.data());
     return sc.computeSimilarity(firstString, secondString);
 }
 
-QSharedPointer<QString> MatchEngine::toString(QSharedPointer<QObject>& object_) {
+QSharedPointer<QString> MatchEngine::toString(QObject* object_) {
     const QMetaObject* metaObject = object_->metaObject();
     int propertyCount = object_->metaObject()->propertyCount();
     QStringList stringList = QStringList();

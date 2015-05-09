@@ -1,5 +1,6 @@
 // ABLETON
 #include "src/ableton/alsableton.h"
+#include "src/ableton/alsliveset.h"
 
 // IO
 #include "src/io/alsfilesystem.h"
@@ -64,11 +65,12 @@ void MeltTestCore::testDepthFirstTraversal() {
   QSharedPointer<ableton::AlsAbleton> ableton_;
   io::AlsFilesystem::load(filePath, ableton_);
   diff::DepthFirstTraversal dft;
-  QSharedPointer<QObject> qObjectPointer (ableton_);
-  QVector<QSharedPointer<QObject>> objects = dft.traverse(qObjectPointer);
+  QSharedPointer<QObject> qObjectPointer (ableton_->LiveSet.staticCast<QObject>());
+  QVector<QObject*> objects (dft.traverse(qObjectPointer.data()));
+  diff::MatchEngine me;
   for (auto something : objects)
   {
-      qDebug() << something;
+      qDebug() << *me.toString(something);
   }
 }
 
@@ -76,10 +78,10 @@ void MeltTestCore::testQObjectToString() {
   QString filePath(M_PATH_ALS_EMPTY);
   QSharedPointer<ableton::AlsAbleton> ableton_;
   io::AlsFilesystem::load(filePath, ableton_);
-  QSharedPointer<QObject> qObjectPointer (ableton_);
+  QSharedPointer<QObject> qObjectPointer (ableton_->LiveSet->Tracks[0].staticCast<QObject>());
 
   diff::MatchEngine me;
-  QSharedPointer<QString> result = me.toString(qObjectPointer);
+  QSharedPointer<QString> result = me.toString(qObjectPointer.data());
   qDebug() << *result.data();
 }
 

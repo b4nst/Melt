@@ -14,7 +14,7 @@ class DepthFirstTraversal : public QObject
     Q_OBJECT
 public:
     explicit DepthFirstTraversal(QObject *parent = 0);
-    QVector<QSharedPointer<QObject>> traverse(QSharedPointer<QObject>& rootObject);
+    QVector<QObject*> traverse(QObject* rootObject);
 signals:
 
 public slots:
