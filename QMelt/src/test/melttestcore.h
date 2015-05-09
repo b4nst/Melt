@@ -16,6 +16,8 @@ public:
 
   static void testParser();
 
+  static void testStringComparator();
+
 protected:
   explicit MeltTestCore(QObject *parent = 0) {}
 };
