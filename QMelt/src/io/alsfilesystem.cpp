@@ -13,6 +13,7 @@
 
 // ABLETON
 #include "src/ableton/alsfactory.h"
+#include "src/ableton/alsableton.h"
 
 
 M_NAMESPACE_IO_BEGIN
@@ -52,7 +53,7 @@ bool AlsFilesystem::load(const QString &filePath_,
 }
 
 
-bool AlsFilesystem::save(const QString &filePath_)
+bool AlsFilesystem::save(const QString &filePath_, const QSharedPointer<ableton::AlsAbleton> &r_ableton_)
 {
   const QFileInfo fileInfo (filePath_);
   if (fileInfo.completeSuffix() != "xml" || fileInfo.exists())
@@ -69,6 +70,8 @@ bool AlsFilesystem::save(const QString &filePath_)
   auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsTextStream(file));
 
   // PARSE
+  int lvl = 0;
+  r_ableton_->write(stream,lvl);
 
   file.close();
   return true;
