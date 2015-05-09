@@ -56,7 +56,7 @@ bool AlsFilesystem::load(const QString &filePath_,
 bool AlsFilesystem::save(const QString &filePath_, const QSharedPointer<ableton::AlsAbleton> &r_ableton_)
 {
   const QFileInfo fileInfo (filePath_);
-  if (fileInfo.completeSuffix() != "xml" || fileInfo.exists())
+  if (fileInfo.completeSuffix() != "xml")
   {
     return false;
   }
