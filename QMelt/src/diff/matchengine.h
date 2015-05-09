@@ -18,6 +18,11 @@ public:
     QSharedPointer<MatchResult> match(QVector<QSharedPointer<QObject>>& originObjects_,
                                       QVector<QSharedPointer<QObject>>& leftObjects_,
                                       QVector<QSharedPointer<QObject>>& rightObjects_);
+
+    double computeSimilarity(QSharedPointer<QObject>& first_,
+                             QSharedPointer<QObject>& second_);
+
+    QSharedPointer<QString> toString(QSharedPointer<QObject>& object_);
 signals:
 
 public slots:
