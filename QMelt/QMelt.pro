@@ -16,7 +16,6 @@ CONFIG += c++11
 SOURCES += src/app/main.cpp\
            src/app/meltapplication.cpp \
            src/app/meltcommandline.cpp \
-           src/ui/mainwindow.cpp \
            src/io/alsfilesystem.cpp \
            src/io/alstextstream.cpp \           
     src/ableton/alsliveset.cpp \
@@ -44,7 +43,6 @@ HEADERS  += \
            src/app/meltcommandline.h \
             src/io/alsfilestreambase.h \
             src/io/alstextstream.h \
-            src/ui/mainwindow.h \
     src/ableton/alsliveset.h \
     src/ableton/alsaudiotrack.h \
     src/ableton/alsmiditrack.h \
@@ -52,16 +50,20 @@ HEADERS  += \
     src/ableton/alsableton.h \
     src/ableton/alstrack.h \
     src/ableton/alsname.h \
-    src/ableton/alsdevicechain.h \
-    src/parser/xmlobject.h \
+    src/ableton/alsdevicechain.h \    
+    src/ableton/alsfactory.h \
     src/ableton/alstrackdelay.h \
     src/ableton/alsmastertrack.h \
     src/ableton/alsreturntrack.h \
+    src/ableton/alsgrouptrack.h \
+    src/parser/xmlobject.h \
     src/parser/xmlcontext.h \
     src/parser/xmlcontenthandler.h \
     src/parser/corexmlparser.h \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
-    src/ableton/alsfactory.h \
-    common.h \
-    src/ableton/alsgrouptrack.h
+    common.h 
+
+DISTFILES += \
+    src/ui/Melt_ui.ui.qml \
+    src/ui/Melt_ui.qml
