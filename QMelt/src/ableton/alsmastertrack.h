@@ -10,6 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsMasterTrack : public AlsTrack
 {
+  Q_OBJECT
 public:
   AlsMasterTrack(QObject *parent);
   ~AlsMasterTrack();

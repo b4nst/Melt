@@ -9,6 +9,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsGroupTrack : public AlsTrack
 {
+  Q_OBJECT
 public:
   AlsGroupTrack(QObject *parent);
   ~AlsGroupTrack();
@@ -24,13 +25,14 @@ public:
   void setId(const QString &r_value_);
 
 
-  void idChanged() {}
-
-
-  Q_PROPERTY(int id MEMBER Id NOTIFY idChanged)
-
-
   int Id;
+
+
+  Q_PROPERTY(int Id MEMBER Id NOTIFY idChanged)
+
+
+signals:
+  void idChanged();
 };
 
 

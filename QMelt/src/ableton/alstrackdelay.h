@@ -9,6 +9,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsTrackDelay : public AbletonObject
 {
+  Q_OBJECT
 public:
   AlsTrackDelay(QObject *parent);
   ~AlsTrackDelay();
@@ -30,18 +31,18 @@ public:
    * \param value_
    */
   void setIsValueSampleBased(const QString &r_value_);
-
-
-  void valueChanged() {}
-  void isValueSampleBasedChanged() {}
-
-
-  Q_PROPERTY(int value MEMBER Value NOTIFY valueChanged)
-  Q_PROPERTY(bool isValueSampleBased MEMBER IsValueSampleBase NOTIFY isValueSampleBasedChanged())
-
-
+  
+  
   int Value;
   bool IsValueSampleBased;
+
+
+  Q_PROPERTY(int Value MEMBER Value NOTIFY valueChanged)
+  Q_PROPERTY(bool IsValueSampleBased MEMBER IsValueSampleBased NOTIFY isValueSampleBasedChanged)
+
+signals:
+  void valueChanged();
+  void isValueSampleBasedChanged();
 };
 
 

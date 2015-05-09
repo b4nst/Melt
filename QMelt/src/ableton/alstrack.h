@@ -13,6 +13,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsTrack : public AbletonObject
 {
+  Q_OBJECT
 public:
   AlsTrack(QObject *parent);
   ~AlsTrack();
@@ -70,24 +71,6 @@ public:
   QSharedPointer<QObject> createTrackDelay();
 
 
-  void lomIdChanged() {}
-  void lomIdViewChanged() {}
-  void envelopeModePreferredChanged() {}
-  void colorIndexChanged() {}
-  void trackGroupIdChanged() {}
-  void nameChanged() {}
-  void trackDelayChanged() {}
-
-
-  Q_PROPERTY(int lomId MEMBER LomId NOTIFY lomIdChanged)
-  Q_PROPERTY(int lomIdView MEMBER LomIdView NOTIFY lomIdViewChanged)
-  Q_PROPERTY(bool envelopeModePreferred MEMBER EnvelopeModePreferred NOTIFY envelopeModePreferredChanged)
-  Q_PROPERTY(int colorIndex MEMBER ColorIndex NOTIFY colorIndexChanged)
-  Q_PROPERTY(int trackGroupId MEMBER TrackGroupId NOTIFY trackGroupIdChanged)
-  Q_PROPERTY(QSharedPointer<AlsName> name MEMBER Name NOTIFY nameChanged)
-  Q_PROPERTY(QSharedPointer<AlsTrackDelay> trackDelay MEMBER TrackDelay NOTIFY trackDelayChanged)
-
-
   int LomId;
   int LomIdView;
   bool EnvelopeModePreferred;
@@ -96,6 +79,24 @@ public:
   QSharedPointer<AlsName> Name;
   QSharedPointer<AlsTrackDelay> TrackDelay;
 
+
+  Q_PROPERTY(int LomId MEMBER LomId NOTIFY lomIdChanged)
+  Q_PROPERTY(int LomIdView MEMBER LomIdView NOTIFY lomIdViewChanged)
+  Q_PROPERTY(bool EnvelopeModePreferred MEMBER EnvelopeModePreferred NOTIFY envelopeModePreferredChanged)
+  Q_PROPERTY(int ColorIndex MEMBER ColorIndex NOTIFY colorIndexChanged)
+  Q_PROPERTY(int TrackGroupId MEMBER TrackGroupId NOTIFY trackGroupIdChanged)
+  Q_PROPERTY(QSharedPointer<AlsName> Name MEMBER Name NOTIFY nameChanged)
+  Q_PROPERTY(QSharedPointer<AlsTrackDelay> TrackDelay MEMBER TrackDelay NOTIFY trackDelayChanged)
+
+
+signals:
+  void lomIdChanged();
+  void lomIdViewChanged();
+  void envelopeModePreferredChanged();
+  void colorIndexChanged();
+  void trackGroupIdChanged();
+  void nameChanged();
+  void trackDelayChanged();
 };
 
 

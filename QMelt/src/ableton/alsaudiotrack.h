@@ -10,6 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsAudioTrack : public AlsTrack
 {
+  Q_OBJECT
 public:
   AlsAudioTrack(QObject *parent);
   ~AlsAudioTrack();
@@ -31,14 +32,14 @@ public:
   QSharedPointer<QObject> createDeviceChain();
 
 
-  void idChanged() {}
-
-
-  Q_PROPERTY(int id MEMBER Id NOTIFY idChanged)
-
-
   int Id;
   QSharedPointer<AlsDeviceChain> DeviceChain;
+
+
+  Q_PROPERTY(int Id MEMBER Id NOTIFY idChanged)
+
+signals:
+  void idChanged();
 };
 
 

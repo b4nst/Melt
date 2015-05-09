@@ -9,8 +9,9 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsMasterChain : public AbletonObject
 {
+  Q_OBJECT
 public:
-  AlsMasterChain(QObject *parent);
+  explicit AlsMasterChain(QObject *parent);
   ~AlsMasterChain();
 
 

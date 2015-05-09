@@ -9,6 +9,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsDeviceChain : public AbletonObject
 {
+  Q_OBJECT
 public:
   AlsDeviceChain(QObject *parent);
   ~AlsDeviceChain();

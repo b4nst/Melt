@@ -13,6 +13,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsFactory : public parser::XMLObject
 {
+  Q_OBJECT
 public:
   AlsFactory(QObject *parent = 0);
   ~AlsFactory();

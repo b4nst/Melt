@@ -9,6 +9,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsName:public AbletonObject
 {
+  Q_OBJECT
 public:
   AlsName(QObject *parent);
   ~AlsName();
@@ -38,19 +39,20 @@ public:
   void setAnnotation(const QString &r_value_);
 
 
-  void effectiveNameChanged() {}
-  void userNameChanged() {}
-  void annotationChanged() {}
-
-
-  Q_PROPERTY(QString effectiveName MEMBER EffectiveName NOTIFY effectiveNameChanged)
-  Q_PROPERTY(QString effectiveName MEMBER UserName NOTIFY userNameChanged)
-  Q_PROPERTY(QString effectiveName MEMBER Annotation NOTIFY annotationChanged)
-
-
   QString EffectiveName;
   QString UserName;
   QString Annotation;
+
+
+  Q_PROPERTY(QString EffectiveName MEMBER EffectiveName NOTIFY effectiveNameChanged)
+  Q_PROPERTY(QString UserName MEMBER UserName NOTIFY userNameChanged)
+  Q_PROPERTY(QString Annotation MEMBER Annotation NOTIFY annotationChanged)
+
+
+signals:
+  void effectiveNameChanged();
+  void userNameChanged();
+  void annotationChanged();
 };
 
 

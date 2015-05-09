@@ -13,4 +13,9 @@ AlsClipSlot::~AlsClipSlot()
 
 }
 
+void AlsClipSlot::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
+{
+
+}
+
 M_NAMESPACE_ABLETON_END

@@ -12,6 +12,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsAbleton : public AbletonObject
 {
+  Q_OBJECT
 public:
   AlsAbleton(QObject *parent);
   ~AlsAbleton();
@@ -29,25 +30,26 @@ public:
   virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
 
-  void liveSetChanged() {}
-  void majorVersionChanged() {}
-  void minorVersionChanged() {}
-  void schemaChangeCountChanged() {}
-  void creatorChanged() {}
-
-
-  Q_PROPERTY(QSharedPointer<ableton::AlsLiveSet> liveSet MEMBER LiveSet NOTIFY liveSetChanged)
-  Q_PROPERTY(QString majorVersion MEMBER MajorVersion NOTIFY majorVersionChanged)
-  Q_PROPERTY(QString minorVersion MEMBER MinorVersion NOTIFY minorVersionChanged)
-  Q_PROPERTY(int schemaChangedCount MEMBER SchemaChangeCount NOTIFY schemaChangeCountChanged)
-  Q_PROPERTY(QString creator MEMBER Creator NOTIFY creatorChanged)
-
-
   QSharedPointer<ableton::AlsLiveSet> LiveSet;
   QString MajorVersion;
   QString MinorVersion;
   int SchemaChangeCount;
   QString Creator;
+
+
+  Q_PROPERTY(QSharedPointer<ableton::AlsLiveSet> LiveSet MEMBER LiveSet NOTIFY liveSetChanged)
+  Q_PROPERTY(QString MajorVersion MEMBER MajorVersion NOTIFY majorVersionChanged)
+  Q_PROPERTY(QString MinorVersion MEMBER MinorVersion NOTIFY minorVersionChanged)
+  Q_PROPERTY(int SchemaChangedCount MEMBER SchemaChangeCount NOTIFY schemaChangeCountChanged)
+  Q_PROPERTY(QString Creator MEMBER Creator NOTIFY creatorChanged)
+
+
+signals:
+  void liveSetChanged();
+  void majorVersionChanged();
+  void minorVersionChanged();
+  void schemaChangeCountChanged();
+  void creatorChanged();
 };
 
 

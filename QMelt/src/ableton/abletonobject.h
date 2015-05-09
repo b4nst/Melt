@@ -13,6 +13,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AbletonObject : public parser::XMLObject
 {
+  Q_OBJECT
 public:
   virtual ~AbletonObject() {}
 
@@ -21,7 +22,7 @@ public:
 
 
   protected:
-    AbletonObject(QObject *parent) : XMLObject(parent) {}
+    explicit AbletonObject(QObject *parent) : XMLObject(parent) {}
 
 };
 

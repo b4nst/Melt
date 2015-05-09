@@ -10,6 +10,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 class AlsMidiTrack : public AlsTrack
 {
+  Q_OBJECT
 public:
   AlsMidiTrack(QObject *parent);
   ~AlsMidiTrack();
@@ -31,14 +32,15 @@ public:
   QSharedPointer<QObject> createDeviceChain();
 
 
-  void idChanged() {}
-
-
-  Q_PROPERTY(int id MEMBER Id NOTIFY idChanged)
-
   int Id;  
   QSharedPointer<AlsDeviceChain> DeviceChain;
 
+
+  Q_PROPERTY(int Id MEMBER Id NOTIFY idChanged)
+
+
+signals:
+  void idChanged();
 };
 
 
