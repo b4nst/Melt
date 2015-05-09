@@ -78,8 +78,7 @@ QSharedPointer<QObject> AlsTrack::createTrackDelay()
 
 AlsTrack::~AlsTrack()
 {
-  TrackDelay.clear();
-  Name.clear();
+
 }
 
 

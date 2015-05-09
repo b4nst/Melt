@@ -27,7 +27,7 @@ void AlsFactory::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
 
 AlsFactory::~AlsFactory()
 {
-  Ableton.clear();
+
 }
 
 

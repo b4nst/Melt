@@ -69,7 +69,7 @@ void AlsAbleton::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
 
 AlsAbleton::~AlsAbleton()
 {
-  LiveSet.clear();
+
 }
 
 

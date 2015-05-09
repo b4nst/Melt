@@ -46,7 +46,7 @@ void AlsReturnTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_
 
 AlsReturnTrack::~AlsReturnTrack()
 {
-  DeviceChain.clear();
+
 }
 
 

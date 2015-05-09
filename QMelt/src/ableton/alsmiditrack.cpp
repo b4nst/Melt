@@ -44,7 +44,7 @@ QSharedPointer<QObject> AlsMidiTrack::createDeviceChain()
 
 AlsMidiTrack::~AlsMidiTrack()
 {
-  DeviceChain.clear();
+
 }
 
 

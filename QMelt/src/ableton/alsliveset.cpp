@@ -110,7 +110,7 @@ QSharedPointer<QObject> AlsLiveSet::createTracks()
 
 AlsLiveSet::~AlsLiveSet()
 {
-  MasterTrack.clear();
+
 }
 
 

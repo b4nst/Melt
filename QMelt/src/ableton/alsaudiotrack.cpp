@@ -44,8 +44,8 @@ void AlsAudioTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_i
 }
 
 AlsAudioTrack::~AlsAudioTrack()
-{  
-  DeviceChain.clear();
+{
+
 }
 
 
