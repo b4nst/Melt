@@ -33,10 +33,10 @@ public:
   QSharedPointer<const MeltCommandLine> Arguments;
 
 
-  QSharedPointer<ableton::AlsAbleton> getBase();
-  QSharedPointer<ableton::AlsAbleton> getLocal();
-  QSharedPointer<ableton::AlsAbleton> getRemote();
-  QSharedPointer<ableton::AlsAbleton> getMerge();
+  QSharedPointer<ableton::AlsAbleton>& getBase() { return _baseAbleton; }
+  QSharedPointer<ableton::AlsAbleton>& getLocal() { return _localAbleton; }
+  QSharedPointer<ableton::AlsAbleton>& getRemote() { return _remoteAbleton; }
+  QSharedPointer<ableton::AlsAbleton>& getMerge() { return _mergeAbleton; }
 
 private:
   QSharedPointer<ableton::AlsAbleton> _baseAbleton;
