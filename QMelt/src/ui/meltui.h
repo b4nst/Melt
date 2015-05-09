@@ -22,4 +22,8 @@ public:
 private:
   Ui::MeltUI *ui;
   app::MeltApplication& _app;
+  QSharedPointer<ableton::AlsAbleton> _remote;
+  QSharedPointer<ableton::AlsAbleton> _local;
+  QSharedPointer<ableton::AlsAbleton> _base;
+  QSharedPointer<ableton::AlsAbleton> _merge;
 };
