@@ -9,6 +9,7 @@
 
 // DIFF
 #include "src/diff/stringcomparator.h"
+#include "src/diff/depthfirsttraversal.h"
 
 // QT
 #include <QSharedPointer>
@@ -57,5 +58,17 @@ void MeltTestCore::testStringComparator()
   qDebug() << similarity;
 }
 
+void MeltTestCore::testDepthFirstTraversal() {
+  QString filePath(M_PATH_ALS_EMPTY);
+  QSharedPointer<ableton::AlsAbleton> ableton_;
+  io::AlsFilesystem::load(filePath, ableton_);
+  diff::DepthFirstTraversal dft;
+  QSharedPointer<QObject> qObjectPointer (ableton_);
+  QVector<QSharedPointer<QObject>> objects = dft.traverse(qObjectPointer);
+  for (auto something : objects)
+  {
+      qDebug() << something;
+  }
+}
 
 M_NAMESPACE_TEST_END

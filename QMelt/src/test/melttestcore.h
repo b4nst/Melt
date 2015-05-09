@@ -18,6 +18,8 @@ public:
 
   static void testStringComparator();
 
+  static void testDepthFirstTraversal();
+
 protected:
   explicit MeltTestCore(QObject *parent = 0) {}
 };
