@@ -65,8 +65,8 @@ void MeltTestCore::testDepthFirstTraversal() {
   QSharedPointer<ableton::AlsAbleton> ableton_;
   io::AlsFilesystem::load(filePath, ableton_);
   diff::DepthFirstTraversal dft;
-  QSharedPointer<QObject> qObjectPointer (ableton_->LiveSet.staticCast<QObject>());
-  QVector<QObject*> objects (dft.traverse(qObjectPointer.data()));
+  QObject* qObjectPointer = ableton_->LiveSet.data();
+  QVector<QObject*> objects (dft.traverse(qObjectPointer));
   diff::MatchEngine me;
   for (auto something : objects)
   {
@@ -78,11 +78,29 @@ void MeltTestCore::testQObjectToString() {
   QString filePath(M_PATH_ALS_EMPTY);
   QSharedPointer<ableton::AlsAbleton> ableton_;
   io::AlsFilesystem::load(filePath, ableton_);
-  QSharedPointer<QObject> qObjectPointer (ableton_->LiveSet->Tracks[0].staticCast<QObject>());
+  QObject* qObjectPointer = ableton_->LiveSet->Tracks[0].data();
 
   diff::MatchEngine me;
-  QSharedPointer<QString> result = me.toString(qObjectPointer.data());
+  QSharedPointer<QString> result = me.toString(qObjectPointer);
   qDebug() << *result.data();
+}
+
+void MeltTestCore::testMatch() {
+    QString leftFilePath(M_PATH_ALS_EMPTY);
+    QSharedPointer<ableton::AlsAbleton> leftAbleton_;
+    io::AlsFilesystem::load(leftFilePath, leftAbleton_);
+    QObject* leftQObjectPointer = leftAbleton_->LiveSet.data();
+    QString rightFilePath(M_PATH_ALS_EMPTY2);
+    QSharedPointer<ableton::AlsAbleton> rightAbleton_;
+    io::AlsFilesystem::load(rightFilePath, rightAbleton_);
+    QObject* rightQObjectPointer = rightAbleton_->LiveSet.data();
+
+    diff::MatchEngine me;
+    diff::DepthFirstTraversal dft;
+    QVector<QObject*> leftVector (dft.traverse(leftQObjectPointer));
+    QVector<QObject*> rightVector (dft.traverse(rightQObjectPointer));
+
+    me.match(leftVector, rightVector);
 }
 
 M_NAMESPACE_TEST_END

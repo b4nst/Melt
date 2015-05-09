@@ -22,6 +22,8 @@ public:
 
   static void testQObjectToString();
 
+  static void testMatch();
+
 protected:
   explicit MeltTestCore(QObject *parent = 0) {}
 };

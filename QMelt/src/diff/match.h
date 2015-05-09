@@ -16,15 +16,15 @@ public:
     explicit Match(QObject *parent = 0);
 
     double similarity;
-    QSharedPointer<QObject> origin;
-    QSharedPointer<QObject> left;
-    QSharedPointer<QObject> right;
+    QObject* origin;
+    QObject* left;
+    QObject* right;
 
     ~Match();
-    Match(QSharedPointer<QObject> origin,
-                QSharedPointer<QObject> left,
-                QSharedPointer<QObject> right,
-                double similarity, QObject *parent = 0);
+//    Match(QSharedPointer<QObject> origin,
+//                QSharedPointer<QObject> left,
+//                QSharedPointer<QObject> right,
+//                double similarity, QObject *parent = 0);
 
 signals:
 
