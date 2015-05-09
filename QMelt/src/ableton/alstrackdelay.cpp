@@ -20,7 +20,12 @@ AlsTrackDelay::AlsTrackDelay()
 
 void AlsTrackDelay::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
 {
-  //TODO implement method write
+  writeStartTag(p_fos_, _tagName, QHash<QString, QString>(),r_indentLvl_);
+  ++r_indentLvl_;
+  writeInlineTag(p_fos_,"Value", {{"Value",QString::number(Value)}}, r_indentLvl_);
+  writeInlineTag(p_fos_,"IsValueSampleBased", {{"Value",IsValueSampleBased ? "true" : "false"}}, r_indentLvl_);
+  --r_indentLvl_;
+  writeEndTag(p_fos_,_tagName, r_indentLvl_);
 }
 
 void AlsTrackDelay::setValue(const QString &r_value_)

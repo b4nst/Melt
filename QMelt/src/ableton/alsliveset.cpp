@@ -6,6 +6,9 @@
 #include "src/ableton/alsreturntrack.h"
 #include "src/ableton/alsgrouptrack.h"
 
+// IO
+#include "src/io/alsfilestreambase.h"
+
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -34,7 +37,22 @@ AlsLiveSet::AlsLiveSet()
 
 void AlsLiveSet::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
 {
-  //TODO implement method write
+  writeStartTag(p_fos_, _tagName, QHash<QString, QString>(), r_indentLvl_);
+  ++r_indentLvl_;
+  writeInlineTag(p_fos_,"LomId",{{"Value",QString::number(LomId)}},r_indentLvl_);
+  writeInlineTag(p_fos_,"LomIdView",{{"Value",QString::number(LomIdView)}},r_indentLvl_);
+  writeInlineTag(p_fos_,"Overdub",{{"Value",QString::number(Overdub)}},r_indentLvl_);
+  writeStartTag(p_fos_, "Tracks", QHash<QString, QString>(), r_indentLvl_);
+  ++r_indentLvl_;
+  foreach (auto trck, Tracks) {
+    trck->write(p_fos_, r_indentLvl_);
+  }
+  --r_indentLvl_;
+  writeEndTag(p_fos_,"Tracks",r_indentLvl_);
+  MasterTrack->write(p_fos_,r_indentLvl_);
+  p_fos_->write(_garbage);
+  --r_indentLvl_;
+  writeEndTag(p_fos_, _tagName, r_indentLvl_);
 }
 
 void AlsLiveSet::setLomId(const QString& value_)

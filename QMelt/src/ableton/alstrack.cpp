@@ -4,6 +4,8 @@
 #include "src/ableton/alsdevicechain.h"
 #include "src/ableton/alstrackdelay.h"
 
+// IO
+#include "src/io/alsfilestreambase.h"
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -31,8 +33,15 @@ AlsTrack::AlsTrack()
 }
 
 void AlsTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
-{
-  //TODO implement method write
+{  
+  writeInlineTag(p_fos_,"LomId", {{"Value",QString::number(LomId)}}, r_indentLvl_);
+  writeInlineTag(p_fos_,"LomIdView", {{"Value",QString::number(LomIdView)}}, r_indentLvl_);
+  writeInlineTag(p_fos_,"EnvelopeModePreferred", {{"Value",EnvelopeModePreferred ? "true" : "false"}}, r_indentLvl_);
+  writeInlineTag(p_fos_,"ColorIndex", {{"Value",QString::number(ColorIndex)}}, r_indentLvl_);
+  writeInlineTag(p_fos_,"TrackGroupId", {{"Value",QString::number(TrackGroupId)}}, r_indentLvl_);
+  Name->write(p_fos_,r_indentLvl_);
+  TrackDelay->write(p_fos_,r_indentLvl_);
+  DeviceChain->write(p_fos_,r_indentLvl_);
 }
 
 void AlsTrack::setColorIndex(const QString &r_value_)

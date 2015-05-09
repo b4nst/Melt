@@ -2,6 +2,8 @@
 #include "src/ableton/alsableton.h"
 #include "src/ableton/alsliveset.h"
 
+// IO
+#include "src/io/alsfilestreambase.h"
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -48,7 +50,20 @@ void AlsAbleton::setCreator(const QString &r_value)
 
 void AlsAbleton::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
 {
-  //TODO implements method write
+  p_fos_->write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+
+  QHash<QString, QString> attributes = {
+    {"MajorVersion", MajorVersion},
+    {"MinorVerion", MinorVersion},
+    {"SchemaChangeCount", QString::number(SchemaChangeCount)},
+    {"Creator", Creator}
+  };
+
+  writeStartTag(p_fos_,_tagName,attributes,r_indentLvl_);
+
+  LiveSet->write(p_fos_,++r_indentLvl_);
+
+  writeEndTag(p_fos_,_tagName, r_indentLvl_);
 }
 
 AlsAbleton::~AlsAbleton()
