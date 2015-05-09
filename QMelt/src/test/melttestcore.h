@@ -20,6 +20,8 @@ public:
 
   static void testDepthFirstTraversal();
 
+  static void testQObjectToString();
+
 protected:
   explicit MeltTestCore(QObject *parent = 0) {}
 };

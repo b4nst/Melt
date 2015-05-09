@@ -10,6 +10,7 @@
 // DIFF
 #include "src/diff/stringcomparator.h"
 #include "src/diff/depthfirsttraversal.h"
+#include "src/diff/matchengine.h"
 
 // QT
 #include <QSharedPointer>
@@ -69,6 +70,17 @@ void MeltTestCore::testDepthFirstTraversal() {
   {
       qDebug() << something;
   }
+}
+
+void MeltTestCore::testQObjectToString() {
+  QString filePath(M_PATH_ALS_EMPTY);
+  QSharedPointer<ableton::AlsAbleton> ableton_;
+  io::AlsFilesystem::load(filePath, ableton_);
+  QSharedPointer<QObject> qObjectPointer (ableton_);
+
+  diff::MatchEngine me;
+  QSharedPointer<QString> result = me.toString(qObjectPointer);
+  qDebug() << *result.data();
 }
 
 M_NAMESPACE_TEST_END
