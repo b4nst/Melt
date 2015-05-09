@@ -69,6 +69,7 @@ public:
 
 private:
   bool _currTagNotProcessed;
+  int _ignoredTagCounter;
 
 };
 M_NAMESPACE_PARSER_END

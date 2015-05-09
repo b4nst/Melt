@@ -7,6 +7,7 @@ namespace parser
 {
   AlsXMLContentHandler::AlsXMLContentHandler()
   : _currTagNotProcessed(false)
+  ,_ignoredTagCounter(0)
   {
   }
 
@@ -24,6 +25,10 @@ namespace parser
 
     if (_currTagNotProcessed)
     {
+      if(r_tagName_ == r_ctx_.CurrentTag())
+      {
+        ++_ignoredTagCounter;
+      }
       currentObject->appendGarbage(r_line_);
       return;
     }
@@ -51,6 +56,7 @@ namespace parser
     else
     {
       _currTagNotProcessed = true;
+      ++_ignoredTagCounter;
       currentObject->appendGarbage(r_line_);
     }
   }
@@ -124,7 +130,12 @@ namespace parser
     }
     else if(r_ctx_.CurrentTag() == r_tagName_){ //End of data not processed
       currentObject->appendGarbage(r_line_);
-      _currTagNotProcessed = false;
+      --_ignoredTagCounter;
+      if(_ignoredTagCounter <= 0)
+      {
+        _currTagNotProcessed = false;
+        _ignoredTagCounter = 0; //For safety
+      }
     }
     else
     {
