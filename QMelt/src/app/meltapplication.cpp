@@ -21,7 +21,7 @@ M_NAMESPACE_APP_BEGIN
 
 MeltApplication::MeltApplication(int argc, char* argv[])
 : QApplication(argc, argv)
-, _arguments(MeltCommandLine::parse(*this))
+, Arguments(MeltCommandLine::parse(*this))
 {
   processArguments();
 }
@@ -33,25 +33,25 @@ MeltApplication::~MeltApplication()
 
 void MeltApplication::processArguments()
 {
-  if (!_arguments->isOk)
+  if (!Arguments->isOk)
   {
     return;
   }
   
-  if (_arguments->isMerging)
+  if (Arguments->isMerging)
   {
-    io::AlsFilesystem::load(_arguments->basePath,
+    io::AlsFilesystem::load(Arguments->basePath,
                             _baseAbleton);
-    io::AlsFilesystem::load(_arguments->remotePath,
+    io::AlsFilesystem::load(Arguments->remotePath,
                             _remoteAbleton);
-    io::AlsFilesystem::load(_arguments->localPath,
+    io::AlsFilesystem::load(Arguments->localPath,
                             _localAbleton);
   }
   else
   { 
-    io::AlsFilesystem::load(_arguments->remotePath,
+    io::AlsFilesystem::load(Arguments->remotePath,
                             _remoteAbleton);
-    io::AlsFilesystem::load(_arguments->localPath,
+    io::AlsFilesystem::load(Arguments->localPath,
                             _localAbleton);
   }
 }

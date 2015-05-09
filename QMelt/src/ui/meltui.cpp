@@ -9,13 +9,6 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
   ui->setupUi(this);
   this->setWindowTitle("Melt");
 
-  if (app_.Arguments->isOk)
-  {
-
-
-  }
-  ui->tableView->setModel(clipsModel);
-
 }
 
 MeltUI::~MeltUI()
