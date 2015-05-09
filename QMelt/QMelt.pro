@@ -43,7 +43,14 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsinnerclipslot.cpp \
     src/ableton/alsclipslotvalue.cpp \
     src/ableton/alsmidiclip.cpp \
-    src/ui/clickablewidget.cpp
+    src/ui/clickablewidget.cpp \
+    src/diff/diffengine.cpp \
+    src/diff/diffnode.cpp \
+    src/diff/matchengine.cpp \
+    src/diff/match.cpp \
+    src/diff/matchresult.cpp \
+    src/diff/depthfirsttraversal.cpp \
+    src/diff/stringcomparator.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -79,7 +86,14 @@ HEADERS  += \
     src/ableton/alsclipslotvalue.h \
     src/ableton/alsmidiclip.h \
     src/utils/colormap.h \
-    src/ui/clickablewidget.h
+    src/ui/clickablewidget.h \
+    src/diff/diffengine.h \
+    src/diff/diffnode.h \
+    src/diff/matchengine.h \
+    src/diff/match.h \
+    src/diff/matchresult.h \
+    src/diff/depthfirsttraversal.h \
+    src/diff/stringcomparator.h
 
 DISTFILES +=
 
