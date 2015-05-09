@@ -36,7 +36,7 @@ SOURCES += src/app/main.cpp\
     src/test/melttestcore.cpp \
     src/ableton/alsfactory.cpp \
     src/ableton/alsgrouptrack.cpp \
-    src/ui/mainwindow.cpp
+    src/ui/meltui.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -63,10 +63,10 @@ HEADERS  += \
     src/parser/corexmlparser.h \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
-    common.h \ 
-    src/ui/mainwindow.h
+    common.h \  
+    src/ui/meltui.h
 
 DISTFILES +=
 
 FORMS += \
-    src/ui/mainwindow.ui
+    src/ui/meltui.ui
