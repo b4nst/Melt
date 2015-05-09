@@ -29,11 +29,11 @@ public:
   /*!
    * \brief Load an unzipped ALS file
    * \param filePath_ Path to the XML file
-   * \param alsAbleton_ The output object, must be null
+   * \param r_ableton_ The output object, must be null
    * \return true if the file is loaded properly
    */
   static bool load(const QString &filePath_,
-                   QSharedPointer<ableton::AlsAbleton> p_ableton_);
+                   QSharedPointer<ableton::AlsAbleton> &r_ableton_);
 
   /*!
    * \brief Save an unzipped ALS file
