@@ -35,7 +35,8 @@ SOURCES += src/app/main.cpp\
     src/parser/alsxmlcontenthandler.cpp \
     src/test/melttestcore.cpp \
     src/ableton/alsfactory.cpp \
-    src/ableton/alsgrouptrack.cpp
+    src/ableton/alsgrouptrack.cpp \
+    src/ui/mainwindow.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -62,8 +63,10 @@ HEADERS  += \
     src/parser/corexmlparser.h \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
-    common.h 
+    common.h \ 
+    src/ui/mainwindow.h
 
-DISTFILES += \
-    src/ui/Melt_ui.ui.qml \
-    src/ui/Melt_ui.qml
+DISTFILES +=
+
+FORMS += \
+    src/ui/mainwindow.ui
