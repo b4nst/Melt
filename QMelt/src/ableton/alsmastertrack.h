@@ -3,7 +3,7 @@
 // ABLETON
 #include "src/ableton/alstrack.h"
 
-M_FORWARD_ABLETON(AlsDeviceChain)
+M_FORWARD_ABLETON(AlsMasterChain)
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -24,7 +24,7 @@ public:
   QSharedPointer<QObject> createMasterChain();
 
 
-  QSharedPointer<AlsDeviceChain> MasterChain;
+  QSharedPointer<AlsMasterChain> MasterChain;
 
 private:
 };

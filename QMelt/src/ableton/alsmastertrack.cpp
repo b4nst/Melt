@@ -1,6 +1,6 @@
 // ABLETON
 #include "src/ableton/alsmastertrack.h"
-#include "src/ableton/alsdevicechain.h"
+#include "src/ableton/alsmasterchain.h"
 
 // IO
 #include "src/io/alsfilestreambase.h"
@@ -11,7 +11,7 @@ M_NAMESPACE_ABLETON_BEGIN
 
 AlsMasterTrack::AlsMasterTrack(QObject *parent)
 : AlsTrack(parent)
-, MasterChain(QSharedPointer<AlsDeviceChain>())
+, MasterChain(QSharedPointer<AlsMasterChain>())
 {
   QHash<QString, QPair<CreateVarLambda, SetVarLambda>> manipulatorConcat =  decltype(_classManipulator){
     { "MasterChain", qMakePair(static_cast<CreateVarLambda>(&AlsMasterTrack::createMasterChain), nullptr) }
@@ -40,7 +40,7 @@ AlsMasterTrack::~AlsMasterTrack()
 
 QSharedPointer<QObject> AlsMasterTrack::createMasterChain()
 {
-  MasterChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain(this));
+  MasterChain = QSharedPointer<AlsMasterChain>(new AlsMasterChain(this));
   return MasterChain.staticCast<QObject>();
 }
 

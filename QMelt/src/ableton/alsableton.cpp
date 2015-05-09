@@ -55,7 +55,7 @@ void AlsAbleton::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_inde
 
   QList<QPair<QString,QString>> attributes = {
     {"MajorVersion", MajorVersion},
-    {"MinorVerion", MinorVersion},
+    {"MinorVersion", MinorVersion},
     {"SchemaChangeCount", QString::number(SchemaChangeCount)},
     {"Creator", Creator}
   };
