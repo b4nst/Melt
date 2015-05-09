@@ -12,6 +12,6 @@ int main(int argc, char *argv[])
     test::MeltTestCore::testParser();
     MeltUI ui(a);
   
-    ui.show();
+    ui.showMaximized();
     return a.exec();
 }

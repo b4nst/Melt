@@ -14,7 +14,9 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
   ui->setupUi(this);
   this->setWindowTitle("Melt");
   this->setStyleSheet("background-color: rgb(127,127,127);");
-
+  ui->tabWidget->tabBar()->setTabTextColor(0,Qt::white);
+  ui->tabWidget->tabBar()->setTabTextColor(1,Qt::white);
+  ui->tabWidget->tabBar()->setTabTextColor(2,Qt::white);
 
   if (_app.Arguments->isOk)
   {

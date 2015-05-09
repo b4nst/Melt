@@ -78,3 +78,6 @@ DISTFILES +=
 
 FORMS += \
     src/ui/meltui.ui
+
+RESOURCES += \
+    src/ui/resources/icons.qrc
