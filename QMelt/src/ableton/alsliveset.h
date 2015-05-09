@@ -69,6 +69,12 @@ public:
   /// <returns></returns>
   QSharedPointer<QObject> createReturnTrack();
 
+  /*!
+   * \brief Create and add a GroupTrack to Tracks
+   * \return
+   */
+  QSharedPointer<QObject> createGroupTrack();
+
   /// <summary>
   /// Init _tracks and return nullptr.
   /// </summary>

@@ -35,7 +35,8 @@ SOURCES += src/app/main.cpp\
     src/parser/corexmlparser.cpp \
     src/parser/alsxmlcontenthandler.cpp \
     src/test/melttestcore.cpp \
-    src/ableton/alsfactory.cpp
+    src/ableton/alsfactory.cpp \
+    src/ableton/alsgrouptrack.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -62,4 +63,5 @@ HEADERS  += \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
     src/ableton/alsfactory.h \
-    common.h
+    common.h \
+    src/ableton/alsgrouptrack.h

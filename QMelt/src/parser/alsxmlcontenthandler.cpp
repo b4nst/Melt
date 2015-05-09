@@ -1,5 +1,7 @@
 #include "src/parser/alsxmlcontenthandler.h"
 
+#include <QDebug>
+
 
 namespace parser
 {
@@ -18,6 +20,7 @@ namespace parser
     const QHash<QString, QString> &r_attributes_,
     const QString& r_line_)
   {
+
     QSharedPointer<parser::XMLObject> currentObject = r_ctx_.Stack().last().staticCast<parser::XMLObject>();
 
     if (_currTagNotProcessed)

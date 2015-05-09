@@ -7,11 +7,11 @@
 M_NAMESPACE_ABLETON_BEGIN
 
 
-class AlsAudioTrack : public AlsTrack
+class AlsGroupTrack : public AlsTrack
 {
 public:
-  AlsAudioTrack();
-  ~AlsAudioTrack();
+  AlsGroupTrack();
+  ~AlsGroupTrack();
 
 
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);

@@ -4,6 +4,7 @@
 #include "src/ableton/alsaudiotrack.h"
 #include "src/ableton/alsmiditrack.h"
 #include "src/ableton/alsreturntrack.h"
+#include "src/ableton/alsgrouptrack.h"
 
 
 M_NAMESPACE_ABLETON_BEGIN
@@ -23,6 +24,7 @@ AlsLiveSet::AlsLiveSet()
       { "MidiTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createMidiTrack), nullptr) },
       { "AudioTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createAudioTrack), nullptr) },
       { "ReturnTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createReturnTrack), nullptr) },
+      { "GroupTrack", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createGroupTrack), nullptr) },
       { "Tracks", qMakePair(static_cast<CreateVarLambda>(&AlsLiveSet::createTracks), nullptr) }
   };
 
@@ -76,6 +78,13 @@ QSharedPointer<QObject> AlsLiveSet::createReturnTrack()
   QSharedPointer<AlsReturnTrack> rt = QSharedPointer<AlsReturnTrack>(new AlsReturnTrack());
   Tracks.push_back(rt);
   return rt.staticCast<QObject>();
+}
+
+QSharedPointer<QObject> AlsLiveSet::createGroupTrack()
+{
+  QSharedPointer<AlsGroupTrack> gt = QSharedPointer<AlsGroupTrack>(new AlsGroupTrack());
+  Tracks.push_back(gt);
+  return gt.staticCast<QObject>();
 }
 
 QSharedPointer<QObject> AlsLiveSet::createTracks()

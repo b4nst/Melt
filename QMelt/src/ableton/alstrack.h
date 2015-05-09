@@ -21,14 +21,6 @@ public:
 
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
-
-  /// <summary>
-  /// Sets the identifier.
-  /// </summary>
-  /// <param name="value">The value.</param>
-  void setId(const QString &r_value_);
-
-
   /// <summary>
   /// Sets the lom identifier.
   /// </summary>
@@ -85,8 +77,6 @@ public:
   QSharedPointer<QObject> createDeviceChain();
 #pragma endregion
 
-
-    int Id;
     int LomId;
     int LomIdView;
     bool EnvelopeModePreferred;
