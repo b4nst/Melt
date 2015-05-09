@@ -3,6 +3,7 @@
 // ABLETON
 #include "src/ableton/alstrack.h"
 
+M_FORWARD_ABLETON(AlsDeviceChain)
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -16,6 +17,14 @@ public:
 
   void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_);
 
+  /// <summary>
+  /// Creates the device chain.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createMasterChain();
+
+
+  QSharedPointer<AlsDeviceChain> MasterChain;
 
 private:
 };

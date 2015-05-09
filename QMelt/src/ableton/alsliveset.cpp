@@ -37,12 +37,12 @@ AlsLiveSet::AlsLiveSet()
 
 void AlsLiveSet::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indentLvl_)
 {
-  writeStartTag(p_fos_, _tagName, QHash<QString, QString>(), r_indentLvl_);
+  writeStartTag(p_fos_, _tagName, QList<QPair<QString,QString>>(), r_indentLvl_);
   ++r_indentLvl_;
   writeInlineTag(p_fos_,"LomId",{{"Value",QString::number(LomId)}},r_indentLvl_);
   writeInlineTag(p_fos_,"LomIdView",{{"Value",QString::number(LomIdView)}},r_indentLvl_);
-  writeInlineTag(p_fos_,"Overdub",{{"Value",QString::number(Overdub)}},r_indentLvl_);
-  writeStartTag(p_fos_, "Tracks", QHash<QString, QString>(), r_indentLvl_);
+  writeInlineTag(p_fos_,"Overdub",{{"Value",Overdub ? "true" : "false"}},r_indentLvl_);
+  writeStartTag(p_fos_, "Tracks", QList<QPair<QString,QString>>(), r_indentLvl_);
   ++r_indentLvl_;
   foreach (auto trck, Tracks) {
     trck->write(p_fos_, r_indentLvl_);

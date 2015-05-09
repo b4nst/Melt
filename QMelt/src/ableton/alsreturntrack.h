@@ -3,9 +3,9 @@
 // ABLETON
 #include "src/ableton/alstrack.h"
 
+M_FORWARD_ABLETON(AlsDeviceChain)
 
 M_NAMESPACE_ABLETON_BEGIN
-
 
 class AlsReturnTrack : public AlsTrack
 {
@@ -23,6 +23,12 @@ public:
   /// <param name="value">The value.</param>
   void setId(const QString &r_value_);
 
+  /// <summary>
+  /// Creates the device chain.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createDeviceChain();
+
 
   void idChanged() {}
 
@@ -30,7 +36,9 @@ public:
   Q_PROPERTY(QString id MEMBER Id NOTIFY idChanged)
 
 
-  int Id;
+  int Id;  
+  QSharedPointer<AlsDeviceChain> DeviceChain;
+
 };
 
 

@@ -3,6 +3,7 @@
 // ABLETON
 #include "src/ableton/alstrack.h"
 
+M_FORWARD_ABLETON(AlsDeviceChain)
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -23,6 +24,12 @@ public:
    */
   void setId(const QString &r_value_);
 
+  /// <summary>
+  /// Creates the device chain.
+  /// </summary>
+  /// <returns></returns>
+  QSharedPointer<QObject> createDeviceChain();
+
 
   void idChanged() {}
 
@@ -31,6 +38,7 @@ public:
 
 
   int Id;
+  QSharedPointer<AlsDeviceChain> DeviceChain;
 };
 
 

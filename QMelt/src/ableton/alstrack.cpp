@@ -1,7 +1,6 @@
 // ABLETON
 #include "src/ableton/alstrack.h"
 #include "src/ableton/alsname.h"
-#include "src/ableton/alsdevicechain.h"
 #include "src/ableton/alstrackdelay.h"
 
 // IO
@@ -18,7 +17,6 @@ AlsTrack::AlsTrack()
 , Name(QSharedPointer<AlsName>())
 , ColorIndex(0)
 , TrackGroupId(0)
-, DeviceChain(QSharedPointer<AlsDeviceChain>())
 {
   _classManipulator = decltype(_classManipulator){
       { "LomId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setLomId)) },
@@ -27,8 +25,7 @@ AlsTrack::AlsTrack()
       { "TrackDelay", qMakePair(static_cast<CreateVarLambda>(&AlsTrack::createTrackDelay), nullptr) },
       { "Name", qMakePair(static_cast<CreateVarLambda>(&AlsTrack::createName), nullptr) },
       { "ColorIndex", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setColorIndex)) },
-      { "TrackGroupId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setTrackGroupId)) },
-      { "DeviceChain", qMakePair(static_cast<CreateVarLambda>(&AlsTrack::createDeviceChain), nullptr) }
+      { "TrackGroupId", qMakePair(nullptr, static_cast<SetVarLambda>(&AlsTrack::setTrackGroupId)) }
   };
 }
 
@@ -41,7 +38,6 @@ void AlsTrack::write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int& r_indent
   writeInlineTag(p_fos_,"TrackGroupId", {{"Value",QString::number(TrackGroupId)}}, r_indentLvl_);
   Name->write(p_fos_,r_indentLvl_);
   TrackDelay->write(p_fos_,r_indentLvl_);
-  DeviceChain->write(p_fos_,r_indentLvl_);
 }
 
 void AlsTrack::setColorIndex(const QString &r_value_)
@@ -70,12 +66,6 @@ void AlsTrack::setTrackGroupId(const QString &r_value_)
   TrackGroupId = r_value_.toInt();
 }
 
-QSharedPointer<QObject> AlsTrack::createDeviceChain()
-{
-  DeviceChain = QSharedPointer<AlsDeviceChain>(new AlsDeviceChain());
-  return DeviceChain.staticCast<QObject>();
-}
-
 QSharedPointer<QObject> AlsTrack::createName()
 {
   Name = QSharedPointer<AlsName>(new AlsName());
@@ -91,7 +81,6 @@ QSharedPointer<QObject> AlsTrack::createTrackDelay()
 AlsTrack::~AlsTrack()
 {
   TrackDelay.clear();
-  DeviceChain.clear();
   Name.clear();
 }
 

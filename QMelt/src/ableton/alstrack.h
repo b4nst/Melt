@@ -5,7 +5,6 @@
 
 
 M_FORWARD_ABLETON(AlsName)
-M_FORWARD_ABLETON(AlsDeviceChain)
 M_FORWARD_ABLETON(AlsTrackDelay)
 
 
@@ -71,19 +70,11 @@ public:
   QSharedPointer<QObject> createTrackDelay();
 
 
-  /// <summary>
-  /// Creates the device chain.
-  /// </summary>
-  /// <returns></returns>
-  QSharedPointer<QObject> createDeviceChain();
-
-
   void lomIdChanged() {}
   void lomIdViewChanged() {}
   void envelopeModePreferredChanged() {}
   void colorIndexChanged() {}
   void trackGroupIdChanged() {}
-  void deviceChainChanged() {}
   void nameChanged() {}
   void trackDelayChanged() {}
 
@@ -93,7 +84,6 @@ public:
   Q_PROPERTY(bool envelopeModePreferred MEMBER EnvelopeModePreferred NOTIFY envelopeModePreferredChanged)
   Q_PROPERTY(int colorIndex MEMBER ColorIndex NOTIFY colorIndexChanged)
   Q_PROPERTY(int trackGroupId MEMBER TrackGroupId NOTIFY trackGroupIdChanged)
-  Q_PROPERTY(QSharedPointer<AlsDeviceChain> deviceChain MEMBER DeviceChain NOTIFY deviceChainChanged)
   Q_PROPERTY(QSharedPointer<AlsName> name MEMBER Name NOTIFY nameChanged)
   Q_PROPERTY(QSharedPointer<AlsTrackDelay> trackDelay MEMBER TrackDelay NOTIFY trackDelayChanged)
 
@@ -103,7 +93,6 @@ public:
   bool EnvelopeModePreferred;
   int ColorIndex;
   int TrackGroupId;
-  QSharedPointer<AlsDeviceChain> DeviceChain;
   QSharedPointer<AlsName> Name;
   QSharedPointer<AlsTrackDelay> TrackDelay;
 

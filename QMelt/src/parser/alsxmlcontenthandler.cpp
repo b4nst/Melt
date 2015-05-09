@@ -20,6 +20,11 @@ namespace parser
     const QHash<QString, QString> &r_attributes_,
     const QString& r_line_)
   {
+    //Debug
+    if(r_tagName_ == "DeviceChain")
+    {
+      qDebug() << r_tagName_;
+    }
 
     QSharedPointer<parser::XMLObject> currentObject = r_ctx_.Stack().last().staticCast<parser::XMLObject>();
 

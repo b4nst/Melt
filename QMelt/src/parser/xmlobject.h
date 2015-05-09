@@ -44,7 +44,7 @@ public:
    * The reference to the level of indentation.
    */
   void writeStartTag(QSharedPointer<io::AlsFileStreamBase> p_fos_, const QString &r_tagName_,
-      const QHash<QString, QString> &r_attributes_, int &r_indentLvl_);
+      const QList<QPair<QString,QString>> &r_attributes_, int &r_indentLvl_);
 
   /*!
    * \brief writeInlineTag
@@ -59,7 +59,7 @@ public:
    * The reference to the level of indentation.
    */
   void writeInlineTag(QSharedPointer<io::AlsFileStreamBase> p_fos_, const QString &r_tagName_,
-      const QHash<QString, QString> &r_attributes_, int &r_indentLvl_);
+      const QList<QPair<QString,QString>> &r_attributes_, int &r_indentLvl_);
 
    /*!
     * \brief writeEndTag
@@ -85,6 +85,8 @@ public:
   virtual void write(QSharedPointer<io::AlsFileStreamBase> p_fos_, int &r_indentLvl_) = 0;
 
   void writeIndent(QSharedPointer<io::AlsFileStreamBase> p_fos_, int idt_);
+
+  void writeNewLine(QSharedPointer<io::AlsFileStreamBase> p_fos_);
 
   /*!
    * \brief canCreateVar
