@@ -77,6 +77,10 @@ void MeltUI::initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::Als
         {
           QStandardItem *clipItem = new QStandardItem(csv->MidiClip->Name);
           clipItem->setBackground(QBrush(utils::colors[csv->MidiClip->ColorIndex]));
+          if (matchResult_->removed.contains(csv->MidiClip.staticCast<QObject>().data()))
+          {
+            clipItem->setIcon(QIcon(":/removed.png"));
+          }
           p_model_->setItem(j,i,clipItem);
         }
       }
