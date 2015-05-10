@@ -40,5 +40,5 @@ private:
   QSharedPointer<ableton::AlsAbleton> _merge;
   QStandardItemModel *_p_localClipsModel;
   QStandardItemModel *_p_remoteClipsModel;
-  void initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_, QSharedPointer<diff::MatchResult> matchResult_);
+  void initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_, QSharedPointer<diff::MatchResult> matchResult_, int fileSide);
 };
