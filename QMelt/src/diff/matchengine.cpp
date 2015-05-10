@@ -20,7 +20,7 @@ QSharedPointer<MatchResult> MatchEngine::match(QVector<QObject*>& leftObjects_,
     for (int i = 0; i < leftObjects_.length(); i++) {
         QObject* left = leftObjects_[i];
         for (int j = 0; j < rightObjects_.length(); j++) {
-            QObject* right = rightObjects_[i];
+            QObject* right = rightObjects_[j];
             // only nodes of the same type can be considered similar
             if (left->metaObject()->className() == right->metaObject()->className()) {
                 double similarity = computeSimilarity(left, right);
@@ -44,7 +44,7 @@ QSharedPointer<MatchResult> MatchEngine::match(QVector<QObject*>& leftObjects_,
 
     for (QObject* key : leftToMatchMap.keys()) {
         Match* value = leftToMatchMap[key];
-        if (value->similarity > 0.8) {
+        if (value->similarity > 0.9) {
             filteredMap.insert(key, value);
         }
     }
@@ -59,8 +59,6 @@ QSharedPointer<MatchResult> MatchEngine::match(QVector<QObject*>& leftObjects_,
             }
         }
         if (!leftFound) {
-            qDebug() << "left not found";
-            qDebug() << *toString(leftObject).data();
             removed.append(leftObject);
         }
     }
@@ -75,22 +73,8 @@ QSharedPointer<MatchResult> MatchEngine::match(QVector<QObject*>& leftObjects_,
             }
         }
         if (!rightFound) {
-            qDebug() << "right not found";
-            qDebug() << *toString(rightObject).data();
             added.append(rightObject);
         }
-    }
-
-    qDebug() << "added";
-    qDebug() << added.length();
-    qDebug() << "removed";
-    qDebug() << removed.length();
-    qDebug() << "filtered map";
-    for (QObject* key : filteredMap.keys()) {
-        qDebug() << key;
-        qDebug() << filteredMap[key]->left;
-        qDebug() << filteredMap[key]->right;
-        qDebug() << filteredMap[key]->similarity;
     }
 
     MatchResult* result = new MatchResult();
