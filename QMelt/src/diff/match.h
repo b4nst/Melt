@@ -21,10 +21,6 @@ public:
     QObject* right;
 
     ~Match();
-//    Match(QSharedPointer<QObject> origin,
-//                QSharedPointer<QObject> left,
-//                QSharedPointer<QObject> right,
-//                double similarity, QObject *parent = 0);
 
 signals:
 
