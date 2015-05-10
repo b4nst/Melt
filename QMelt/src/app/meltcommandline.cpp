@@ -31,7 +31,7 @@ void MeltCommandLine::parse(const QStringList& args_)
 
 
   parser.process(args_);
-
+  qDebug() << "Parse ok";
 
   isOk = parser.isSet(mergeOption) ^ parser.isSet(diffOption);
   isMerging = parser.isSet(mergeOption);

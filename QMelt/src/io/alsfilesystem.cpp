@@ -15,6 +15,9 @@
 #include "src/ableton/alsfactory.h"
 #include "src/ableton/alsableton.h"
 
+// QT
+#include <QDebug>
+
 
 M_NAMESPACE_IO_BEGIN
 
@@ -25,14 +28,17 @@ bool AlsFilesystem::load(const QString &filePath_,
   const QFileInfo fileInfo (filePath_);
   if (fileInfo.completeSuffix() != "xml")
   {
+    qDebug() << "wrong extension";
     return false;
   }
   if (!fileInfo.exists())
   {
+    qDebug() << "doesn't exist";
     return false;
   }
   if (!fileInfo.isFile())
   {
+    qDebug() << "isnt a file";
     return false;
   }
 

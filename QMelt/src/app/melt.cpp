@@ -3,6 +3,9 @@
 // IO
 #include "src/io/alsfilesystem.h"
 
+// QT
+#include <QDebug>
+
 
 M_NAMESPACE_APP_BEGIN
 
@@ -42,10 +45,15 @@ bool Melt::loadArguments()
 
   if (!result)
   {
+    qDebug() << "load fail";
     _baseAbleton.clear();
     _localAbleton.clear();
     _remoteAbleton.clear();
     _mergeAbleton.clear();
+  }
+  else
+  {
+    qDebug() << "load ok";
   }
 
   return result;
