@@ -30,6 +30,11 @@
 #define M_PATH_ALS_ELATION QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_02.xml")
 #define M_PATH_ALS_EMPTY QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_03.xml")
 #define M_PATH_ALS_EMPTY2 QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_04.xml")
+#define M_PATH_ALS_EMPTY3 QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_05.xml")
+#define M_PATH_ALS_DRUMS QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_06.xml")
+#define M_PATH_ALS_DRUMS_RENAMED_TRACK QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_06_renamed_track.xml")
+#define M_PATH_ALS_DRUMS_REMOVED_TRACK QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_06_removed_track.xml")
+#define M_PATH_ALS_DRUMS_REMOVED_CLIP QString(M_EXAMPLE_DIR) + QString("als-xml/sample_project_06_removed_clip.xml")
 
 
 M_NAMESPACE_TEST_BEGIN
@@ -86,24 +91,37 @@ void MeltTestCore::testQObjectToString() {
 }
 
 void MeltTestCore::testMatch() {
-    QString leftFilePath(M_PATH_ALS_EMPTY);
+    QString leftFilePath(M_PATH_ALS_DRUMS);
     QSharedPointer<ableton::AlsAbleton> leftAbleton_;
     io::AlsFilesystem::load(leftFilePath, leftAbleton_);
     QObject* leftQObjectPointer = leftAbleton_->LiveSet.data();
-    QString rightFilePath(M_PATH_ALS_EMPTY2);
+    QString rightFilePath(M_PATH_ALS_DRUMS_REMOVED_CLIP);
     QSharedPointer<ableton::AlsAbleton> rightAbleton_;
     io::AlsFilesystem::load(rightFilePath, rightAbleton_);
     QObject* rightQObjectPointer = rightAbleton_->LiveSet.data();
 
-    diff::MatchEngine me;
     diff::DepthFirstTraversal dft;
     QVector<QObject*> leftVector (dft.traverse(leftQObjectPointer));
     QVector<QObject*> rightVector (dft.traverse(rightQObjectPointer));
 
-    QSharedPointer<diff::MatchResult> matchResult = me.match(leftVector, rightVector);
-    qDebug() << matchResult->added;
-    qDebug() << matchResult->removed;
-    qDebug() << matchResult->changed;
+    diff::MatchEngine me;
+    QSharedPointer<diff::MatchResult> result = me.match(leftVector, rightVector);
+    qDebug() << "added";
+    qDebug() << "TODO";
+//    for (QObject* a : result->added) {
+//        qDebug() << *me.toString(a);
+//    }
+    qDebug() << "removed";
+    for (QObject* r : result->removed) {
+        qDebug() << *me.toString(r);
+    }
+    QVector<diff::Match*> matches = result->changed;
+    qDebug() << "matches";
+    for (diff::Match* match : matches) {
+        qDebug() << *me.toString(match->left);
+        qDebug() << *me.toString(match->right);
+        qDebug() << match->similarity;
+    }
 }
 
 M_NAMESPACE_TEST_END
