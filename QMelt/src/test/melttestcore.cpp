@@ -100,7 +100,10 @@ void MeltTestCore::testMatch() {
     QVector<QObject*> leftVector (dft.traverse(leftQObjectPointer));
     QVector<QObject*> rightVector (dft.traverse(rightQObjectPointer));
 
-    me.match(leftVector, rightVector);
+    QSharedPointer<diff::MatchResult> matchResult = me.match(leftVector, rightVector);
+    qDebug() << matchResult->added;
+    qDebug() << matchResult->removed;
+    qDebug() << matchResult->changed;
 }
 
 M_NAMESPACE_TEST_END
