@@ -25,8 +25,8 @@ MeltApplication::MeltApplication(int argc, char* argv[])
 {
   //test::MeltTestCore::testQObjectToString();
   //test::MeltTestCore::testDepthFirstTraversal();
-  test::MeltTestCore::testMatch();
-  //processArguments();
+  //test::MeltTestCore::testMatch();
+  processArguments();
 }
 
 MeltApplication::~MeltApplication()
