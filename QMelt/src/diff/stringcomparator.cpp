@@ -47,7 +47,8 @@ double StringComparator::computeSimilarity(QSharedPointer<QString>& first_, QSha
     if (result > 1) {
         result = 1;
     }
-    if (result == 1.0 && !(firstString == secondString)) {
+    bool stringsEqual = (firstString->compare(secondString) == 0);
+    if (result == 1.0 && !stringsEqual) {
         return 0.999999;
     }
 
