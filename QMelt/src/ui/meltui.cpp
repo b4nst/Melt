@@ -10,8 +10,12 @@
 #include "src/ableton/alsclipslotvalue.h"
 #include "src/ableton/alsinnerclipslot.h"
 #include "src/ableton/alsmidiclip.h"
-#include "src/ableton/alsmainsequencer.h";
+#include "src/ableton/alsmainsequencer.h"
 #include "src/utils/colormap.h"
+#include "src/diff/matchengine.h"
+#include "src/diff/matchresult.h"
+#include "src/diff/match.h"
+#include "src/diff/depthfirsttraversal.h"
 
 MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
 : QMainWindow(parent)
@@ -46,14 +50,21 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
     _p_localClipsModel = new QStandardItemModel(8,_local->LiveSet->Tracks.size());
     _p_remoteClipsModel = new QStandardItemModel(8,_remote->LiveSet->Tracks.size());
 
-    initModel(_p_localClipsModel,_local->LiveSet);
-    initModel(_p_remoteClipsModel,_remote->LiveSet);
+    diff::DepthFirstTraversal dft;
+    QVector<QObject*> leftVector (dft.traverse(_local->LiveSet.data()));
+    QVector<QObject*> rightVector (dft.traverse(_remote->LiveSet.data()));
+    diff::MatchEngine me;
+    QSharedPointer<diff::MatchResult> matchResult = me.match(leftVector, rightVector);
+    // TODO: use the match result for drawing clips
+    initModel(_p_localClipsModel,_local->LiveSet, matchResult);
+    initModel(_p_remoteClipsModel,_remote->LiveSet, matchResult);
 
     ui->tableView->setModel(_p_localClipsModel);
   }
 }
 
-void MeltUI::initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_)
+void MeltUI::initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_,
+                       QSharedPointer<diff::MatchResult> matchResult_)
 {
   for (int i = 0; i < liveSet_->Tracks.size(); ++i)
   {

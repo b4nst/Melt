@@ -3,6 +3,10 @@
 // APP
 #include "src/app/meltapplication.h"
 
+// DIFF
+#include "src/diff/matchresult.h"
+#include "src/diff/match.h"
+
 // QT
 #include <QMainWindow>
 #include <QStandardItemModel>
@@ -36,5 +40,5 @@ private:
   QSharedPointer<ableton::AlsAbleton> _merge;
   QStandardItemModel *_p_localClipsModel;
   QStandardItemModel *_p_remoteClipsModel;
-  void initModel(QStandardItemModel* p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_);
+  void initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_, QSharedPointer<diff::MatchResult> matchResult_);
 };
