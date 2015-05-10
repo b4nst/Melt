@@ -3,7 +3,8 @@
 	<file>session.png</file>
 	<file>arrangement.png</file>
 	<file>devices.png</file>
-	<file>plus.png</file>
-	<file>remove.png</file>
+	<file>added.png</file>
+	<file>removed.png</file>
+	<file>changed.png</file>
 </qresource>
 </RCC>
