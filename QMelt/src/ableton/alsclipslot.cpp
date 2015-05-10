@@ -2,7 +2,9 @@
 #include "src/ableton/alsclipslot.h"
 #include "src/ableton/alsinnerclipslot.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 AlsClipSlot::AlsClipSlot(QObject * parent) :
   AbletonObject(parent)
@@ -35,4 +37,6 @@ AlsClipSlot::~AlsClipSlot()
 {
 
 }
+
+
 M_NAMESPACE_ABLETON_END

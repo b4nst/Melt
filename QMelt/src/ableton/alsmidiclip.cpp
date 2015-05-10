@@ -1,6 +1,8 @@
 #include "alsmidiclip.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 AlsMidiClip::AlsMidiClip(QObject *parent)
   : AbletonObject(parent)
@@ -41,5 +43,6 @@ AlsMidiClip::~AlsMidiClip()
 {
 
 }
+
 
 M_NAMESPACE_ABLETON_END

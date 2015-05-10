@@ -1,13 +1,15 @@
 #pragma once
 
-#include "common.h"
 
 // ABLETON
 #include "src/ableton/abletonobject.h"
 
+
 M_FORWARD_ABLETON(AlsMidiClip)
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 class AlsClipSlotValue : public AbletonObject
 {
@@ -29,6 +31,5 @@ signals:
 
 };
 
+
 M_NAMESPACE_ABLETON_END
-
-

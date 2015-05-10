@@ -3,7 +3,9 @@
 // ABLETON
 #include "src/ableton/alsmidiclip.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 AlsClipSlotValue::AlsClipSlotValue(QObject *parent)
   : AbletonObject(parent)
@@ -38,5 +40,6 @@ AlsClipSlotValue::~AlsClipSlotValue()
 {
 
 }
+
 
 M_NAMESPACE_ABLETON_END

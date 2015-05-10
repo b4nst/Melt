@@ -3,7 +3,9 @@
 // ABLETON
 #include "src/ableton/alsclipslotvalue.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 AlsInnerClipSlot::AlsInnerClipSlot(QObject *parent):
   AbletonObject(parent)
@@ -40,5 +42,6 @@ AlsInnerClipSlot::~AlsInnerClipSlot()
 {
 
 }
+
 
 M_NAMESPACE_ABLETON_END

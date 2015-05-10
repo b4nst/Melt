@@ -6,7 +6,9 @@
 #include "src/ableton/alsreturntrack.h"
 #include "src/ableton/alsgrouptrack.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 AlsLiveSet::AlsLiveSet(QObject *parent)
 : AbletonObject(parent)

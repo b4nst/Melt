@@ -1,11 +1,12 @@
 #pragma once
 
-#include "common.h"
 
 // ABLETON
 #include "src/ableton/abletonobject.h"
 
+
 M_FORWARD_ABLETON(AlsInnerClipSlot)
+
 
 M_NAMESPACE_ABLETON_BEGIN
 
@@ -31,6 +32,5 @@ signals:
 
 };
 
+
 M_NAMESPACE_ABLETON_END
-
-

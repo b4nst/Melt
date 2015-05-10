@@ -2,6 +2,7 @@
 #include "src/ableton/alsmainsequencer.h"
 #include "src/ableton/alsclipslot.h"
 
+
 M_NAMESPACE_ABLETON_BEGIN
 
 
@@ -51,5 +52,5 @@ AlsMainSequencer::~AlsMainSequencer()
 
 }
 
-M_NAMESPACE_ABLETON_END
 
+M_NAMESPACE_ABLETON_END

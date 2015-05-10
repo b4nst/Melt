@@ -1,13 +1,16 @@
 #pragma once
-
 #include "common.h"
+
 
 // ABLETON
 #include "src/ableton/abletonobject.h"
 
+
 M_FORWARD_ABLETON(AlsClipSlotValue)
 
+
 M_NAMESPACE_ABLETON_BEGIN
+
 
 class AlsInnerClipSlot : public AbletonObject
 {
@@ -29,6 +32,5 @@ signals:
 
 };
 
+
 M_NAMESPACE_ABLETON_END
-
-
