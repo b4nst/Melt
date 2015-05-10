@@ -42,7 +42,8 @@ SOURCES += src/app/main.cpp\
     src/ableton/alsclipslot.cpp \
     src/ableton/alsinnerclipslot.cpp \
     src/ableton/alsclipslotvalue.cpp \
-    src/ableton/alsmidiclip.cpp
+    src/ableton/alsmidiclip.cpp \
+    src/ui/clickablewidget.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -77,7 +78,8 @@ HEADERS  += \
     src/ableton/alsinnerclipslot.h \
     src/ableton/alsclipslotvalue.h \
     src/ableton/alsmidiclip.h \
-    src/utils/colormap.h
+    src/utils/colormap.h \
+    src/ui/clickablewidget.h
 
 DISTFILES +=
 

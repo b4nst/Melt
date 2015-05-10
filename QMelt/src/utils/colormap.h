@@ -12,8 +12,8 @@ M_NAMESPACE_UTILS_BEGIN
 static const QColor colors[] = {
   QColor(218, 86, 61),    // 00
   QColor(177, 101, 35),   // 01
-  QColor(172, 137 32),    // 02
-  QColor(139, 145 40),    // 03
+  QColor(172, 137, 32),    // 02
+  QColor(139, 145, 40),    // 03
   QColor(106, 152, 50),   // 04
   QColor(72, 152, 140),   // 05
   QColor(44, 125, 186),   // 06
@@ -25,7 +25,7 @@ static const QColor colors[] = {
   QColor(233, 64, 52),    // 12
   QColor(192, 182, 109),  // 13
   QColor(174, 183, 29),   // 14
-  QColor(144, 189 56),    // 15
+  QColor(144, 189, 56),    // 15
   QColor(110, 185, 4),    // 16
   QColor(88, 186, 172),   // 17
   QColor(67, 167, 234),   // 18

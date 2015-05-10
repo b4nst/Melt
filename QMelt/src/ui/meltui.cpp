@@ -11,6 +11,7 @@
 #include "src/ableton/alsinnerclipslot.h"
 #include "src/ableton/alsmidiclip.h"
 #include "src/ableton/alsmainsequencer.h";
+#include "src/utils/colormap.h"
 
 MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
 : QMainWindow(parent)
@@ -42,30 +43,44 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
     ui->remoteMajorValue->setText(_remote->MajorVersion);
     ui->remoteSchemaCCValue->setText(QString::number(_remote->SchemaChangeCount));
 
-    QStandardItemModel *clipsModel = new QStandardItemModel(10,_local->LiveSet->Tracks.size());
-    for (int i = 0; i < _local->LiveSet->Tracks.size(); ++i)
-    {
-      clipsModel->setHorizontalHeaderItem(i,new QStandardItem(_local->LiveSet->Tracks.at(i)->Name->EffectiveName));
-      QSharedPointer<ableton::AlsMidiTrack> mt;
-      if ((mt = _local->LiveSet->Tracks.at(i).dynamicCast<ableton::AlsMidiTrack>()) != nullptr) {
-        for (int j = 0; j < mt->DeviceChain->MainSequencer->ClipSlotList.size(); ++j) {
-          QSharedPointer<ableton::AlsClipSlotValue> csv = mt->DeviceChain->MainSequencer->ClipSlotList.at(j)->InnerClipSlot->Value;
-          if (csv != nullptr && csv->MidiClip != nullptr)
-          {
-            QStandardItem *clipItem = new QStandardItem(csv->MidiClip->Name);
-            clipsModel->setItem(j,i,clipItem);
+    _p_localClipsModel = new QStandardItemModel(8,_local->LiveSet->Tracks.size());
+    _p_remoteClipsModel = new QStandardItemModel(8,_remote->LiveSet->Tracks.size());
 
-          }
+    initModel(_p_localClipsModel,_local->LiveSet);
+    initModel(_p_remoteClipsModel,_remote->LiveSet);
+
+    ui->tableView->setModel(_p_localClipsModel);
+  }
+}
+
+void MeltUI::initModel(QStandardItemModel *p_model_, QSharedPointer<ableton::AlsLiveSet> liveSet_)
+{
+  for (int i = 0; i < liveSet_->Tracks.size(); ++i)
+  {
+    p_model_->setHorizontalHeaderItem(i,new QStandardItem(liveSet_->Tracks.at(i)->Name->EffectiveName));
+    QSharedPointer<ableton::AlsMidiTrack> mt;
+    if ((mt = liveSet_->Tracks.at(i).dynamicCast<ableton::AlsMidiTrack>()) != nullptr) {
+      for (int j = 0; j < mt->DeviceChain->MainSequencer->ClipSlotList.size(); ++j) {
+        QSharedPointer<ableton::AlsClipSlotValue> csv = mt->DeviceChain->MainSequencer->ClipSlotList.at(j)->InnerClipSlot->Value;
+        if (csv != nullptr && csv->MidiClip != nullptr)
+        {
+          QStandardItem *clipItem = new QStandardItem(csv->MidiClip->Name);
+          clipItem->setBackground(QBrush(utils::colors[csv->MidiClip->ColorIndex]));
+          p_model_->setItem(j,i,clipItem);
         }
       }
     }
-
-    ui->tableView->setModel(clipsModel);
-
-
-
   }
+}
 
+void MeltUI::loadLocal()
+{
+  ui->tableView->setModel(_p_localClipsModel);
+}
+
+void MeltUI::loadRemote()
+{
+  ui->tableView->setModel(_p_remoteClipsModel);
 }
 
 MeltUI::~MeltUI()
