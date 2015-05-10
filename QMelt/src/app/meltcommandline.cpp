@@ -3,14 +3,13 @@
 
 // QT
 #include <QCommandLineParser>
-#include <QStringList>
 #include <QDebug>
 
 
 M_NAMESPACE_APP_BEGIN
 
 
-QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& app)
+void MeltCommandLine::parse(const QStringList& args_)
 {
   QSharedPointer<MeltCommandLine> arguments (new MeltCommandLine());
   
@@ -31,32 +30,30 @@ QSharedPointer<MeltCommandLine> MeltCommandLine::parse(const MeltApplication& ap
   parser.addOption(mergePathOption);
 
 
-  parser.process(app);
+  parser.process(args_);
 
 
-  arguments->isOk = parser.isSet(mergeOption) ^ parser.isSet(diffOption);
-  arguments->isMerging = parser.isSet(mergeOption);
-  arguments->basePath = parser.value(basePathOption);
-  arguments->localPath = parser.value(localPathOption);
-  arguments->remotePath = parser.value(remotePathOption);
+  isOk = parser.isSet(mergeOption) ^ parser.isSet(diffOption);
+  isMerging = parser.isSet(mergeOption);
+  basePath = parser.value(basePathOption);
+  localPath = parser.value(localPathOption);
+  remotePath = parser.value(remotePathOption);
   arguments->mergePath = parser.value(mergePathOption);
 
-  if (arguments->isOk && arguments->isMerging)
+  if (isOk && isMerging)
   {
-    arguments->isOk = !arguments->basePath.isEmpty() &&
-                      !arguments->localPath.isEmpty() &&
-                      !arguments->remotePath.isEmpty() &&
-                      !arguments->mergePath.isEmpty();
+    isOk = !basePath.isEmpty() &&
+                      !localPath.isEmpty() &&
+                      !remotePath.isEmpty() &&
+                      !mergePath.isEmpty();
   }
-  else if (arguments->isOk)
+  else if (isOk)
   {
-    arguments->isOk = !arguments->localPath.isEmpty() &&
-                      !arguments->remotePath.isEmpty() &&
-                      arguments->basePath.isEmpty() &&
-                      arguments->mergePath.isEmpty();
+    isOk = !localPath.isEmpty() &&
+                      !remotePath.isEmpty() &&
+                      basePath.isEmpty() &&
+                      mergePath.isEmpty();
   }
-
-  return arguments;
 }
 
 

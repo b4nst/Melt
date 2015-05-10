@@ -17,7 +17,7 @@
 #include "src/diff/match.h"
 #include "src/diff/depthfirsttraversal.h"
 
-MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
+MeltUI::MeltUI(app::Melt& app_, QWidget *parent)
 : QMainWindow(parent)
 , ui(new Ui::MeltUI)
 , _app(app_)
@@ -30,7 +30,7 @@ MeltUI::MeltUI(app::MeltApplication& app_, QWidget *parent)
   ui->tabWidget->tabBar()->setTabTextColor(1,Qt::white);
   ui->tabWidget->tabBar()->setTabTextColor(2,Qt::white);
 
-  if (_app.Arguments->isOk)
+  if (_app.loadArguments())
   {
     _remote = _app.getRemote();
     _local = _app.getLocal();

@@ -50,7 +50,8 @@ SOURCES += src/app/main.cpp\
     src/diff/match.cpp \
     src/diff/matchresult.cpp \
     src/diff/depthfirsttraversal.cpp \
-    src/diff/stringcomparator.cpp
+    src/diff/stringcomparator.cpp \
+    src/app/melt.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -93,7 +94,8 @@ HEADERS  += \
     src/diff/match.h \
     src/diff/matchresult.h \
     src/diff/depthfirsttraversal.h \
-    src/diff/stringcomparator.h
+    src/diff/stringcomparator.h \
+    src/app/melt.h
 
 DISTFILES +=
 

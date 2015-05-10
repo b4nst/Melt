@@ -1,36 +1,24 @@
 #pragma once
 #include "common.h"
 
+// APP
+#include "src/app/meltcommandline.h"
+
 // QT
-#include <QApplication>
-#include <QSharedPointer>
-
-
-M_FORWARD_ABLETON(AlsAbleton)
+#include <QObject>
 
 
 M_NAMESPACE_APP_BEGIN
 
 
-class MeltCommandLine;
-/*!
- * \brief The MeltApplication class
- */
-class MeltApplication : public QApplication
+class Melt : public QObject
 {
+  Q_OBJECT
 public:
-  explicit MeltApplication(int argc, char* argv[]);
-  ~MeltApplication();
+  explicit Melt(const MeltCommandLine& arguments, QObject *parent = 0);
 
-  
-  
-  
-  bool processArguments();
 
-  /*!
-   * \brief Command line arguments
-   */
-  QSharedPointer<const MeltCommandLine> Arguments;
+  bool loadArguments();
 
 
   QSharedPointer<ableton::AlsAbleton>& getBase() { return _baseAbleton; }
@@ -39,6 +27,8 @@ public:
   QSharedPointer<ableton::AlsAbleton>& getMerge() { return _mergeAbleton; }
 
 private:
+  const MeltCommandLine& Arguments;
+
   QSharedPointer<ableton::AlsAbleton> _baseAbleton;
   QSharedPointer<ableton::AlsAbleton> _localAbleton;
   QSharedPointer<ableton::AlsAbleton> _remoteAbleton;

@@ -1,7 +1,7 @@
 #pragma once
 
 // APP
-#include "src/app/meltapplication.h"
+#include "src/app/melt.h"
 
 // DIFF
 #include "src/diff/matchresult.h"
@@ -24,7 +24,7 @@ class MeltUI : public QMainWindow
   Q_OBJECT
 
 public:
-  explicit MeltUI(app::MeltApplication& app_, QWidget *parent = 0);
+  explicit MeltUI(app::Melt& app_, QWidget *parent = 0);
   ~MeltUI();
 
 public slots:
@@ -33,7 +33,7 @@ public slots:
 
 private:
   Ui::MeltUI *ui;
-  app::MeltApplication& _app;
+  app::Melt& _app;
   QSharedPointer<ableton::AlsAbleton> _remote;
   QSharedPointer<ableton::AlsAbleton> _local;
   QSharedPointer<ableton::AlsAbleton> _base;

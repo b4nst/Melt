@@ -1,4 +1,5 @@
 #pragma once
+#include "common.h"
 
 // APP
 #include "src/app/meltapplication.h"
@@ -6,11 +7,11 @@
 // QT
 #include <QObject>
 #include <QString>
-#include <QSharedPointer>
+#include <QStringList>
 
 
-namespace app
-{
+M_NAMESPACE_APP_BEGIN
+
 
   /*!
  * \brief Command line argument structure, can also parse QApplication args
@@ -19,6 +20,25 @@ class MeltCommandLine : public QObject
 {
   Q_OBJECT
 public:
+  /*!
+   * \brief Protected constructor
+   * \param parent
+   */
+  explicit MeltCommandLine(QObject *parent = 0) : QObject(parent) {}
+
+
+  /*!
+     * \brief MeltCommandLine copy constructor
+     */
+    MeltCommandLine(const MeltCommandLine & src_)
+    : basePath(src_.basePath)
+    , remotePath(src_.remotePath)
+    , localPath(src_.localPath)
+    , mergePath(src_.mergePath)
+    , isOk(src_.isOk)
+    , isMerging(src_.isMerging) {}
+
+
   /*!
    * \brief Command line parser
    * Here are a few examples
@@ -30,9 +50,8 @@ public:
    *
    * Caution : if wrong argument are found, the application will stop
    * \param app_ The application that should be parsed
-   * \return A shared pointer containing all the valid parsed arguments
    */
-  static QSharedPointer<MeltCommandLine> parse(const MeltApplication& app_);
+  void parse(const QStringList& args_);
 
   /*!
    * \brief Path to base file
@@ -59,14 +78,7 @@ public:
    * \brief True if a merge is requested
    */
   bool isMerging;
-
-protected:
-  /*!
-   * \brief Protected constructor
-   * \param parent
-   */
-  explicit MeltCommandLine(QObject *parent = 0) : QObject(parent) {}
 };
 
 
-} // namespace app
+M_NAMESPACE_APP_END
