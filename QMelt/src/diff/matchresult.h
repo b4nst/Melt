@@ -16,10 +16,9 @@ class MatchResult : public QObject
 public:
     explicit MatchResult(QObject *parent = 0);
 
-    QVector<QSharedPointer<Match>> added;
-    QVector<QSharedPointer<Match>> removed;
-    QVector<QSharedPointer<Match>> changed;
-    QVector<QSharedPointer<Match>> conflicting;
+    QVector<QObject*> added;
+    QVector<QObject*> removed;
+    QVector<Match*> changed;
 signals:
 
 public slots:

@@ -93,7 +93,17 @@ QSharedPointer<MatchResult> MatchEngine::match(QVector<QObject*>& leftObjects_,
         qDebug() << filteredMap[key]->similarity;
     }
 
-
+    MatchResult* result = new MatchResult();
+    QVector<Match*> changedVector = QVector<Match*>();
+    for (Match* matchToReturn : filteredMap.values()) {
+        if (matchToReturn->similarity < 0.999999) {
+            changedVector.append(matchToReturn);
+        }
+    }
+    result->added = added;
+    result->removed = removed;
+    result->changed = changedVector;
+    return QSharedPointer<MatchResult>(result);
 }
 
 double MatchEngine::computeSimilarity(QObject* first_,
