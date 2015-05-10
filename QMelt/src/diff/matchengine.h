@@ -15,14 +15,14 @@ class MatchEngine : public QObject
 public:
     explicit MatchEngine(QObject *parent = 0);
 
-    QSharedPointer<MatchResult> match(
-                                      QVector<QObject*>& leftObjects_,
+    QSharedPointer<MatchResult> match(QVector<QObject*>& leftObjects_,
                                       QVector<QObject*>& rightObjects_);
 
     double computeSimilarity(QObject* first_,
                              QObject* second_);
 
     QSharedPointer<QString> toString(QObject* object_);
+
 signals:
 
 public slots:
