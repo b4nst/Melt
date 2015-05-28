@@ -1,2 +1,2 @@
 # QMelt
-Melt, Qt portge
+Melt, Qt port
