@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+<AlsListDescriptor>
+  <TagName>${1:Tag name}</TagName>  
+  <Type>${2:Als$1}</Type>
+  <AttributeName>${3:$1}</AttributeName>
+  <PossibleContent>
+    ${4: use alspossiblevalues snippet}
+  </PossibleContent>
+</AlsListDescriptor>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alslist</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>text.xml</scope>
+  <description>Als list descriptor tag</description>
+</snippet>

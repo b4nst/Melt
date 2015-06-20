@@ -1,0 +1,15 @@
+<snippet>
+  <content><![CDATA[
+<AlsSimpleAttributeDescriptor>
+  <TagName>${1:Tag name}</TagName>  
+  <Type>${2:type}</Type>
+  <AttributeName>${3:$1}</AttributeName>
+  <IsXmlAttribute>${4:false}</IsXmlAttribute>
+</AlsSimpleAttributeDescriptor>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alssmpl</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>text.xml</scope>
+  <description>Als simple attribute descriptor tag</description>
+</snippet>

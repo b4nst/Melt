@@ -1,0 +1,23 @@
+<snippet>
+  <content><![CDATA[
+<?xml version="1.0" encoding="utf-8"?>
+<AlsClassDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClassName>${1:ClassName}</ClassName>${2:
+  <InheritFrom>${3:AbletonObject}</InheritFrom>}
+  <IsInterface>${4:false}</IsInterface>
+  <SimpleAttributes>
+    ${5:use alssmpl snippet}
+  </SimpleAttributes>
+  <ComplexAttributes>
+    ${6:use alscmplx snippet}
+  </ComplexAttributes>
+  <ListAttributes>
+    ${7: use alslist snippet}
+  </ListAttributes>
+</AlsClassDescriptor>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alsclassdescriptor</tabTrigger>
+  <scope>text.xml</scope>
+  <description>Als class descriptor tag</description>
+</snippet>

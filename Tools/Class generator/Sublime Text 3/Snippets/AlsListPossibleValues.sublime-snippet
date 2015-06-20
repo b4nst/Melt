@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+<ListPossibleValue>
+  <TagName>${1:Tag Name}</TagName>
+  <Type>${2:Als$1}</Type>
+</ListPossibleValue>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alspossiblevalues</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>text.xml</scope>
+  <description>Als list possible values tag</description>
+</snippet>

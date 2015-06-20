@@ -1,0 +1,14 @@
+<snippet>
+  <content><![CDATA[
+<AlsComplexAttributeDescriptor>
+  <TagName>${1:Tag name}</TagName>  
+  <Type>${2:Als$1}</Type>
+  <AttributeName>${3:$1}</AttributeName>
+</AlsComplexAttributeDescriptor>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alscmplx</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>text.xml</scope>
+  <description>Als complex attribute descriptor tag</description>
+</snippet>

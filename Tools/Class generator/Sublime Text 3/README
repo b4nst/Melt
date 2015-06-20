@@ -1,0 +1,10 @@
+
+HOW TO USE SUBLIME SNIPPETS
+**************************************************
+
+1. Copy snippets under your [Sublime Text 3 installation dir]/Packages/User
+2. Create an xml file
+3. Use alsclassdescriptor snippet to start the document
+5. Follow the instructions displayed
+
+Read example.xml for an example of an AlsClass xml descriptor (AlsLiveSet in this example)
