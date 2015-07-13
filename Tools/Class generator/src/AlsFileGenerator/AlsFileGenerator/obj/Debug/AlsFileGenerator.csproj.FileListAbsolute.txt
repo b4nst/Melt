@@ -1,0 +1,6 @@
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Debug\AlsFileGenerator.exe.config
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Debug\AlsFileGenerator.exe
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Debug\AlsFileGenerator.pdb
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Debug\AlsFileGenerator.exe
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Debug\AlsFileGenerator.pdb
+C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Debug\AlsFileGenerator.csprojResolveAssemblyReference.cache
