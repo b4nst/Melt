@@ -1,5 +1,5 @@
 // ABLETON
-#include "src/ableton/AlsGroupTrack.h"
+#include "src/ableton/alsgrouptrack.h"
 
 
 M_NAMESPACE_ABLETON_BEGIN

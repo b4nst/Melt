@@ -1,4 +1,4 @@
-#include "alsclipslotvalue.h"
+#include "src/ableton/alsclipslotvalue.h"
 
 // ABLETON
 #include "src/ableton/alsmidiclip.h"
