@@ -1,8 +1,0 @@
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Release\AlsFileGenerator.exe.config
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Release\AlsFileGenerator.exe
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Release\AlsFileGenerator.pdb
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Release\AlsFileGenerator.csprojResolveAssemblyReference.cache
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Release\AlsFileGenerator.exe
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\obj\Release\AlsFileGenerator.pdb
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Release\CommandLine.dll
-C:\Users\Bastien\Documents\Visual Studio 2013\Projects\AlsFileGenerator\AlsFileGenerator\bin\Release\CommandLine.xml
