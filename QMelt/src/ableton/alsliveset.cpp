@@ -66,7 +66,7 @@ void AlsLiveSet::setLomIdView(const QString& value_)
 
 void AlsLiveSet::setOverdub(const QString& value_)
 {
-  Overdub = (value_.toLower().trimmed() == "true") ? true : false);
+  Overdub = (value_.toLower().trimmed() == "true") ? true : false;
 }
 
 QSharedPointer<QObject> AlsLiveSet::createMasterTrack()
