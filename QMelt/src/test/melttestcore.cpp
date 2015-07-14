@@ -22,6 +22,8 @@
 #define M_EXAMPLE_DIR "../Example/"
 #elif defined (Q_OS_OSX)
 #define M_EXAMPLE_DIR "../../../../Example/"
+#elif defined (Q_OS_LINUX)
+#define M_EXAMPLE_DIR "../../../../Example/"
 #endif
 
 
