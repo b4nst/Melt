@@ -1,0 +1,80 @@
+SOURCES  += \
+#Ableton namespace
+            $$PWD/../src/ableton/alsliveset.cpp \
+            $$PWD/../src/ableton/alsaudiotrack.cpp \
+            $$PWD/../src/ableton/alsmiditrack.cpp \
+            $$PWD/../src/ableton/alsableton.cpp \
+            $$PWD/../src/ableton/alstrackdelay.cpp \
+            $$PWD/../src/ableton/alstrack.cpp \
+            $$PWD/../src/ableton/alsname.cpp \
+            $$PWD/../src/ableton/alsdevicechain.cpp \
+            $$PWD/../src/ableton/alsmastertrack.cpp \
+            $$PWD/../src/ableton/alsreturntrack.cpp \
+            $$PWD/../src/ableton/alsfactory.cpp \
+            $$PWD/../src/ableton/alsgrouptrack.cpp \
+            $$PWD/../src/ableton/alsmasterchain.cpp \
+            $$PWD/../src/ableton/alsmainsequencer.cpp \
+            $$PWD/../src/ableton/alsclipslot.cpp \
+            $$PWD/../src/ableton/alsinnerclipslot.cpp \
+            $$PWD/../src/ableton/alsclipslotvalue.cpp \
+            $$PWD/../src/ableton/alsmidiclip.cpp \
+#Diff namespace
+            $$PWD/../src/diff/diffengine.cpp \
+            $$PWD/../src/diff/diffnode.cpp \
+            $$PWD/../src/diff/matchengine.cpp \
+            $$PWD/../src/diff/match.cpp \
+            $$PWD/../src/diff/matchresult.cpp \
+            $$PWD/../src/diff/depthfirsttraversal.cpp \
+            $$PWD/../src/diff/stringcomparator.cpp \
+#Io namespace
+            $$PWD/../src/io/alsfilesystem.cpp \
+            $$PWD/../src/io/alstextstream.cpp \
+#Parser namespace
+            $$PWD/../src/parser/xmlobject.cpp \
+            $$PWD/../src/parser/xmlcontext.cpp \
+            $$PWD/../src/parser/xmlcontenthandler.cpp \
+            $$PWD/../src/parser/corexmlparser.cpp \
+            $$PWD/../src/parser/alsxmlcontenthandler.cpp \
+
+HEADERS  += $$PWD/../common.h \
+#Ableton namespace
+            $$PWD/../src/ableton/alsliveset.h \
+            $$PWD/../src/ableton/alsaudiotrack.h \
+            $$PWD/../src/ableton/alsmiditrack.h \
+            $$PWD/../src/ableton/abletonobject.h \
+            $$PWD/../src/ableton/alsableton.h \
+            $$PWD/../src/ableton/alstrack.h \
+            $$PWD/../src/ableton/alsname.h \
+            $$PWD/../src/ableton/alsdevicechain.h \
+            $$PWD/../src/ableton/alsfactory.h \
+            $$PWD/../src/ableton/alstrackdelay.h \
+            $$PWD/../src/ableton/alsmastertrack.h \
+            $$PWD/../src/ableton/alsreturntrack.h \
+            $$PWD/../src/ableton/alsgrouptrack.h \
+            $$PWD/../src/ableton/alsmasterchain.h \
+            $$PWD/../src/ableton/alsmainsequencer.h \
+            $$PWD/../src/ableton/alsclipslot.h \
+            $$PWD/../src/ableton/alsinnerclipslot.h \
+            $$PWD/../src/ableton/alsclipslotvalue.h \
+            $$PWD/../src/ableton/alsmidiclip.h \
+#Diff namespace
+            $$PWD/../src/diff/diffengine.h \
+            $$PWD/../src/diff/diffnode.h \
+            $$PWD/../src/diff/matchengine.h \
+            $$PWD/../src/diff/match.h \
+            $$PWD/../src/diff/matchresult.h \
+            $$PWD/../src/diff/depthfirsttraversal.h \
+            $$PWD/../src/diff/stringcomparator.h \
+#Io namespace
+            $$PWD/../src/io/alsfilesystem.h \
+            $$PWD/../src/io/alsfilestreambase.h \
+            $$PWD/../src/io/alstextstream.h \
+#Parser namespace
+            $$PWD/../src/parser/xmlobject.h \
+            $$PWD/../src/parser/xmlcontext.h \
+            $$PWD/../src/parser/xmlcontenthandler.h \
+            $$PWD/../src/parser/corexmlparser.h \
+            $$PWD/../src/parser/alsxmlcontenthandler.h \
+
+INCLUDEPATH += $$PWD/../
+DEPENDPATH += $$PWD/../

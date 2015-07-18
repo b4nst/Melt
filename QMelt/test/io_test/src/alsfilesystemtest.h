@@ -2,7 +2,6 @@
 #define ALSFILESYSTEMTEST_H
 
 #include <QObject>
-#include "../../src/io/alsfilesystem.h"
 
 class AlsFileSystemTest : public QObject
 {
