@@ -23,5 +23,5 @@ OBJECTS_DIR = $$PWD/build/obj
 DESTDIR = $$PWD/build/bin
 MOC_DIR = $$PWD/build/moc
 
-SOURCES += tst_io_testtest.cpp
+SOURCES +=
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
