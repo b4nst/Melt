@@ -9,50 +9,53 @@
 M_NAMESPACE_APP_BEGIN
 
 
-void MeltCommandLine::parse(const QStringList& args_)
+MeltCommandLine MeltCommandLine::parse(const QStringList& args_)
 {
-  QSharedPointer<MeltCommandLine> arguments (new MeltCommandLine());
-  
+  MeltCommandLine aCommandLine;
   QCommandLineParser parser;
   QCommandLineOption diffOption ("d", "Diff mode");
   QCommandLineOption mergeOption ("m", "Merge mode");
-  QCommandLineOption basePathOption (QStringList() << "base" << "base-path", "Path to the base <file>.", "file");
-  QCommandLineOption localPathOption (QStringList() << "local" << "local-path", "Path to the local <file>.", "file");
-  QCommandLineOption remotePathOption (QStringList() << "remote" << "remote-path", "Path to the remote <file>.", "file");
-  QCommandLineOption mergePathOption (QStringList() << "merge" << "merge-path", "Path to the merge <file>.", "file");
+
+  QCommandLineOption testPathOption (QStringList() << "t" << "test", "Path to the test <file>.", "file");
+  QCommandLineOption basePathOption (QStringList() << "base", "Path to the base <file>.", "file");
+  QCommandLineOption localPathOption (QStringList() << "local", "Path to the local <file>.", "file");
+  QCommandLineOption remotePathOption (QStringList() << "remote", "Path to the remote <file>.", "file");
+  QCommandLineOption mergePathOption (QStringList() << "merge", "Path to the merge <file>.", "file");
 
   parser.addOption(diffOption);
   parser.addOption(mergeOption);
+  parser.addOption(testPathOption);
   parser.addOption(basePathOption);
   parser.addOption(localPathOption);
   parser.addOption(remotePathOption);
   parser.addOption(mergePathOption);
 
-
   parser.process(args_);
-  qDebug() << "Parse ok";
 
-  isOk = parser.isSet(mergeOption) || parser.isSet(diffOption);
-  isMerging = parser.isSet(mergeOption);
-  basePath = parser.value(basePathOption);
-  localPath = parser.value(localPathOption);
-  remotePath = parser.value(remotePathOption);
-  arguments->mergePath = parser.value(mergePathOption);
+  if (parser.isSet(diffOption) && !parser.isSet(mergeOption) && !parser.isSet(testPathOption))
+  {
+    aCommandLine._mode = kDIFF_MODE;
+  }
+  else if (!parser.isSet(diffOption) && parser.isSet(mergeOption) && !parser.isSet(testPathOption))
+  {
+    aCommandLine._mode = kMERGE_MODE;
+  }
+  else if (!parser.isSet(diffOption) && !parser.isSet(mergeOption) && parser.isSet(testPathOption))
+  {
+    aCommandLine._mode = kTEST_MODE;
+  }
+  else
+  {
+    aCommandLine._mode = kERROR;
+    return aCommandLine;
+  }
 
-  if (isOk && isMerging)
-  {
-    isOk = !basePath.isEmpty() &&
-                      !localPath.isEmpty() &&
-                      !remotePath.isEmpty() &&
-                      !mergePath.isEmpty();
-  }
-  else if (isOk)
-  {
-    isOk = !localPath.isEmpty() &&
-                      !remotePath.isEmpty() &&
-                      basePath.isEmpty() &&
-                      mergePath.isEmpty();
-  }
+  aCommandLine._basePath = aCommandLine._mode == kTEST_MODE ? parser.value(testPathOption) : parser.value(basePathOption);
+  aCommandLine._localPath = parser.value(localPathOption);
+  aCommandLine._remotePath = parser.value(remotePathOption);
+  aCommandLine._mergePath = parser.value(mergePathOption);
+
+  return aCommandLine;
 }
 
 

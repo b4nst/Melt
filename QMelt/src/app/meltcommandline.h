@@ -5,7 +5,6 @@
 #include "src/app/meltapplication.h"
 
 // QT
-#include <QObject>
 #include <QString>
 #include <QStringList>
 
@@ -16,16 +15,17 @@ M_NAMESPACE_APP_BEGIN
   /*!
  * \brief Command line argument structure, can also parse QApplication args
  */
-class MeltCommandLine : public QObject
+class MeltCommandLine
 {
-  Q_OBJECT
 public:
-  /*!
-   * \brief Constructor
-   * \param parent
-   */
-  explicit MeltCommandLine(QObject *parent = 0) : QObject(parent) {}
 
+  enum Mode
+  {
+    kMERGE_MODE,
+    kDIFF_MODE,
+    kTEST_MODE,
+    kERROR
+  };
 
   /*!
    * \brief Command line parser
@@ -39,33 +39,58 @@ public:
    * Caution : if wrong argument are found, the application will stop
    * \param app_ The application that should be parsed
    */
-  void parse(const QStringList& args_);
+  static MeltCommandLine parse(const QStringList& args_);
+
+  /*!
+   * \brief Return base
+   */
+  const QString& base() const { return _basePath; }
+  /*!
+   * \brief Return local
+   */
+  const QString& local() const { return _localPath; }
+  /*!
+   * \brief Return remote
+   */
+  const QString& remote() const { return _remotePath; }
+  /*!
+   * \brief Return merge
+   */
+  const QString& merge() const { return _mergePath; }
+  /*!
+   * \brief Return mode
+   */
+  const Mode& mode() const { return _mode; }
+
+
+
+private:
+  /*!
+   * \brief Private default constructor
+   * \param parent
+   */
+  MeltCommandLine() {}
 
   /*!
    * \brief Path to base file
    */
-  QString basePath;
+  QString _basePath;
   /*!
    * \brief Path to local file
    */
-  QString localPath;
+  QString _localPath;
   /*!
    * \brief Path to remote file
    */
-  QString remotePath;
+  QString _remotePath;
   /*!
    * \brief Path to merge file
    */
-  QString mergePath;
-
+  QString _mergePath;
   /*!
-   * \brief True if the parsed arguments are valid
+   * \brief Mode
    */
-  bool isOk;
-  /*!
-   * \brief True if a merge is requested
-   */
-  bool isMerging;
+  Mode _mode;
 };
 
 

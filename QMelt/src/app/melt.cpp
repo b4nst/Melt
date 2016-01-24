@@ -23,24 +23,23 @@ Melt::Melt(const MeltCommandLine& arguments_, QObject *parent)
 
 bool Melt::loadArguments()
 {
-  if (!Arguments.isOk)
+  if (Arguments.mode() == MeltCommandLine::kERROR)
   {
     return false;
   }
 
   bool result = false;
 
-  if (Arguments.isMerging)
+  if (Arguments.mode() == MeltCommandLine::kMERGE_MODE)
   {
-    result = io::AlsFilesystem::load(Arguments.basePath, _baseAbleton) &&
-             io::AlsFilesystem::load(Arguments.remotePath, _remoteAbleton) &&
-             io::AlsFilesystem::load(Arguments.localPath, _localAbleton);
+    result = io::AlsFilesystem::load(Arguments.base(), _baseAbleton) &&
+             io::AlsFilesystem::load(Arguments.remote(), _remoteAbleton) &&
+             io::AlsFilesystem::load(Arguments.local(), _localAbleton);
   }
-
-  else
+  else if (Arguments.mode() == MeltCommandLine::kDIFF_MODE)
   {
-    result = io::AlsFilesystem::load(Arguments.remotePath, _remoteAbleton) &&
-             io::AlsFilesystem::load(Arguments.localPath, _localAbleton);
+    result = io::AlsFilesystem::load(Arguments.remote(), _remoteAbleton) &&
+             io::AlsFilesystem::load(Arguments.local(), _localAbleton);
   }
 
   if (!result)
