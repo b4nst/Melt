@@ -1,4 +1,5 @@
 #pragma once
+#include "src/common/common.h"
 
 // APP
 #include "src/app/melt.h"
@@ -11,7 +12,6 @@
 #include <QMainWindow>
 #include <QStandardItemModel>
 
-#include "common.h"
 
 M_FORWARD_ABLETON(AlsLiveSet)
 

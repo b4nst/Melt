@@ -4,54 +4,61 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core qml quick widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4):
 
 TARGET = QMelt
 TEMPLATE = app
 
 CONFIG += c++11
 
-SOURCES += src/app/main.cpp\
-           src/app/meltapplication.cpp \
-           src/app/meltcommandline.cpp \
-           src/io/alsfilesystem.cpp \
-           src/io/alstextstream.cpp \           
-    src/ableton/alsliveset.cpp \
-    src/ableton/alsaudiotrack.cpp \
-    src/ableton/alsmiditrack.cpp \
-    src/ableton/alsableton.cpp \
-    src/ableton/alstrackdelay.cpp \
-    src/ableton/alstrack.cpp \
-    src/ableton/alsname.cpp \
-    src/ableton/alsdevicechain.cpp \
-    src/parser/xmlobject.cpp \
-    src/ableton/alsmastertrack.cpp \
-    src/ableton/alsreturntrack.cpp \
-    src/parser/xmlcontext.cpp \
-    src/parser/xmlcontenthandler.cpp \
-    src/parser/corexmlparser.cpp \
-    src/parser/alsxmlcontenthandler.cpp \
-    src/test/melttestcore.cpp \
-    src/ableton/alsfactory.cpp \
-    src/ableton/alsgrouptrack.cpp \
-    src/ui/meltui.cpp \
-    src/ableton/alsmasterchain.cpp \
-    src/ableton/alsmainsequencer.cpp \
-    src/ableton/alsclipslot.cpp \
-    src/ableton/alsinnerclipslot.cpp \
-    src/ableton/alsclipslotvalue.cpp \
-    src/ableton/alsmidiclip.cpp \
-    src/ui/clickablewidget.cpp \
-    src/diff/diffengine.cpp \
-    src/diff/diffnode.cpp \
-    src/diff/matchengine.cpp \
-    src/diff/match.cpp \
-    src/diff/matchresult.cpp \
-    src/diff/depthfirsttraversal.cpp \
-    src/diff/stringcomparator.cpp \
-    src/app/melt.cpp
+SOURCES += \
+# Ableton
+src/ableton/alsliveset.cpp \
+src/ableton/alsaudiotrack.cpp \
+src/ableton/alsmiditrack.cpp \
+src/ableton/alsableton.cpp \
+src/ableton/alstrackdelay.cpp \
+src/ableton/alstrack.cpp \
+src/ableton/alsname.cpp \
+src/ableton/alsdevicechain.cpp \
+src/ableton/alsmastertrack.cpp \
+src/ableton/alsreturntrack.cpp \
+src/ableton/alsmasterchain.cpp \
+src/ableton/alsmainsequencer.cpp \
+src/ableton/alsclipslot.cpp \
+src/ableton/alsinnerclipslot.cpp \
+src/ableton/alsclipslotvalue.cpp \
+src/ableton/alsmidiclip.cpp \
+src/ableton/alsfactory.cpp \
+src/ableton/alsgrouptrack.cpp \
+# App
+src/app/main.cpp\
+src/app/meltapplication.cpp \
+src/app/meltcommandline.cpp \
+src/app/melt.cpp\
+# IO
+src/io/alsfilesystem.cpp \
+src/io/alstextstream.cpp \
+# DIFF
+src/diff/diffengine.cpp \
+src/diff/diffnode.cpp \
+src/diff/matchengine.cpp \
+src/diff/match.cpp \
+src/diff/matchresult.cpp \
+src/diff/depthfirsttraversal.cpp \
+src/diff/stringcomparator.cpp \
+# Parser
+src/parser/xmlobject.cpp \
+src/parser/xmlcontext.cpp \
+src/parser/xmlcontenthandler.cpp \
+src/parser/corexmlparser.cpp \
+src/parser/alsxmlcontenthandler.cpp \
+src/test/melttestcore.cpp \
+# UI
+src/ui/meltui.cpp \
+src/ui/clickablewidget.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -78,7 +85,7 @@ HEADERS  += \
     src/parser/corexmlparser.h \
     src/parser/alsxmlcontenthandler.h \
     src/test/melttestcore.h \
-    common.h \  
+    src/common/common.h \
     src/ui/meltui.h \
     src/ableton/alsmasterchain.h \
     src/ableton/alsmainsequencer.h \
@@ -97,10 +104,5 @@ HEADERS  += \
     src/diff/stringcomparator.h \
     src/app/melt.h
 
-DISTFILES +=
-
-FORMS += \
-    src/ui/meltui.ui
-
-RESOURCES += \
-    src/ui/resources/icons.qrc
+RESOURCES += resources/qml.qrc \
+    resources/icons.qrc

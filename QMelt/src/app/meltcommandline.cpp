@@ -21,7 +21,6 @@ void MeltCommandLine::parse(const QStringList& args_)
   QCommandLineOption remotePathOption (QStringList() << "remote" << "remote-path", "Path to the remote <file>.", "file");
   QCommandLineOption mergePathOption (QStringList() << "merge" << "merge-path", "Path to the merge <file>.", "file");
 
-
   parser.addOption(diffOption);
   parser.addOption(mergeOption);
   parser.addOption(basePathOption);
@@ -33,7 +32,7 @@ void MeltCommandLine::parse(const QStringList& args_)
   parser.process(args_);
   qDebug() << "Parse ok";
 
-  isOk = parser.isSet(mergeOption) ^ parser.isSet(diffOption);
+  isOk = parser.isSet(mergeOption) || parser.isSet(diffOption);
   isMerging = parser.isSet(mergeOption);
   basePath = parser.value(basePathOption);
   localPath = parser.value(localPathOption);

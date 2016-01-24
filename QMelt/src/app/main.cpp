@@ -7,6 +7,8 @@
 
 // QT
 #include <QDebug>
+#include <QApplication>
+#include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {
@@ -21,17 +23,13 @@ int main(int argc, char *argv[])
     qRegisterMetaType<QSharedPointer<ableton::AlsMidiClip>>("QSharedPointer<AlsMidiClip>");
     */
 
-    for (int i = 0; i < argc; ++i)
-    {
-      qDebug() << argv[i];
-    }
     QApplication a (argc, argv);
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
     app::MeltCommandLine cmd;
     cmd.parse(a.arguments());
 
     app::Melt melt (cmd);
-    MeltUI ui(melt);
-  
-    ui.showMaximized();
     return a.exec();
 }

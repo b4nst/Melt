@@ -1,5 +1,5 @@
 #pragma once
-#include "common.h"
+#include "src/common/common.h"
 
 // APP
 #include "src/app/meltapplication.h"
@@ -21,22 +21,10 @@ class MeltCommandLine : public QObject
   Q_OBJECT
 public:
   /*!
-   * \brief Protected constructor
+   * \brief Constructor
    * \param parent
    */
   explicit MeltCommandLine(QObject *parent = 0) : QObject(parent) {}
-
-
-  /*!
-     * \brief MeltCommandLine copy constructor
-     */
-    MeltCommandLine(const MeltCommandLine & src_)
-    : basePath(src_.basePath)
-    , remotePath(src_.remotePath)
-    , localPath(src_.localPath)
-    , mergePath(src_.mergePath)
-    , isOk(src_.isOk)
-    , isMerging(src_.isMerging) {}
 
 
   /*!

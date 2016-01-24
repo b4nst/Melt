@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common.h"
+#include "src/common/common.h"
 
 // ABLETON
 #include "src/ableton/abletonobject.h"
