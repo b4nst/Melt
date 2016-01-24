@@ -1,9 +1,6 @@
 #pragma once
 #include "src/common/common.h"
 
-// APP
-#include "src/app/meltapplication.h"
-
 // QT
 #include <QString>
 #include <QStringList>
@@ -62,7 +59,7 @@ public:
    */
   const Mode& mode() const { return _mode; }
 
-
+  ~MeltCommandLine() {}
 
 private:
   /*!

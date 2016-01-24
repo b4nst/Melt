@@ -1,11 +1,11 @@
 #pragma once
 #include "src/common/common.h"
 
-// APP
-#include "src/app/meltcommandline.h"
-
 // QT
+#include <QDebug>
+#include <QFileInfo>
 #include <QObject>
+#include <QQmlApplicationEngine>
 
 
 M_NAMESPACE_APP_BEGIN
@@ -14,25 +14,19 @@ M_NAMESPACE_APP_BEGIN
 class Melt : public QObject
 {
   Q_OBJECT
+  Q_PROPERTY(QString aFile READ aFile WRITE openA NOTIFY aFileOpened)
 public:
-  explicit Melt(const MeltCommandLine& arguments, QObject *parent = 0);
+  explicit Melt(QObject *parent = 0);
+  ~Melt();
 
+  void openA(const QString &a);
+  QString aFile();
 
-  bool loadArguments();
-
-
-  QSharedPointer<ableton::AlsAbleton>& getBase() { return _baseAbleton; }
-  QSharedPointer<ableton::AlsAbleton>& getLocal() { return _localAbleton; }
-  QSharedPointer<ableton::AlsAbleton>& getRemote() { return _remoteAbleton; }
-  QSharedPointer<ableton::AlsAbleton>& getMerge() { return _mergeAbleton; }
-
+signals:
+    void aFileOpened();
 private:
-  const MeltCommandLine& Arguments;
-
-  QSharedPointer<ableton::AlsAbleton> _baseAbleton;
-  QSharedPointer<ableton::AlsAbleton> _localAbleton;
-  QSharedPointer<ableton::AlsAbleton> _remoteAbleton;
-  QSharedPointer<ableton::AlsAbleton> _mergeAbleton;
+  QFileInfo _aFile;
+  QQmlApplicationEngine _engine;
 };
 
 

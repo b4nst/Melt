@@ -14,12 +14,27 @@ ApplicationWindow {
             title: qsTr("&File")
             MenuItem {
                 text: qsTr("&Open")
-                onTriggered: messageDialog.show(qsTr("Open action triggered"));
+                onTriggered: fileDialog.open()
             }
             MenuItem {
                 text: qsTr("E&xit")
                 onTriggered: Qt.quit();
             }
+        }
+    }
+
+    FileDialog {
+        id: fileDialog
+        title: "Please choose an Ableton Live Set"
+        nameFilters: [ "Ableton Live Set (*.als)"]
+        folder: fileDialog.shortcuts.home
+        onAccepted: {
+            console.log("You chose: " + fileDialog.fileUrls)
+            Qt.quit()
+        }
+        onRejected: {
+            console.log("Canceled")
+            Qt.quit()
         }
     }
 
