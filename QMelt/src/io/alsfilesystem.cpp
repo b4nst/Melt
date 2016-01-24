@@ -1,6 +1,7 @@
 // IO
 #include "src/io/alsfilesystem.h"
 #include "src/io/alstextstream.h"
+#include "src/io/alszipstream.h"
 
 // QT
 #include <QFileInfo>
@@ -64,6 +65,51 @@ bool AlsFilesystem::load(const QString &filePath_,
 
   r_ableton_ = alsFact->Ableton;
   return true;
+}
+
+
+QSharedPointer<ableton::AlsAbleton> AlsFilesystem::loadAls(const QString &filePath_)
+{
+  QSharedPointer<ableton::AlsAbleton> alsAbleton;
+  const QFileInfo fileInfo (filePath_);
+  if (fileInfo.completeSuffix() != "als")
+  {
+    qDebug() << "wrong extension";
+    return alsAbleton;
+  }
+  if (!fileInfo.exists())
+  {
+    qDebug() << "doesn't exist";
+    return alsAbleton;
+  }
+  if (!fileInfo.isFile())
+  {
+    qDebug() << "isnt a file";
+    return alsAbleton;
+  }
+
+  QFile file (fileInfo.absoluteFilePath());
+  if (!file.open(QFile::ReadOnly))
+  {
+    return alsAbleton;
+  }
+
+  auto stream = QSharedPointer<io::AlsFileStreamBase>(new io::AlsZipStream(file));
+  auto alsFact = QSharedPointer<ableton::AlsFactory>(new ableton::AlsFactory());
+
+  parser::AlsXMLContentHandler ch;
+  parser::XMLContext ctx;
+  parser::CoreXMLParser parser;
+
+  ctx.pushToStack(alsFact.staticCast<QObject>());
+
+  parser.parse(stream,ch,ctx);
+  // Verify if the parsing process went well
+
+  file.close();
+
+  alsAbleton = alsFact->Ableton;
+  return alsAbleton;
 }
 
 

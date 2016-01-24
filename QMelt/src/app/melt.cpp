@@ -41,6 +41,10 @@ bool Melt::loadArguments()
     result = io::AlsFilesystem::load(Arguments.remote(), _remoteAbleton) &&
              io::AlsFilesystem::load(Arguments.local(), _localAbleton);
   }
+  else if (Arguments.mode() == MeltCommandLine::kTEST_MODE)
+  {
+    _baseAbleton = io::AlsFilesystem::loadAls(Arguments.base());
+  }
 
   if (!result)
   {

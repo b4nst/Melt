@@ -36,6 +36,13 @@ public:
                    QSharedPointer<ableton::AlsAbleton> &r_ableton_);
 
   /*!
+   * \brief Load a zipped ALS file
+   * \param filePath_ Path to the XML file
+   * \return pointer to the ableton live set
+   */
+  static QSharedPointer<ableton::AlsAbleton> loadAls(const QString &filePath_);
+
+  /*!
    * \brief Save an unzipped ALS file
    * \param filePath_ Path where the XML file will be saved
    * \param alsAbleton_ The input object, mustn't be null

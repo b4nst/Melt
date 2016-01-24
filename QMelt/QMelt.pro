@@ -41,6 +41,7 @@ src/app/melt.cpp\
 # IO
 src/io/alsfilesystem.cpp \
 src/io/alstextstream.cpp \
+src/io/alszipstream.cpp \
 # DIFF
 src/diff/diffengine.cpp \
 src/diff/diffnode.cpp \
@@ -58,7 +59,9 @@ src/parser/alsxmlcontenthandler.cpp \
 src/test/melttestcore.cpp \
 # UI
 src/ui/meltui.cpp \
-src/ui/clickablewidget.cpp
+src/ui/clickablewidget.cpp \
+# UTILS
+src/utils/zlibhelper.cpp
 
 HEADERS  += \
             src/app/meltapplication.h \
@@ -102,7 +105,11 @@ HEADERS  += \
     src/diff/matchresult.h \
     src/diff/depthfirsttraversal.h \
     src/diff/stringcomparator.h \
-    src/app/melt.h
+    src/app/melt.h \
+    src/io/alszipstream.h \
+    src/utils/zlibhelper.h
 
 RESOURCES += resources/qml.qrc \
     resources/icons.qrc
+
+LIBS += -lz
