@@ -14,7 +14,7 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += \
-# Ableton
+# ableton
 src/ableton/alsliveset.cpp \
 src/ableton/alsaudiotrack.cpp \
 src/ableton/alsmiditrack.cpp \
@@ -33,76 +33,67 @@ src/ableton/alsclipslotvalue.cpp \
 src/ableton/alsmidiclip.cpp \
 src/ableton/alsfactory.cpp \
 src/ableton/alsgrouptrack.cpp \
-# App
+# app
 src/app/main.cpp\
 src/app/meltapplication.cpp \
 src/app/meltcommandline.cpp \
 src/app/melt.cpp\
-# IO
+# diff
+src/diff/diffengine.cpp \
+# io
 src/io/alsfilesystem.cpp \
 src/io/alstextstream.cpp \
-# DIFF
-src/diff/diffengine.cpp \
-src/diff/diffnode.cpp \
-src/diff/matchengine.cpp \
-src/diff/match.cpp \
-src/diff/matchresult.cpp \
-src/diff/depthfirsttraversal.cpp \
-src/diff/stringcomparator.cpp \
-# Parser
+# parser
 src/parser/xmlobject.cpp \
 src/parser/xmlcontext.cpp \
 src/parser/xmlcontenthandler.cpp \
 src/parser/corexmlparser.cpp \
 src/parser/alsxmlcontenthandler.cpp \
-src/test/melttestcore.cpp \
-# UI
-src/ui/meltui.cpp \
-src/ui/clickablewidget.cpp
+src/test/melttestcore.cpp
 
 HEADERS  += \
-            src/app/meltapplication.h \
-            src/io/alsfilesystem.h \
-           src/app/meltcommandline.h \
-            src/io/alsfilestreambase.h \
-            src/io/alstextstream.h \
-    src/ableton/alsliveset.h \
-    src/ableton/alsaudiotrack.h \
-    src/ableton/alsmiditrack.h \
-    src/ableton/abletonobject.h \
-    src/ableton/alsableton.h \
-    src/ableton/alstrack.h \
-    src/ableton/alsname.h \
-    src/ableton/alsdevicechain.h \    
-    src/ableton/alsfactory.h \
-    src/ableton/alstrackdelay.h \
-    src/ableton/alsmastertrack.h \
-    src/ableton/alsreturntrack.h \
-    src/ableton/alsgrouptrack.h \
-    src/parser/xmlobject.h \
-    src/parser/xmlcontext.h \
-    src/parser/xmlcontenthandler.h \
-    src/parser/corexmlparser.h \
-    src/parser/alsxmlcontenthandler.h \
-    src/test/melttestcore.h \
-    src/common/common.h \
-    src/ui/meltui.h \
-    src/ableton/alsmasterchain.h \
-    src/ableton/alsmainsequencer.h \
-    src/ableton/alsclipslot.h \
-    src/ableton/alsinnerclipslot.h \
-    src/ableton/alsclipslotvalue.h \
-    src/ableton/alsmidiclip.h \
-    src/utils/colormap.h \
-    src/ui/clickablewidget.h \
-    src/diff/diffengine.h \
-    src/diff/diffnode.h \
-    src/diff/matchengine.h \
-    src/diff/match.h \
-    src/diff/matchresult.h \
-    src/diff/depthfirsttraversal.h \
-    src/diff/stringcomparator.h \
-    src/app/melt.h
+# ableton
+src/ableton/alsliveset.h \
+src/ableton/alsaudiotrack.h \
+src/ableton/alsmiditrack.h \
+src/ableton/abletonobject.h \
+src/ableton/alsableton.h \
+src/ableton/alstrack.h \
+src/ableton/alsname.h \
+src/ableton/alsdevicechain.h \
+src/ableton/alsfactory.h \
+src/ableton/alstrackdelay.h \
+src/ableton/alsmastertrack.h \
+src/ableton/alsreturntrack.h \
+src/ableton/alsgrouptrack.h \
+src/ableton/alsmasterchain.h \
+src/ableton/alsmainsequencer.h \
+src/ableton/alsclipslot.h \
+src/ableton/alsinnerclipslot.h \
+src/ableton/alsclipslotvalue.h \
+src/ableton/alsmidiclip.h \
+# app
+src/app/melt.h \
+src/app/meltapplication.h \
+src/app/meltcommandline.h \
+# common
+src/common/common.h \
+# diff
+src/diff/diffengine.h \
+# io
+src/io/alsfilesystem.h \
+src/io/alsfilestreambase.h \
+src/io/alstextstream.h \
+# parser
+src/parser/xmlobject.h \
+src/parser/xmlcontext.h \
+src/parser/xmlcontenthandler.h \
+src/parser/corexmlparser.h \
+src/parser/alsxmlcontenthandler.h \
+# tests
+src/test/melttestcore.h \
+# utils
+src/utils/colormap.h
 
 RESOURCES += resources/qml.qrc \
     resources/icons.qrc

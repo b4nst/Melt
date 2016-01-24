@@ -8,11 +8,6 @@
 // TEST
 #include "src/test/melttestcore.h"
 
-// DIFF
-#include "src/diff/stringcomparator.h"
-#include "src/diff/depthfirsttraversal.h"
-#include "src/diff/matchengine.h"
-
 // QT
 #include <QSharedPointer>
 #include <QString>
@@ -48,82 +43,6 @@ void MeltTestCore::testParser()
   QSharedPointer<ableton::AlsAbleton> ableton;
   io::AlsFilesystem::load(filePath, ableton);
   io::AlsFilesystem::save(QString(M_PATH_ALS_KENYA_OUTPUT), ableton);
-}
-
-void MeltTestCore::testStringComparator()
-{
-  diff::StringComparator sc;
-  QString* first = new QString("This is a short bit of text for testing purposes.");
-  QString* second = new QString("This is another short bit of text for testing purposes.");
-  QString* third = new QString("Very different from the previous test inputs.");
-  QSharedPointer<QString> firstPointer = QSharedPointer<QString>(first);
-  QSharedPointer<QString> secondPointer = QSharedPointer<QString>(second);
-  QSharedPointer<QString> thirdPointer = QSharedPointer<QString>(third);
-
-  double similarity = sc.computeSimilarity(firstPointer, secondPointer);
-  qDebug() << similarity;
-
-  similarity = sc.computeSimilarity(firstPointer, thirdPointer);
-  qDebug() << similarity;
-}
-
-void MeltTestCore::testDepthFirstTraversal() {
-  QString filePath(M_PATH_ALS_EMPTY);
-  QSharedPointer<ableton::AlsAbleton> ableton_;
-  io::AlsFilesystem::load(filePath, ableton_);
-  diff::DepthFirstTraversal dft;
-  QObject* qObjectPointer = ableton_->LiveSet.data();
-  QVector<QObject*> objects (dft.traverse(qObjectPointer));
-  diff::MatchEngine me;
-  for (auto something : objects)
-  {
-      qDebug() << *me.toString(something);
-  }
-}
-
-void MeltTestCore::testQObjectToString() {
-  QString filePath(M_PATH_ALS_EMPTY);
-  QSharedPointer<ableton::AlsAbleton> ableton_;
-  io::AlsFilesystem::load(filePath, ableton_);
-  QObject* qObjectPointer = ableton_->LiveSet->Tracks[0].data();
-
-  diff::MatchEngine me;
-  QSharedPointer<QString> result = me.toString(qObjectPointer);
-  qDebug() << *result.data();
-}
-
-void MeltTestCore::testMatch() {
-    QString leftFilePath(M_PATH_ALS_DRUMS);
-    QSharedPointer<ableton::AlsAbleton> leftAbleton_;
-    io::AlsFilesystem::load(leftFilePath, leftAbleton_);
-    QObject* leftQObjectPointer = leftAbleton_->LiveSet.data();
-    QString rightFilePath(M_PATH_ALS_DRUMS_REMOVED_CLIP);
-    QSharedPointer<ableton::AlsAbleton> rightAbleton_;
-    io::AlsFilesystem::load(rightFilePath, rightAbleton_);
-    QObject* rightQObjectPointer = rightAbleton_->LiveSet.data();
-
-    diff::DepthFirstTraversal dft;
-    QVector<QObject*> leftVector (dft.traverse(leftQObjectPointer));
-    QVector<QObject*> rightVector (dft.traverse(rightQObjectPointer));
-
-    diff::MatchEngine me;
-    QSharedPointer<diff::MatchResult> result = me.match(leftVector, rightVector);
-    qDebug() << "added";
-    qDebug() << "TODO";
-//    for (QObject* a : result->added) {
-//        qDebug() << *me.toString(a);
-//    }
-    qDebug() << "removed";
-    for (QObject* r : result->removed) {
-        qDebug() << *me.toString(r);
-    }
-    QVector<diff::Match*> matches = result->changed;
-    qDebug() << "matches";
-    for (diff::Match* match : matches) {
-        qDebug() << *me.toString(match->left);
-        qDebug() << *me.toString(match->right);
-        qDebug() << match->similarity;
-    }
 }
 
 M_NAMESPACE_TEST_END

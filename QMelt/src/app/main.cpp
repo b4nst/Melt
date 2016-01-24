@@ -2,9 +2,6 @@
 #include "src/app/melt.h"
 #include "src/app/meltcommandline.h"
 
-// UI
-#include "src/ui/meltui.h"
-
 // QT
 #include <QDebug>
 #include <QApplication>
